@@ -1,6 +1,18 @@
 import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider as StyledComponentThemeProvider } from 'styled-components';
+
 import { darkTheme, lightTheme } from './themes';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+//TODO NEED A GLOBAL REFACTORING AND INVESTIGATION
+
+const MUTheme = createTheme({
+    palette: {
+        primary: {
+            main: '#7066CB',
+        },
+    },
+});
 
 type ThemeProviderType = {
     theme: string,
@@ -36,7 +48,11 @@ const ThemeContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
     return (
         <ThemeContext.Provider value={themeMode}>
-            <ThemeProvider theme={theme}>{children}</ThemeProvider>
+            <ThemeProvider theme={MUTheme}>
+                <StyledComponentThemeProvider theme={theme}>
+                    {children}
+                </StyledComponentThemeProvider>
+            </ThemeProvider>
         </ThemeContext.Provider>
     );
 };
