@@ -1,1 +1,1 @@
-export default {}
+export { LoginFormContainer } from './ui/components/login-form-container'
