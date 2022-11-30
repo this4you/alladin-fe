@@ -1,20 +1,16 @@
-export interface ThemeProps {
-    primary: string;
-    background: string;
-    blockColor: string;
-    text: string;
-    secondaryText: string;
-}
+import { darkThemePalette } from './palettes/dark';
+import { createTheme, ThemeOptions } from './createTheme';
+import { lightThemePalette } from './palettes/light';
 
-export const darkTheme: ThemeProps = {
-    primary: 'var(--dark-primary)',
-    background: 'var(--dark-background)',
-    text: 'var(--dark-text)',
-    blockColor: 'var(--dark-block-color)',
-    secondaryText: 'var(--dark-secondary-text-color)',
+export const applicationThemes: any = {
+    dark: createTheme('dark', darkThemePalette),
+    light: createTheme('light', lightThemePalette)
 };
 
-export const lightTheme: ThemeProps = {
-    background: 'var(--light-background)',
-    text: 'var(--light-text)',
-} as ThemeProps; // TODO add colors for light theme
+export const getThemesCssVars = () => {
+   return Object.entries(applicationThemes).map(([key, value]) => {
+       const themeOptions = value as ThemeOptions;
+
+       return themeOptions.cssVars;
+   }).join(';')
+}

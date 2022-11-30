@@ -1,22 +1,25 @@
 import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { ThemeProvider as StyledComponentThemeProvider } from 'styled-components';
 
-import { darkTheme, lightTheme } from './themes';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { applicationThemes } from './themes';
 
 //TODO NEED A GLOBAL REFACTORING AND INVESTIGATION
-
-const MUTheme = createTheme({
+const MUDarkTheme = createTheme({
     palette: {
         primary: {
             main: '#7066CB',
         },
+        text: {
+            primary: '#ffffff',
+            secondary: '#515869'
+        }
     },
 });
 
 type ThemeProviderType = {
     theme: string,
-    themeToggle: () => void
+    themeToggle: (theme: string) => void
 
 };
 
@@ -31,7 +34,7 @@ const useThemeMode = () => {
         setTheme(mode);
     };
 
-    const themeToggle = () => (theme === 'dark' ? setMode('light') : setMode('dark'));
+    const themeToggle = (theme: string) => setMode(theme);
 
     useEffect(() => {
         const localTheme = window.localStorage.getItem('theme');
@@ -43,12 +46,12 @@ const useThemeMode = () => {
 
 const ThemeContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
     const themeMode = useThemeMode();
-    const theme = themeMode.theme === 'dark' ? darkTheme : lightTheme;
+    const theme = applicationThemes[themeMode.theme].theme;
 
 
     return (
         <ThemeContext.Provider value={themeMode}>
-            <ThemeProvider theme={MUTheme}>
+            <ThemeProvider theme={MUDarkTheme}>
                 <StyledComponentThemeProvider theme={theme}>
                     {children}
                 </StyledComponentThemeProvider>
@@ -57,7 +60,7 @@ const ThemeContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
     );
 };
 
-export const useTheme = (): ThemeProviderType => {
+export const useApplicationTheme = (): ThemeProviderType => {
     return useContext(ThemeContext);
 }
 

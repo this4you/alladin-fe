@@ -1,23 +1,15 @@
 import { createGlobalStyle, withTheme } from 'styled-components';
-import { ThemeProps } from './themes';
+import { ThemeProps } from './themes/ThemeProps';
+import { getThemesCssVars } from './themes';
 
 type GlobalThemeProps = {
     theme: ThemeProps;
 };
 
+
 const globalStyle = createGlobalStyle`
   :root {
-    //dark-mode
-    --dark-primary: #7066CB;
-    --dark-background: #404147;
-    --dark-block-color: #222328;
-    --dark-text: #F5F5F7;
-    --dark-secondary-text-color: #7185AF;
-
-    //light-mode
-    --light-background: #f2f2f2;
-    --light-text: #2E0509;
-
+    ${getThemesCssVars()}
   }
 
   * {
