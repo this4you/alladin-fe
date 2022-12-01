@@ -1,17 +1,16 @@
 import React from 'react';
 import './App.css';
-import { AuthPage } from './app/pages';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ThemeContextProvider from './commons/styles/ThemeContextProvider';
 import { GlobalStyle } from './commons/styles';
+import { AppRoutes } from './app/routes/AppRoutes';
 
 function App() {
     return (
         <ThemeContextProvider>
-                <GlobalStyle/>
-                <div className="app-root">
-                    <AuthPage/>
-                </div>
+            <GlobalStyle/>
+            <div className="app-root">
+                <AppRoutes/>
+            </div>
         </ThemeContextProvider>
     );
 }

@@ -17,6 +17,9 @@ export const AuthButton = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.primary};
+  &:hover {
+    background-color: ${({ theme }) => theme.primary_hover};
+  }
   width: 55px;
   height: 80%;
   position: absolute;

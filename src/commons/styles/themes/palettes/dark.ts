@@ -2,6 +2,7 @@ import { ThemeProps } from '../ThemeProps';
 
 export const darkThemePalette: ThemeProps = {
     primary: '#7066CB',
+    primary_hover: '#7e74c4',
 
     background: '#404147',
 

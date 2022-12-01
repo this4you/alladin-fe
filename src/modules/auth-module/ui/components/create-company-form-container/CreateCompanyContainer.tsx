@@ -3,16 +3,16 @@ import { AuthButton, AuthContainer, AuthFooter, AuthHeader } from '../styles';
 import { LoginFrom } from '../login-form';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
-const LoginFormContainer: React.FC = () => {
+const CreateCompanyContainer: React.FC = () => {
     return (
         <AuthContainer>
             <AuthHeader>
-                <h2>Login</h2>
+                <h2>Create company</h2>
             </AuthHeader>
             <LoginFrom/>
             <AuthFooter>
-                <span>Do you want to add a company?</span>
-                <a href="#">Create company</a>
+                <span>Do you have an account?</span>
+                <a href="#">Login</a>
             </AuthFooter>
             <AuthButton>
                 <RiArrowRightSLine size={35}/>
@@ -21,4 +21,4 @@ const LoginFormContainer: React.FC = () => {
     )
 }
 
-export default LoginFormContainer;
+export default CreateCompanyContainer;

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { FormRow, FormTextField, FormWrapper } from './styles';
+import React from 'react';
+import { FormRow, FormTextField, FormWrapper, GoogleIcon } from './styles';
+import googleIcon from 'commons/img/svg/google-icon.svg';
 
 const LoginForm: React.FC = () => {
     return (
@@ -10,6 +11,7 @@ const LoginForm: React.FC = () => {
             <FormRow>
                 <FormTextField id="password" type="password" label="Password" variant="standard"/>
             </FormRow>
+            <GoogleIcon src={googleIcon} alt="google icon"/>
         </FormWrapper>
     )
 }

@@ -1,5 +1,6 @@
 export interface ThemeProps {
     primary: string;
+    primary_hover: string;
 
     background: string;
 
