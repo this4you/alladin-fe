@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthButton, AuthContainer, AuthFooter, AuthHeader } from '../styles';
+import { AuthButton, AuthContainer, AuthFooter, AuthHeader, AuthLink } from '../styles';
 import { LoginFrom } from '../login-form';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
@@ -12,7 +12,7 @@ const LoginFormContainer: React.FC = () => {
             <LoginFrom/>
             <AuthFooter>
                 <span>Do you want to add a company?</span>
-                <a href="#">Create company</a>
+                <AuthLink to={'/create-company'}>Create company</AuthLink>
             </AuthFooter>
             <AuthButton>
                 <RiArrowRightSLine size={35}/>

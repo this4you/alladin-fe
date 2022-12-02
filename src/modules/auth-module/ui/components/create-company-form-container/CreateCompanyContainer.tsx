@@ -1,7 +1,7 @@
 import React from 'react';
-import { AuthButton, AuthContainer, AuthFooter, AuthHeader } from '../styles';
-import { LoginFrom } from '../login-form';
+import { AuthButton, AuthContainer, AuthFooter, AuthHeader, AuthLink } from '../styles';
 import { RiArrowRightSLine } from 'react-icons/ri';
+import CreateCompanyForm from '../create-company-form/CreateCompanyForm';
 
 const CreateCompanyContainer: React.FC = () => {
     return (
@@ -9,10 +9,10 @@ const CreateCompanyContainer: React.FC = () => {
             <AuthHeader>
                 <h2>Create company</h2>
             </AuthHeader>
-            <LoginFrom/>
+            <CreateCompanyForm/>
             <AuthFooter>
                 <span>Do you have an account?</span>
-                <a href="#">Login</a>
+                <AuthLink to={'/login'}>Login</AuthLink>
             </AuthFooter>
             <AuthButton>
                 <RiArrowRightSLine size={35}/>

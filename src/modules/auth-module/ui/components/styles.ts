@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { TextField } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export const AuthContainer = styled.div`
   display: flex;
@@ -35,16 +37,13 @@ export const AuthButton = styled.div`
 export const AuthFooter = styled.div`
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 17px;
   height: 100px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   color: ${({ theme }) => theme.text};
-  a {
-    color: ${({ theme }) => theme.primary};
-  }
 `;
 
 export const AuthHeader = styled.div`
@@ -60,4 +59,34 @@ export const AuthHeader = styled.div`
     font-size: 40px;
     line-height: 48px;
   }
+`;
+
+export const FormTextField = styled(TextField)`
+  ${({ theme }) => `
+  width: 100%;
+  & label.Mui-focused {
+    color: ${theme.secondaryText_100};
+  }
+  
+
+  & .MuiInput-underline:after {
+    border-bottom-color: ${theme.secondaryText_100};
+    border-width: 3px;
+    border-radius: 20px;
+  }
+
+  & .MuiInput-underline:before {
+    border-bottom-color: ${theme.secondaryText};
+    border-width: 3px;
+  }
+  `},
+`;
+
+export const FormRow = styled.div`
+  margin-top: 20px;
+  width: 60%;
+`;
+
+export const AuthLink = styled(Link)`
+  color: ${({ theme }) => theme.primary};
 `;

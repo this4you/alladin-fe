@@ -1,6 +1,7 @@
 import React from 'react';
-import { FormRow, FormTextField, FormWrapper, GoogleIcon } from './styles';
+import { FormWrapper, GoogleIcon } from './styles';
 import googleIcon from 'commons/img/svg/google-icon.svg';
+import { FormRow, FormTextField } from '../styles';
 
 const LoginForm: React.FC = () => {
     return (
