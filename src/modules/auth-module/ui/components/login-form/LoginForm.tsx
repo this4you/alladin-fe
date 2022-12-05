@@ -6,19 +6,14 @@ import { AppForm } from 'commons/components/form';
 import { RiArrowRightSLine } from 'react-icons/ri';
 import { FormValidator } from 'commons/components/form/types';
 import { FieldErrors } from 'react-hook-form/dist/types/errors';
-import { ValidatorFieldUtils } from '../../../../../commons/utils/ValidatorUtils';
-
-
-type Login = {
-    email: string,
-    password: string
-}
+import { ValidatorFieldUtils } from 'commons/utils/ValidatorUtils';
+import { Login } from 'modules/auth-module/application/models/Login';
 
 class LoginFormValidator implements FormValidator<Login> {
     validate(data: Login): FieldErrors<Login> {
         return {
             email: ValidatorFieldUtils.required(data.email) || ValidatorFieldUtils.email(data.email),
-            password: ValidatorFieldUtils.required(data.password) || ValidatorFieldUtils.password(data.password)
+            password: ValidatorFieldUtils.required(data.password)
         };
     }
 }
@@ -27,6 +22,7 @@ const LoginForm: React.FC = () => {
     const submit = (data: Login) => {
         alert(data);
     }
+
     return (
         <FormWrapper>
             <AppForm submit={submit} formValidator={new LoginFormValidator()}>
