@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TextField } from '@mui/material';
+import { FormTextField as TextInput } from 'commons/components/form';
 import { Link } from 'react-router-dom';
 
 export const AuthContainer = styled.div`
@@ -14,14 +14,17 @@ export const AuthContainer = styled.div`
 `;
 
 //TODO move to separate component
-export const AuthButton = styled.div`
+export const AuthButton = styled.button`
   display: flex;
+  border: 0;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.primary};
+
   &:hover {
     background-color: ${({ theme }) => theme.primary_hover};
   }
+
   width: 55px;
   height: 80%;
   position: absolute;
@@ -52,6 +55,7 @@ export const AuthHeader = styled.div`
   flex-direction: column;
   justify-content: end;
   align-items: center;
+
   h2 {
     color: ${({ theme }) => theme.secondaryText};
     font-style: normal;
@@ -61,7 +65,7 @@ export const AuthHeader = styled.div`
   }
 `;
 
-export const FormTextField = styled(TextField)`
+export const FormTextField = styled(TextInput)`
   ${({ theme }) => `
   width: 100%;
   & label.Mui-focused {

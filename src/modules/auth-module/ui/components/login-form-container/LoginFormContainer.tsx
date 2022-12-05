@@ -16,9 +16,6 @@ const LoginFormContainer: React.FC = () => {
                     <span>Do you want to add a company?</span>
                     <AuthLink to={'/create-company'}>Create company</AuthLink>
                 </AuthFooter>
-                <AuthButton>
-                    <RiArrowRightSLine size={35}/>
-                </AuthButton>
             </AuthContainer>
         </FromLeftAppearAnimation>
     )
