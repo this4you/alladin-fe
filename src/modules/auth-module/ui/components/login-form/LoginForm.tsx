@@ -37,7 +37,7 @@ const LoginForm: React.FC = () => {
                     <FormTextField id="password" name="password" type="password" label="Password" variant="standard"/>
                 </FormRow>
                 <GoogleIcon src={googleIcon} alt="google icon"/>
-                <AuthButton type="submit">
+                <AuthButton type="submit" variant='contained'>
                     <RiArrowRightSLine size={35}/>
                 </AuthButton>
             </AppForm>

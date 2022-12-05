@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FormTextField as TextInput } from 'commons/components/form';
 import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export const AuthContainer = styled.div`
   display: flex;
@@ -14,27 +15,23 @@ export const AuthContainer = styled.div`
 `;
 
 //TODO move to separate component
-export const AuthButton = styled.button`
-  display: flex;
-  border: 0;
-  justify-content: center;
-  align-items: center;
-  background-color: ${({ theme }) => theme.primary};
-
-  &:hover {
-    background-color: ${({ theme }) => theme.primary_hover};
+export const AuthButton = styled(Button)`
+  &.MuiButton-root {
+    display: flex;
+    border: 0;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 80%;
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 0;
+    bottom: 0;
+    right: -64px;
+    border-radius: 0 80px 80px 0;
+    cursor: pointer; 
   }
-
-  width: 55px;
-  height: 80%;
-  position: absolute;
-  margin-top: auto;
-  margin-bottom: auto;
-  top: 0;
-  bottom: 0;
-  right: -55px;
-  border-radius: 0 80px 80px 0;
-  cursor: pointer;
 `
 
 export const AuthFooter = styled.div`
