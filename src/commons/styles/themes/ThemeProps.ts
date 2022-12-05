@@ -11,4 +11,6 @@ export interface ThemeProps {
     secondaryText: string;
     secondaryText_100: string;
     secondaryText_200: string;
+
+    danger: string;
 }

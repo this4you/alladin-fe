@@ -72,6 +72,10 @@ export const FormTextField = styled(TextInput)`
     color: ${theme.secondaryText_100};
   }
   
+  & label.Mui-error {
+    color: ${theme.danger};
+  }
+  
 
   & .MuiInput-underline:after {
     border-bottom-color: ${theme.secondaryText_100};

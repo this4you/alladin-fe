@@ -17,7 +17,8 @@ type Login = {
 class LoginFormValidator implements FormValidator<Login> {
     validate(data: Login): FieldErrors<Login> {
         return {
-            email: ValidatorFieldUtils.required(data.email) || ValidatorFieldUtils.email(data.email)
+            email: ValidatorFieldUtils.required(data.email) || ValidatorFieldUtils.email(data.email),
+            password: ValidatorFieldUtils.required(data.password) || ValidatorFieldUtils.password(data.password)
         };
     }
 }

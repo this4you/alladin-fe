@@ -11,7 +11,7 @@ export class ValidatorFieldUtils {
     }
 
     static required(value: any) {
-        if (value === null || value === undefined) {
+        if (value === null || value === undefined || value === '') {
             return {
                 type: 'required',
                 message: `Field is required`
@@ -30,7 +30,10 @@ export class ValidatorFieldUtils {
             minLength: 8,
             minSymbols: 0
         })) {
-            return `Password must be strong`;
+            return {
+                type: 'required',
+                message: `Password must be strong`
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ export const darkThemePalette: ThemeProps = {
 
     secondaryText: '#7185AF',
     secondaryText_100: '#a0aabf',
-    secondaryText_200: '#808ca8'
+    secondaryText_200: '#808ca8',
 
+    danger: '#d32f2f'
 }
