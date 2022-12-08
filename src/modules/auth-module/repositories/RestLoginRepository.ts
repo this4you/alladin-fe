@@ -6,12 +6,14 @@ import { HttpMethod, RestClient } from 'commons/utils/api-clients/rest/RestClien
 export class RestLoginRepository implements LoginRepository {
     constructor(
         private restClient: RestClient
-    ) {}
+    ) {
+    }
 
     login(login: Login): Promise<LoginResult> {
-        return this.restClient.command<Login, LoginResult>({
-            url: 'user/auth',
-            method: HttpMethod.POST
-        })
+        return new Promise((res) => setTimeout(() => res({token: 'empty'}), 3000));
+        // return this.restClient.command<Login, LoginResult>({
+        //     url: 'user/auth',
+        //     method: HttpMethod.POST
+        // })
     }
 }

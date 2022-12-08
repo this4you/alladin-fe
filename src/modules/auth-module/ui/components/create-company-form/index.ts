@@ -1,1 +1,1 @@
-export {default as LoginFrom} from './CreateCompanyForm'
+export {default as CreateCompanyForm} from './CreateCompanyForm'

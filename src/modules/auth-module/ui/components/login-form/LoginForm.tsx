@@ -8,6 +8,7 @@ import { FormValidator } from 'commons/components/form/types';
 import { FieldErrors } from 'react-hook-form/dist/types/errors';
 import { ValidatorFieldUtils } from 'commons/utils/ValidatorUtils';
 import { Login } from 'modules/auth-module/application/models/Login';
+import { LoginFormProps } from './types';
 
 class LoginFormValidator implements FormValidator<Login> {
     validate(data: Login): FieldErrors<Login> {
@@ -18,14 +19,11 @@ class LoginFormValidator implements FormValidator<Login> {
     }
 }
 
-const LoginForm: React.FC = () => {
-    const submit = (data: Login) => {
-        alert(data);
-    }
-
+export const LoginForm: React.FC<LoginFormProps> = ({ loginLoadingState, loginUseCase }) => {
+    console.log("LOGIN_LOADING_STATE", loginLoadingState);
     return (
         <FormWrapper>
-            <AppForm submit={submit} formValidator={new LoginFormValidator()}>
+            <AppForm submit={loginUseCase.login} formValidator={new LoginFormValidator()}>
                 <FormRow>
                     <FormTextField id="email" name="email" label="Email" variant="standard"/>
                 </FormRow>
@@ -33,12 +31,10 @@ const LoginForm: React.FC = () => {
                     <FormTextField id="password" name="password" type="password" label="Password" variant="standard"/>
                 </FormRow>
                 <GoogleIcon src={googleIcon} alt="google icon"/>
-                <AuthButton type="submit" variant='contained'>
+                <AuthButton type="submit" variant="contained" loading={loginLoadingState.is}>
                     <RiArrowRightSLine size={35}/>
                 </AuthButton>
             </AppForm>
         </FormWrapper>
     )
 }
-
-export default LoginForm;

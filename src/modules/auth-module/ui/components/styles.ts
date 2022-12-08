@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FormTextField as TextInput } from 'commons/components/form';
 import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 
 export const AuthContainer = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ export const AuthContainer = styled.div`
 `;
 
 //TODO move to separate component
-export const AuthButton = styled(Button)`
+export const AuthButton = styled(LoadingButton)`
   &.MuiButton-root {
     display: flex;
     border: 0;

@@ -1,11 +1,11 @@
 import React from 'react';
 
-export interface Connector<TUseCases> {
-    Provider: React.FC<{ useCases: TUseCases } & {
+export interface Connector<TModuleContext> {
+    Provider: React.FC<{ moduleContext: TModuleContext } & {
         children?: React.ReactNode;
     }>;
-    connect<TProps extends Partial<TUseCases>>(
+    connect<TProps extends Partial<TModuleContext>>(
         Component: React.ComponentType<TProps>,
-        ...useCases: Extract<keyof TProps, keyof TUseCases>[]
-    ): React.ComponentType<Omit<TProps, keyof TUseCases>>;
+        ...useCases: Extract<keyof TProps, keyof TModuleContext>[]
+    ): React.ComponentType<Omit<TProps, keyof TModuleContext>>;
 }

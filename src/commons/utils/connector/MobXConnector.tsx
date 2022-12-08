@@ -9,10 +9,10 @@ import { pick } from 'lodash';
 import { observer } from 'mobx-react';
 import { Connector } from './Connector';
 
-export class MobXConnector<TUseCases extends object> implements Connector<TUseCases> {
-    private context?: Context<TUseCases>;
+export class MobXConnector<TModuleContext extends object> implements Connector<TModuleContext> {
+    private context?: Context<TModuleContext>;
 
-    autoBindContext(useCases: TUseCases): void {
+    autoBindContext(useCases: TModuleContext): void {
         Object.values(useCases).forEach(it => {
             if (typeof it === 'object') {
                 autoBind(it);
@@ -20,30 +20,30 @@ export class MobXConnector<TUseCases extends object> implements Connector<TUseCa
         });
     }
 
-    Provider: React.FC<{ useCases: TUseCases } & {
+    Provider: React.FC<{ moduleContext: TModuleContext } & {
         children?: React.ReactNode;
-    }> = memo(({ children, useCases }) => {
-        this.autoBindContext(useCases);
+    }> = memo(({ children, moduleContext }) => {
+        this.autoBindContext(moduleContext);
 
         if (!this.context) {
-            this.context = createContext(useCases);
+            this.context = createContext(moduleContext);
         }
 
         return (
-            <this.context.Provider value={useCases}>
+            <this.context.Provider value={moduleContext}>
                 {children}
             </this.context.Provider>
         );
     });
 
-    connect = <TProps extends Partial<TUseCases>>(
+    connect = <TProps extends Partial<TModuleContext>>(
         Component: React.ComponentType<TProps>,
-        ...useCases: Extract<keyof TProps, keyof TUseCases>[]
-    ): React.ComponentType<Omit<TProps, keyof TUseCases>> => {
+        ...useCases: Extract<keyof TProps, keyof TModuleContext>[]
+    ): React.ComponentType<Omit<TProps, keyof TModuleContext>> => {
         const ObserverComponent = observer(Component);
 
         return (
-            ownProps: Omit<TProps, keyof TUseCases>,
+            ownProps: Omit<TProps, keyof TModuleContext>,
         ): JSX.Element | null => {
             if (!this.context) {
                 return null;
@@ -58,7 +58,7 @@ export class MobXConnector<TUseCases extends object> implements Connector<TUseCa
     }
 }
 
-export type Connect<TUseCases> = <TProps extends Partial<TUseCases>>(
+export type Connect<TModuleContext> = <TProps extends Partial<TModuleContext>>(
     Component: React.ComponentType<TProps>,
-    ...useCases: Extract<keyof TProps, keyof TUseCases>[]
-) => React.ComponentType<Omit<TProps, keyof TUseCases>>;
+    ...dependencies: Extract<keyof TProps, keyof TModuleContext>[]
+) => React.ComponentType<Omit<TProps, keyof TModuleContext>>;

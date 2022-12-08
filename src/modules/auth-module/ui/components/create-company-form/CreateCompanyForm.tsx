@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormWrapper } from './styles';
-import { FormRow, FormTextField } from '../styles';
 
 const CreateCompanyForm: React.FC = () => {
     return (

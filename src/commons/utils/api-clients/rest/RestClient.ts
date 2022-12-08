@@ -5,7 +5,7 @@ export interface CommandProps {
     method: HttpMethod;
 }
 
-export declare enum HttpMethod {
+export enum HttpMethod {
     GET = 'GET',
     PATCH = 'PATCH',
     POST = 'POST',
