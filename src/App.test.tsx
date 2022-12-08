@@ -1,8 +1,7 @@
 import React from 'react';
-import { getThemesCssVars } from './commons/styles/themes';
+
 
 const isEmptyObject = (obj: object): boolean => {
-
     return Object.entries(obj).every(([key, value]) => {
         if (value instanceof Object) return isEmptyObject(value)
 

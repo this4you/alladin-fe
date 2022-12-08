@@ -1,6 +1,6 @@
 import { Login } from '../models/Login';
-import { LoginResponse } from '../models/LoginResponse';
+import { LoginResult } from '../models/LoginResult';
 
 export interface LoginRepository {
-    login(login: Login): Promise<LoginResponse>;
+    login(login: Login): Promise<LoginResult>;
 }

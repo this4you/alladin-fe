@@ -13,8 +13,7 @@ export class LoginUseCase {
         private loginView: LoginView,
         private notificator: Notificator,
         private logger: Logger
-    ) {
-    }
+    ) {}
 
     async login(loginRequest: Login): Promise<void> {
         this.loginView.loading.showLoading();
@@ -22,7 +21,7 @@ export class LoginUseCase {
         try {
             const loginResponse = await this.loginRepository.login(loginRequest);
 
-            if (loginResponse.success && loginResponse.token) {
+            if (loginResponse.token) {
                 this.authRepository.saveToken(loginResponse.token);
             } else {
                 this.notificator.error('Incorrect request login data. Check your email or password');
