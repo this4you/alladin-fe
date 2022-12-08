@@ -4,26 +4,16 @@ import googleIcon from 'commons/img/svg/google-icon.svg';
 import { AuthButton, FormRow, FormTextField } from '../styles';
 import { AppForm } from 'commons/components/form';
 import { RiArrowRightSLine } from 'react-icons/ri';
-import { FormValidator } from 'commons/components/form/types';
-import { FieldErrors } from 'react-hook-form/dist/types/errors';
-import { ValidatorFieldUtils } from 'commons/utils/ValidatorUtils';
-import { Login } from 'modules/auth-module/application/models/Login';
 import { LoginFormProps } from './types';
 
-class LoginFormValidator implements FormValidator<Login> {
-    validate(data: Login): FieldErrors<Login> {
-        return {
-            email: ValidatorFieldUtils.required(data.email) || ValidatorFieldUtils.email(data.email),
-            password: ValidatorFieldUtils.required(data.password)
-        };
-    }
-}
-
-export const LoginForm: React.FC<LoginFormProps> = ({ loginLoadingState, loginUseCase }) => {
-    console.log("LOGIN_LOADING_STATE", loginLoadingState);
+export const LoginForm: React.FC<LoginFormProps> = ({
+        loginLoadingState,
+        loginUseCase,
+        loginFormValidator
+}) => {
     return (
         <FormWrapper>
-            <AppForm submit={loginUseCase.login} formValidator={new LoginFormValidator()}>
+            <AppForm submit={loginUseCase.login} formValidator={loginFormValidator}>
                 <FormRow>
                     <FormTextField id="email" name="email" label="Email" variant="standard"/>
                 </FormRow>

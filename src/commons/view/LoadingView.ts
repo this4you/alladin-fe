@@ -1,25 +1,29 @@
-import { action, observable } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
 export class LoadingView {
+
     constructor(
         private state: BoolState
-    ) {}
+    ) {
+        makeAutoObservable(this)
+    }
 
-    @action
+
     showLoading() {
-        console.log("SHOW LOADING");
         this.state.is = true;
     };
 
-    @action
+
     hideLoading() {
-        console.log("HIDE LOADING");
         this.state.is = false;
     };
 }
 
 export class BoolState {
-    @observable
+    constructor() {
+        makeAutoObservable(this)
+    }
+
     public is: boolean = false
 }
 

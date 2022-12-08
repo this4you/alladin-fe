@@ -10,10 +10,10 @@ export class RestLoginRepository implements LoginRepository {
     }
 
     login(login: Login): Promise<LoginResult> {
-        return new Promise((res) => setTimeout(() => res({token: 'empty'}), 3000));
-        // return this.restClient.command<Login, LoginResult>({
-        //     url: 'user/auth',
-        //     method: HttpMethod.POST
-        // })
+        //return new Promise((res) => setTimeout(() => res({token: 'empty'}), 3000));
+        return this.restClient.command<Login, LoginResult>({
+            url: 'user/auth',
+            method: HttpMethod.POST
+        })
     }
 }

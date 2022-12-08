@@ -6,6 +6,7 @@ import { commonContextFactory } from 'commons/config/commonFactory';
 import { LocalStorageAuthRepository } from '../repositories/LocalStorageAuthRepository';
 import { getLoadingView } from 'commons/view/LoadingView';
 import { MobXLoginView } from '../ui/view/MobXLoginView';
+import { LoginFormValidator } from '../ui/validators/LoginFormValidator';
 
 class AuthModuleFactory extends ModuleFactory<AuthContext> {
     protected build(options: FactoryOptions): AuthContext {
@@ -24,9 +25,12 @@ class AuthModuleFactory extends ModuleFactory<AuthContext> {
             logger
         );
 
+        const loginFormValidator = new LoginFormValidator();
+
         return {
             loginUseCase: loginUseCase,
-            loginLoadingState: loginLoadingView.state
+            loginLoadingState: loginLoadingView.state,
+            loginFormValidator: loginFormValidator
         };
     }
 }

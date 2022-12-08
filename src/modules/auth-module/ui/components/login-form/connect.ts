@@ -4,5 +4,6 @@ import { connect } from 'modules/auth-module/config/context';
 export const LoginForm = connect(
     Component,
     'loginUseCase',
-    'loginLoadingState'
+    'loginLoadingState',
+    'loginFormValidator'
 );
