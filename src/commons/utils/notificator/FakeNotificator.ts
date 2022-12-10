@@ -12,5 +12,4 @@ export class FakeNotificator implements Notificator {
 
     success(message: string): void {
     }
-
 }

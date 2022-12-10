@@ -3,6 +3,12 @@ import axios from 'axios';
 
 const baseUrl = 'http://localhost:8000/'; //TODO move to .env
 
+axios.interceptors.response.use(function (response) {
+    return response.data;
+}, function (error) {
+    return Promise.reject(error.response.data);
+});
+
 export class AxiosRestClient implements RestClient {
     command<TRequest, TResponse>(props: CommandProps, request?: TRequest): Promise<TResponse> {
         return axios.request<TRequest, TResponse>({

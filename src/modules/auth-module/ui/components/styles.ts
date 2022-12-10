@@ -32,6 +32,9 @@ export const AuthButton = styled(LoadingButton)`
     border-radius: 0 80px 80px 0;
     cursor: pointer; 
   }
+  .MuiLoadingButton-loadingIndicator {
+    color: ${({ theme }) => theme.text};
+  }
 `
 
 export const AuthFooter = styled.div`

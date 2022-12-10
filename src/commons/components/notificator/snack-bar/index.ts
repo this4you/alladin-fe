@@ -1,0 +1,1 @@
+export { SnackbarNotificatorProvider } from './connect';
