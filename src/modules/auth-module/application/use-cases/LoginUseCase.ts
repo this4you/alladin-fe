@@ -21,15 +21,16 @@ export class LoginUseCase {
 
         try {
             const loginResponse = await this.loginRepository.login(loginRequest);
+
             if (loginResponse.token) {
                 this.authRepository.saveToken(loginResponse.token);
                 this.loginView.showAuthorizedContent();
             } else {
-                this.notificator.error('Incorrect request login data. Check your email or password');
+                this.notificator.error('Something terrible happened. You should write to support.');
+                this.logger.error(new Error("Token is empty"), 'Auth error')
             }
         } catch (e: any) {
-            this.notificator.error('Something terrible happened. You should write to support.');
-            this.logger.error(e, 'Auth error')
+            this.notificator.error('Incorrect request login data. Check your email or password');
         } finally {
             this.loginView.loading.hideLoading();
         }
