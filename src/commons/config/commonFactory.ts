@@ -4,16 +4,22 @@ import { FakeLogger } from '../utils/logger/FakeLogger';
 import { SnackbarNotificator } from '../utils/notificator/SnackbarNotificator';
 import { CommonContext } from './context';
 import { MobXNotificatorState } from '../state/MobXNotificatorState';
+import { MobXAuthState } from '../state/MobXAuthState';
 
 class CommonContextFactory extends ModuleFactory<CommonContext> {
     protected build(options: FactoryOptions): CommonContext {
         const notificatorState = new MobXNotificatorState();
+        const authState = new MobXAuthState();
+
         const notificator = new SnackbarNotificator(notificatorState);
+        const restClient = new AxiosRestClient(authState);
+
         return {
-            restClient: new AxiosRestClient(),
+            restClient,
             logger: new FakeLogger(),
             notificator,
-            notificatorState
+            notificatorState,
+            authState
         };
     }
 

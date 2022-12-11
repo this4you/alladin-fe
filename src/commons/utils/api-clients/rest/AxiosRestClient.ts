@@ -1,21 +1,26 @@
-import { CommandProps, RestClient } from './RestClient';
+import { CommandProps, RequestParameters, RestClient } from './RestClient';
 import axios from 'axios';
-
-const baseUrl = 'http://localhost:8000/'; //TODO move to .env
-
-axios.interceptors.response.use(function (response) {
-    return response.data;
-}, function (error) {
-    return Promise.reject(error.response.data);
-});
+import { MobXAuthState } from 'commons/state/MobXAuthState';
 
 export class AxiosRestClient implements RestClient {
+    constructor(
+        private authState: MobXAuthState
+    ) {}
+
     command<TRequest, TResponse>(props: CommandProps, request?: TRequest): Promise<TResponse> {
-        return axios.request<TRequest, TResponse>({
-            url: `${baseUrl}${props.url}`,
+        return this.getAxios().request<TRequest, TResponse>({
+            url: props.url,
             method: props.method,
             data: request
         });
+    }
+
+    async get<T>(url: string, requestParameters?: RequestParameters): Promise<T> {
+        const response = await this.getAxios().get<T>(url, {
+            params: requestParameters
+        });
+
+        return response.data;
     }
 
     // create<TRequest, TResponse>(url: string, request?: TRequest, headers?: Record<string, string>): Promise<TResponse> {
@@ -37,5 +42,22 @@ export class AxiosRestClient implements RestClient {
     // updatePartially<TRequest, TResponse>(url: string, request: TRequest): Promise<TResponse> {
     //     return Promise.resolve(undefined);
     // }
+
+    private getAxios() {
+        const instance = axios.create({
+            baseURL: 'http://localhost:8000/' //TODO move to .env,
+        });
+
+        instance.defaults.headers.common['x-access-token'] = this.authState.token;
+
+        //TODO Move to seperated functions
+        instance.interceptors.response.use((response) => {
+            return response.data;
+        }, (error) => {
+            return Promise.reject(error.response.data);
+        });
+
+        return instance;
+    }
 
 }

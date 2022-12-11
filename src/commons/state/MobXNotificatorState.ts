@@ -6,9 +6,9 @@ export class MobXNotificatorState {
         makeAutoObservable(this)
     }
 
-    displayedNotifications: number[] = []
+    private displayedNotifications: number[] = []
 
-    allNotifications: Notification[] = []
+    private allNotifications: Notification[] = []
 
     addNotification(notification: Notification) {
         this.allNotifications = [...this.allNotifications, notification]

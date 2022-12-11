@@ -14,7 +14,7 @@ const CreateCompanyContainer: React.FC = () => {
                 <CreateCompanyForm/>
                 <AuthFooter>
                     <span>Do you have an account?</span>
-                    <AuthLink to={'/login'}>Login</AuthLink>
+                    <AuthLink to={'/auth/login'}>Login</AuthLink>
                 </AuthFooter>
                 <AuthButton>
                     <RiArrowRightSLine size={35}/>
