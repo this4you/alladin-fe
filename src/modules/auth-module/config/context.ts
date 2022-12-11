@@ -1,13 +1,13 @@
 import { LoginUseCase } from '../application/use-cases/LoginUseCase';
-import { BoolState } from 'commons/view/LoadingView';
 import { createConnector } from 'commons/utils/connector/createConnector';
 import { Connect } from 'commons/utils/connector/MobXConnector';
 import { FormValidator } from 'commons/components/form/types';
 import { Login } from '../application/models/Login';
+import { MobXBoolState } from 'commons/state/MobXBoolState';
 
 export type AuthContext = {
     loginUseCase: LoginUseCase,
-    loginLoadingState: BoolState
+    loginLoadingState: MobXBoolState
     loginFormValidator: FormValidator<Login>
 }
 

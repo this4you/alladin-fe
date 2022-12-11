@@ -1,8 +1,9 @@
 import { AxiosRestClient } from '../utils/api-clients/rest/AxiosRestClient';
 import { FactoryOptions, ModuleFactory } from '../utils/factory/moduleFactory';
 import { FakeLogger } from '../utils/logger/FakeLogger';
-import { MobXNotificatorState, SnackbarNotificator } from '../utils/notificator/SnackbarNotificator';
+import { SnackbarNotificator } from '../utils/notificator/SnackbarNotificator';
 import { CommonContext } from './context';
+import { MobXNotificatorState } from '../state/MobXNotificatorState';
 
 class CommonContextFactory extends ModuleFactory<CommonContext> {
     protected build(options: FactoryOptions): CommonContext {

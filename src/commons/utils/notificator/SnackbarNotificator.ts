@@ -1,40 +1,6 @@
-import { Notificator } from './Notificator';
-import { makeAutoObservable } from 'mobx';
-import { BoolState } from '../../view/LoadingView';
-
-export enum NotificationType {
-    INFO = 'INFO',
-    ERROR = 'ERROR',
-    SUCCESS = 'SUCCESS'
-}
-
-type Notification = {
-    key: number;
-    type: NotificationType;
-    message: string;
-}
-
-export class MobXNotificatorState {
-    constructor() {
-        makeAutoObservable(this)
-    }
-
-    displayedNotifications: number[] = []
-
-    allNotifications: Notification[] = []
-
-    addNotification(notification: Notification) {
-        this.allNotifications = [...this.allNotifications, notification]
-    }
-
-    get notifications() {
-        return this.allNotifications.filter(n => !this.displayedNotifications.includes(n.key));
-    }
-
-    notificationDisplayed(key: number) {
-        this.displayedNotifications = [...this.displayedNotifications, key]
-    }
-}
+import { Notificator } from './models/Notificator';
+import { NotificationType } from './models/NotificationType';
+import { MobXNotificatorState } from 'commons/state/MobXNotificatorState';
 
 export class SnackbarNotificator implements Notificator {
     constructor(

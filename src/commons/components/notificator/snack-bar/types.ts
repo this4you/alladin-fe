@@ -1,4 +1,4 @@
-import { MobXNotificatorState } from 'commons/utils/notificator/SnackbarNotificator';
+import { MobXNotificatorState } from 'commons/state/MobXNotificatorState';
 
 export type SnackBarNotificatorProps = {
     notificatorState: MobXNotificatorState

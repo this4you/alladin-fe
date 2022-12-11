@@ -1,9 +1,10 @@
 import { makeAutoObservable } from 'mobx';
+import { MobXBoolState } from '../state/MobXBoolState';
 
 export class LoadingView {
 
     constructor(
-        private state: BoolState
+        private state: MobXBoolState
     ) {
         makeAutoObservable(this)
     }
@@ -19,16 +20,8 @@ export class LoadingView {
     };
 }
 
-export class BoolState {
-    constructor() {
-        makeAutoObservable(this)
-    }
-
-    public is: boolean = false
-}
-
 export const getLoadingView = () => {
-    const state = new BoolState();
+    const state = new MobXBoolState();
     const view = new LoadingView(state);
 
     return {
