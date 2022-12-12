@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ThemeContextProvider from './commons/styles/ThemeContextProvider';
+import { GlobalStyle } from './commons/styles';
+import { AppRoutes } from './app/routes/AppRoutes';
+import { AnimatePresence } from 'framer-motion';
+import { SnackbarProvider } from 'notistack';
+import { commonContextFactory } from './commons/config/commonFactory';
+import { Provider as CommonContextProvider } from './commons/config/context';
+import { SnackbarNotificatorProvider } from './commons/components/notificator/snack-bar';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const commonContext = commonContextFactory;
+
+    return (
+        <CommonContextProvider moduleContext={commonContext}>
+            <SnackbarProvider maxSnack={3} autoHideDuration={1500}
+                              anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+                <SnackbarNotificatorProvider/>
+                <AnimatePresence>
+                    <ThemeContextProvider>
+                        <GlobalStyle/>
+                        <div className="app-root">
+                            <AppRoutes/>
+                        </div>
+                    </ThemeContextProvider>
+                </AnimatePresence>
+            </SnackbarProvider>
+        </CommonContextProvider>
+    );
 }
 
 export default App;

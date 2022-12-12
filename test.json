@@ -1,0 +1,337 @@
+{
+  "general": [
+    {
+      "id": "b31fa6eb-ddfb-405e-9169-21f972ed5c07",
+      "ownerId": "9c9aeea5-85c2-4bd8-86c4-dcc6e8141f49",
+      "category": "BASIC_EXPENSES",
+      "name": "Base",
+      "value": 120000,
+      "currencyCode": 826,
+      "notes": null,
+      "recurring": {
+        "frequency": 1,
+        "growthRate": 0.03,
+        "regular": {
+          "start": {
+            "year": 2022,
+            "month": null,
+            "day": null
+          },
+          "end": {
+            "year": 2061,
+            "month": null,
+            "day": null
+          }
+        },
+        "onSpecificDate": null
+      },
+      "oneOff": null
+    },
+    {
+      "id": "bf88bfff-ae60-4190-afdc-4cd0cd3e6f10",
+      "ownerId": "9c9aeea5-85c2-4bd8-86c4-dcc6e8141f49",
+      "category": "HOLIDAYS",
+      "name": "Holidays",
+      "value": 50000,
+      "currencyCode": 826,
+      "notes": null,
+      "recurring": {
+        "frequency": 1,
+        "growthRate": 0.03,
+        "regular": {
+          "start": {
+            "year": 2022,
+            "month": null,
+            "day": null
+          },
+          "end": {
+            "year": 2061,
+            "month": null,
+            "day": null
+          }
+        },
+        "onSpecificDate": null
+      },
+      "oneOff": null
+    },
+    {
+      "id": "caa95917-167f-47e2-82dd-5920e60015f6",
+      "ownerId": "efa18698-be99-4f29-91c0-2ae5a6b00349",
+      "category": "WEDDINGS",
+      "name": "Wedding 33",
+      "value": 50000,
+      "currencyCode": 826,
+      "notes": null,
+      "recurring": {
+        "frequency": 1,
+        "growthRate": 0,
+        "regular": {
+          "start": {
+            "year": 2024,
+            "month": null,
+            "day": null
+          },
+          "end": {
+            "year": 2024,
+            "month": null,
+            "day": null
+          }
+        },
+        "onSpecificDate": null
+      },
+      "oneOff": null
+    },
+    {
+      "id": "ff126fd5-06fe-4794-8cdd-681f17ce7209",
+      "ownerId": "6baa68f2-ab72-4d8d-8df0-334990375cf4",
+      "category": "WEDDINGS",
+      "name": "Wedding 30",
+      "value": 50000,
+      "currencyCode": 826,
+      "notes": null,
+      "recurring": {
+        "frequency": 1,
+        "growthRate": 0,
+        "regular": {
+          "start": {
+            "year": 2025,
+            "month": null,
+            "day": null
+          },
+          "end": {
+            "year": 2025,
+            "month": null,
+            "day": null
+          }
+        },
+        "onSpecificDate": null
+      },
+      "oneOff": null
+    },
+    {
+      "id": "613e0bc6-1150-4ded-bf01-a5077239fc09",
+      "ownerId": "9c9aeea5-85c2-4bd8-86c4-dcc6e8141f49",
+      "category": "DISCRETIONARY_EXPENSES",
+      "name": "Discretionary",
+      "value": 80000,
+      "currencyCode": 826,
+      "notes": null,
+      "recurring": {
+        "frequency": 1,
+        "growthRate": 0.03,
+        "regular": {
+          "start": {
+            "year": 2022,
+            "month": null,
+            "day": null
+          },
+          "end": {
+            "year": 2061,
+            "month": null,
+            "day": null
+          }
+        },
+        "onSpecificDate": null
+      },
+      "oneOff": null
+    },
+    {
+      "id": "b7c9fb31-f108-4855-8867-d49a818a028b",
+      "ownerId": "0fb49f73-9ae7-4c24-b428-1a217e8f7720",
+      "category": "WEDDINGS",
+      "name": "Wedding 30",
+      "value": 50000,
+      "currencyCode": 826,
+      "notes": null,
+      "recurring": {
+        "frequency": 1,
+        "growthRate": 0,
+        "regular": {
+          "start": {
+            "year": 2022,
+            "month": null,
+            "day": null
+          },
+          "end": {
+            "year": 2022,
+            "month": null,
+            "day": null
+          }
+        },
+        "onSpecificDate": null
+      },
+      "oneOff": null
+    }
+  ],
+  "education": {
+    "id": "b52c5a4a-5601-45d3-aeae-d6d1273f6fc0",
+    "name": "Educational Expense",
+    "isAppliedToAll": true,
+    "childrenExpenses": [
+      {
+        "childId": "0fb49f73-9ae7-4c24-b428-1a217e8f7720",
+        "nursery": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 3,
+          "endAge": 7
+        },
+        "junior": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 8,
+          "endAge": 11
+        },
+        "senior": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 8,
+          "endAge": 11
+        },
+        "university": {
+          "type": "UK_UNI_LIVE_AT_HOME",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 18,
+          "endAge": 22
+        }
+      },
+      {
+        "childId": "6baa68f2-ab72-4d8d-8df0-334990375cf4",
+        "nursery": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 3,
+          "endAge": 7
+        },
+        "junior": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 8,
+          "endAge": 11
+        },
+        "senior": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 8,
+          "endAge": 11
+        },
+        "university": {
+          "type": "UK_UNI_LIVE_AT_HOME",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 18,
+          "endAge": 22
+        }
+      },
+      {
+        "childId": "efa18698-be99-4f29-91c0-2ae5a6b00349",
+        "nursery": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 3,
+          "endAge": 7
+        },
+        "junior": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 8,
+          "endAge": 11
+        },
+        "senior": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 8,
+          "endAge": 11
+        },
+        "university": {
+          "type": "UK_UNI_LIVE_AT_HOME",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 18,
+          "endAge": 22
+        }
+      },
+      {
+        "childId": "973923e4-43b1-4c79-9709-1d73697b91d0",
+        "nursery": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 3,
+          "endAge": 7
+        },
+        "junior": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 8,
+          "endAge": 11
+        },
+        "senior": {
+          "type": "DAY",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 8,
+          "endAge": 11
+        },
+        "university": {
+          "type": "UK_UNI_LIVE_AT_HOME",
+          "value": 0,
+          "currencyCode": 826,
+          "startAge": 18,
+          "endAge": 22
+        }
+      }
+    ],
+    "notes": null
+  },
+  "house": {
+    "id": "1e6c9bfd-175f-4953-a88e-0b019a14b7e7",
+    "isAppliedToAll": true,
+    "childrenExpenses": [
+      {
+        "childId": "0fb49f73-9ae7-4c24-b428-1a217e8f7720",
+        "value": 0,
+        "currencyCode": 826,
+        "age": 26
+      },
+      {
+        "childId": "6baa68f2-ab72-4d8d-8df0-334990375cf4",
+        "value": 0,
+        "currencyCode": 826,
+        "age": 26
+      },
+      {
+        "childId": "efa18698-be99-4f29-91c0-2ae5a6b00349",
+        "value": 0,
+        "currencyCode": 826,
+        "age": 26
+      },
+      {
+        "childId": "973923e4-43b1-4c79-9709-1d73697b91d0",
+        "value": 0,
+        "currencyCode": 826,
+        "age": 26
+      }
+    ],
+    "notes": null,
+    "name": "Child Housing"
+  },
+  "wedding": null,
+  "elderlyCare": {
+    "id": "345d0555-30d2-4a2b-a137-0046542e8ef8",
+    "allowanceType": "STANDARD",
+    "name": "Elderly Care Expense",
+    "notes": null
+  }
+}
