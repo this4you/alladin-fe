@@ -11,13 +11,15 @@ export class InitUserInfoUseCase {
     }
 
     async init() {
-        debugger
+        this.initUserInfoView.loading.showLoading();
+
         try {
             const user = await this.userRepository.getUser();
             this.initUserInfoView.showUserContent(user);
         } catch (e: any) {
             this.logger.error(e, 'Auth error');
-            this.initUserInfoView.showLoginPage();
+        } finally {
+            this.initUserInfoView.loading.hideLoading();
         }
     }
 }

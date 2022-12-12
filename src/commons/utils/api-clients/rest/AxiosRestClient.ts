@@ -16,11 +16,9 @@ export class AxiosRestClient implements RestClient {
     }
 
     async get<T>(url: string, requestParameters?: RequestParameters): Promise<T> {
-        const response = await this.getAxios().get<T>(url, {
+        return await this.getAxios().get<T>(url, {
             params: requestParameters
-        });
-
-        return response.data;
+        }) as T;
     }
 
     // create<TRequest, TResponse>(url: string, request?: TRequest, headers?: Record<string, string>): Promise<TResponse> {

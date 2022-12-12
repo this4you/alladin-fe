@@ -1,4 +1,4 @@
-import { LoadingView } from 'commons/view/LoadingView';
+import { LoadingView } from 'commons/view/loading/LoadingView';
 
 export interface LoginView {
     loading: LoadingView,

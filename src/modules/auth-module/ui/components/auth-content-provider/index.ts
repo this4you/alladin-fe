@@ -1,1 +1,0 @@
-export { AuthContentProvider } from './connect';

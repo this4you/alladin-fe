@@ -9,12 +9,14 @@ import {
     BrowserRouter as Router,
 } from 'react-router-dom';
 import { AuthPage } from 'app/pages';
-import { CreateCompanyContainer, LoginFormContainer, AuthContentProvider } from 'modules/auth-module';
+import { CreateCompanyContainer, LoginFormContainer, UserContentProvider } from 'modules/auth-module';
 
 export const AppRoutes: React.FC = () => (
     <Router>
         <Routes>
-            <Route path="/" element={<AuthContent/>}/>
+            <Route path="/" element={<UserContentProvider/>}>
+                <Route index element={<h1>User auth content</h1>}/>
+            </Route>
             <Route path="/auth" element={<AuthPage/>}>
                 <Route index element={<LoginFormContainer/>}/>
                 <Route path="login" element={<LoginFormContainer/>}/>
@@ -25,13 +27,3 @@ export const AppRoutes: React.FC = () => (
         </Routes>
     </Router>
 )
-
-const AuthContent: React.FC = () => {
-    return (
-        <div>
-            <h1>Auth content</h1>
-        </div>
-    );
-}
-
-//const AuthContentProvider

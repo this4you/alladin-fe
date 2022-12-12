@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
-import { MobXBoolState } from '../state/MobXBoolState';
+import { MobXBoolState } from '../../state/MobXBoolState';
 
-export class LoadingView {
+export class MobXLoadingView {
 
     constructor(
         private state: MobXBoolState
@@ -17,14 +17,5 @@ export class LoadingView {
 
     hideLoading() {
         this.state.is = false;
-    };
-}
-
-export const getLoadingView = () => {
-    const state = new MobXBoolState();
-    const view = new LoadingView(state);
-
-    return {
-        state, view
     };
 }
