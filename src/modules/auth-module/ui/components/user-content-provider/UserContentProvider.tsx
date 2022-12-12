@@ -19,7 +19,7 @@ const Provider: React.FC = () => {
         });
     }, [])
 
-    if (userState.loadingState.is || processLoading) {
+    if (processLoading) {
         return <PageLoader/>
     }
 

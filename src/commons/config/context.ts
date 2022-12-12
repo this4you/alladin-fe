@@ -16,8 +16,6 @@ export type CommonContext = {
     notificatorState: MobXNotificatorState;
     authState: MobXAuthState;
     userState: MobXUserState;
-
-    userLoadingView: MobXLoadingView;
 }
 
 const connector = createConnector<CommonContext>();

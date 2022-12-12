@@ -14,7 +14,7 @@ import { MobXLoginState } from '../ui/state/MobXLoginState';
 
 class AuthModuleFactory extends ModuleFactory<AuthContext> {
     protected build(options: FactoryOptions): AuthContext {
-        const { restClient, logger, notificator, authState, userState, userLoadingView } = commonContextFactory;
+        const { restClient, logger, notificator, authState, userState } = commonContextFactory;
 
         const loginRepository = new RestLoginRepository(restClient);
         const authRepository = new LocalStorageMobXAuthRepository(authState);
@@ -24,7 +24,7 @@ class AuthModuleFactory extends ModuleFactory<AuthContext> {
         const loginState = new MobXLoginState(loginLoading.state);
 
         const loginView = new MobXLoginView(loginLoading.view, loginState);
-        const initUserInfoView = new MobXInitUserInfoView(userLoadingView, userState);
+        const initUserInfoView = new MobXInitUserInfoView(userState);
 
         const loginUseCase = new LoginUseCase(
             loginRepository,
