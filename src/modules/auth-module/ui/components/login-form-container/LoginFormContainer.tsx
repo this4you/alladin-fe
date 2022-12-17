@@ -21,10 +21,10 @@ const LoginFormContainer: React.FC = () => {
                     <AuthHeader>
                         <h2>Login</h2>
                     </AuthHeader>
-                    <LoginForm/>
+                    <LoginForm />
                     <AuthFooter>
                         <span>Do you want to add a company?</span>
-                        <AuthLink to={'/create-company'}>Create company</AuthLink>
+                        <AuthLink to={'/auth/create-company'}>Create company</AuthLink>
                     </AuthFooter>
                 </AuthContainer>
             </FromLeftAppearAnimation>
