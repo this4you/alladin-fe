@@ -30,10 +30,11 @@ const globalStyle = createGlobalStyle`
     align-items: center;
     font-family: 'Inter', sans-serif;
   }
-  
-  a {
+
+  a, a:visited, a:hover, a:active {
     font-family: 'Inter', sans-serif;
-    text-decoration: none
+    text-decoration: none;
+    color: inherit;
   }
 
   h1 {

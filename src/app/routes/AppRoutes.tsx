@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Routes,
     Route,
-    Navigate, Outlet
+    Navigate
 } from 'react-router-dom';
 
 import {
@@ -10,16 +10,7 @@ import {
 } from 'react-router-dom';
 import { AuthPage } from 'app/pages';
 import { CreateCompanyContainer, LoginFormContainer, UserContentProvider } from 'modules/auth-module';
-
-
-const MainPage = () => {
-    return (
-        <>
-            <h1>MAIN PAGE</h1>
-            <Outlet></Outlet>
-        </>
-    )
-}
+import { MainPage } from 'app/pages/main-page/MainPage';
 
 export const AppRoutes: React.FC = () => (
     <Router>
@@ -28,6 +19,7 @@ export const AppRoutes: React.FC = () => (
                 <Route path="/" element={<MainPage/>}>
                     <Route index element={<h1>Dashboard</h1>}/>
                     <Route path={'/dashboard'} element={<h1>Dashboard</h1>}/>
+                    <Route path={'/templates'} element={<h1>Templates</h1>}/>
                     <Route path="*" element={<Navigate to="/dashboard" replace/>}/>
                 </Route>
             </Route>
