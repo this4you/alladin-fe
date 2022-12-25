@@ -35,6 +35,10 @@ export const MenuItemContainer = styled.div<{ isActive: boolean }>`
   height: 80px;
   color: ${({ theme, isActive }) => isActive ? theme.primary : theme.secondaryText} !important;
 
+  :hover {
+    color: ${({ theme, isActive}) => !isActive && theme.secondaryText_200} !important;
+  }
+
   ${ActiveCategory} {
     opacity: ${({ isActive }) => isActive ? 1 : 0};
   }
