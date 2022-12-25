@@ -1,20 +1,18 @@
 import React from 'react';
 
 import { AuthPageProps } from './types';
-import { Logo, ContentContainer } from './styles';
-import logo from 'commons/img/svg/logo.svg';
-import { PageContainer } from 'app/components/PageContainer';
+import {ContentContainer } from './styles';
 import { Outlet } from 'react-router-dom';
+import { PageContainer } from 'app/styles';
+import { Logo } from 'commons/components/logo';
 
-const AuthPage: React.FC<AuthPageProps> = () => {
+export const AuthPage: React.FC<AuthPageProps> = () => {
     return (
         <PageContainer>
             <Outlet></Outlet>
             <ContentContainer>
-                <Logo src={logo} alt="logo"/>
+                <Logo width={350} />
             </ContentContainer>
         </PageContainer>
     )
 }
-
-export default AuthPage;

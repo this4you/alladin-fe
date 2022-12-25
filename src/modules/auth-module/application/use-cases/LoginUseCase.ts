@@ -13,8 +13,7 @@ export class LoginUseCase {
         private loginView: LoginView,
         private notificator: Notificator,
         private logger: Logger
-    ) {
-    }
+    ) {}
 
     async login(loginRequest: Login): Promise<void> {
         this.loginView.loading.showLoading();
@@ -27,7 +26,7 @@ export class LoginUseCase {
                 this.loginView.showAuthorizedContent();
             } else {
                 this.notificator.error('Something terrible happened. You should write to support.');
-                this.logger.error(new Error("Token is empty"), 'Auth error')
+                this.logger.error(new Error('Token is empty'), 'Auth error')
             }
         } catch (e: any) {
             this.notificator.error('Incorrect request login data. Check your email or password');

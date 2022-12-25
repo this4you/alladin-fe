@@ -13,7 +13,7 @@ module.exports = {
     ],
     webpack: {
         alias: {
-            '@mui/styled-engine': '@mui/styled-engine-sc',
+            '@mui/styled-engine': '@mui/styles-engine-sc',
         },
     },
 };

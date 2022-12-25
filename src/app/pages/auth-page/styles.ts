@@ -7,8 +7,3 @@ export const ContentContainer = styled.div`
   align-items: center;
   height: 100%;
 `;
-
-export const Logo = styled.img`
-    width: 350px;
-    height: 350px;
-`;

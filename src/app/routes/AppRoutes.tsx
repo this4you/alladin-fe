@@ -10,12 +10,18 @@ import {
 } from 'react-router-dom';
 import { AuthPage } from 'app/pages';
 import { CreateCompanyContainer, LoginFormContainer, UserContentProvider } from 'modules/auth-module';
+import { MainPage } from 'app/pages/main-page/MainPage';
 
 export const AppRoutes: React.FC = () => (
     <Router>
         <Routes>
-            <Route path="/" element={<UserContentProvider/>}>
-                <Route index element={<h1>User auth content</h1>}/>
+            <Route path="/"  element={<UserContentProvider/>}>
+                <Route path="/" element={<MainPage/>}>
+                    <Route index element={<h1>Dashboard</h1>}/>
+                    <Route path={'/dashboard'} element={<h1>Dashboard</h1>}/>
+                    <Route path={'/templates'} element={<h1>Templates</h1>}/>
+                    <Route path="*" element={<Navigate to="/dashboard" replace/>}/>
+                </Route>
             </Route>
             <Route path="/auth" element={<AuthPage/>}>
                 <Route index element={<LoginFormContainer/>}/>
