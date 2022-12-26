@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const UserPanelContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  width: 253px;
-  height: 80px;
+  width: 140px;
+  height: 65px;
   color: ${({ theme }) => theme.secondaryText};
   background-color: ${({ theme }) => theme.blockColor};
   border-radius: 0 0 20px 20px;
@@ -16,8 +16,6 @@ export const UserPanelContainer = styled.div`
   }
 `;
 
-export const Notifications = styled.div``;
-export const Settings = styled.div``;
 export const Avatar = styled.div`
   display: flex;
   justify-content: center;
@@ -26,5 +24,4 @@ export const Avatar = styled.div`
   border-radius: 40px;
   width: 45px;
   height: 45px;
-  margin-right: 15px;
 `;
