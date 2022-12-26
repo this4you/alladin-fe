@@ -11,7 +11,7 @@ import {
 import { AuthPage } from 'app/pages';
 import { CreateCompanyContainer, LoginFormContainer } from 'modules/auth-module';
 import { MainPage } from 'app/pages/main-page/MainPage';
-import { UserContentProvider } from 'modules/user-module/ui/providers/user-content-provider';
+import { UserContentProvider } from 'modules/user-module';
 
 export const AppRoutes: React.FC = () => (
     <Router>
