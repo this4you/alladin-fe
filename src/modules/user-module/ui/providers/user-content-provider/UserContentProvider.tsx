@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { authModuleFactory } from '../../../config/authFactory';
 import { observer } from 'mobx-react';
+import { userModuleFactory } from 'modules/user-module/config/userFactory';
+import { state as userState } from 'modules/user-module/ui/state/userState';
 
-export const PageLoader: React.FC = () => (<h1>Loading...</h1>);
+export const PageLoader: React.FC = () => (<h1>Loading...</h1>); //TODO
 
-//TODO NEED REFACTORING
 const Provider: React.FC = () => {
-    const { initUserInfoUseCase, userState } = authModuleFactory.get({
-        key: 'auth-module'
-    });
+    const { initUserInfoUseCase } = userModuleFactory.get({ key: 'user-module' });
 
     const [processLoading, setProcessLoading] = useState(true);
 
     useEffect(() => {
-        initUserInfoUseCase.init().then(() => {
+        initUserInfoUseCase().then(() => {
             setProcessLoading(false)
         });
     }, [])
@@ -26,7 +24,7 @@ const Provider: React.FC = () => {
     return (
         <>
             {
-                userState.userId ? <Outlet/> : <Navigate to="/auth/login"/>
+                userState.userInfo ? <Outlet/> : <Navigate to="/auth/login"/>
             }
         </>
     )
