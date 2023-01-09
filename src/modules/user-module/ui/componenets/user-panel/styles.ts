@@ -3,34 +3,67 @@ import { Button } from '@mui/material';
 
 export const MenuButton = styled(Button)`
   &.MuiButton-root {
+    position: absolute;
     display: flex;
     border: 0;
     justify-content: center;
     align-items: center;
-    position: absolute;
     width: 99px;
     height: 15px;
-    position: absolute;
     margin-top: auto;
     margin-bottom: auto;
-    top: 73px;
-    bottom: 0;
-    right: 19px;
     border-radius: 0 0 15px 15px;
-    cursor: pointer; 
+    cursor: pointer;
   }
+
   .MuiLoadingButton-loadingIndicator {
     color: ${({ theme }) => theme.text};
   }
-`
+`;
 
-export const UserPanelContainer = styled.div`
-  position: relative;
+export const UserMenuItem = styled.div`
+  :hover {
+    color: ${({ theme }) => theme.secondaryText_100};  
+  }
+  
+  svg {
+    width: 25px;
+    height: 25px;
+    color: ${({ theme }) => theme.secondaryText};
+  }
+  
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const UserMenu = styled.div`
+  width: 140px;
+  height: 110px;
+  position: absolute;
+  top: 65px;
+  background-color: #303137;
+  border-radius: 0 0 20px 20px;
+  
+`;
+
+export const UserPanelWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+
+export const UserPanelContent = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 140px;
   height: 65px;
+  z-index: 2;
   color: ${({ theme }) => theme.secondaryText};
   background-color: ${({ theme }) => theme.blockColor};
   border-radius: 0 0 20px 20px;
