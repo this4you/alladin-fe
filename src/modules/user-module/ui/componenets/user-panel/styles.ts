@@ -1,6 +1,31 @@
 import styled from 'styled-components';
+import { Button } from '@mui/material';
+
+export const MenuButton = styled(Button)`
+  &.MuiButton-root {
+    display: flex;
+    border: 0;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 99px;
+    height: 15px;
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 73px;
+    bottom: 0;
+    right: 19px;
+    border-radius: 0 0 15px 15px;
+    cursor: pointer; 
+  }
+  .MuiLoadingButton-loadingIndicator {
+    color: ${({ theme }) => theme.text};
+  }
+`
 
 export const UserPanelContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
