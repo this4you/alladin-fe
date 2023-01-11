@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Logo as BaseLogo } from 'commons/components/logo';
-
-export const Menu = styled.div``;
+import { UserPanel } from 'modules/user-module/ui/componenets/user-panel';
 
 export const LeftSide = styled.div`
   display: flex;
@@ -20,9 +19,15 @@ export const CenterContent = styled.div`
 `;
 
 export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 100px;
 `;
+
+export const UserPanelWrapper = styled.div`
+    margin-right: 10px;
+`
 
 export const Content = styled.div`
   width: 100%;

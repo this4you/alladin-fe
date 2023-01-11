@@ -9,8 +9,9 @@ import {
     BrowserRouter as Router,
 } from 'react-router-dom';
 import { AuthPage } from 'app/pages';
-import { CreateCompanyContainer, LoginFormContainer, UserContentProvider } from 'modules/auth-module';
+import { CreateCompanyContainer, LoginFormContainer } from 'modules/auth-module';
 import { MainPage } from 'app/pages/main-page/MainPage';
+import { UserContentProvider } from 'modules/user-module';
 
 export const AppRoutes: React.FC = () => (
     <Router>

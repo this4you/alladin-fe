@@ -9,4 +9,8 @@ export class LocalStorageMobXAuthRepository implements AuthRepository {
     saveToken(token: string): void {
         this.authState.setToken(token);
     }
+
+    clearToken(): void {
+        this.authState.setToken(null);
+    }
 }

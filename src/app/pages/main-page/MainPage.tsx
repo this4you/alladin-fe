@@ -1,8 +1,9 @@
 import { PageContainer } from 'app/styles';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { CenterContent, Content, Header, LeftSide, Logo } from './styles';
+import { CenterContent, Content, Header, LeftSide, Logo, UserPanelWrapper } from './styles';
 import { Menu } from './components/menu';
+import { UserPanelContainer } from 'modules/user-module';
 
 export const MainPage: React.FC = () => {
     return (
@@ -13,7 +14,12 @@ export const MainPage: React.FC = () => {
                 <div/>
             </LeftSide>
             <CenterContent>
-                <Header/>
+                <Header>
+                    <div/>
+                    <UserPanelWrapper>
+                        <UserPanelContainer/>
+                    </UserPanelWrapper>
+                </Header>
                 <Content>
                     <Outlet/>
                 </Content>
