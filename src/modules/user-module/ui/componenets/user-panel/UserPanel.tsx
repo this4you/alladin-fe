@@ -6,8 +6,9 @@ import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icon
 import { RiSettings2Line } from 'react-icons/ri';
 import { IoMdLogOut } from 'react-icons/io';
 import { IconButton } from '@mui/material';
+import { UserPanelProps } from './types';
 
-export const UserPanel: React.FC = () => {
+export const UserPanel: React.FC<UserPanelProps> = ({ logOutUseCase}) => {
     const [openMenu, setOpenMenu] = useState(false);
 
     return (
@@ -31,14 +32,13 @@ export const UserPanel: React.FC = () => {
                             </IconButton>
                         </UserMenuItem>
                         <UserMenuItem>
-                            <IconButton>
+                            <IconButton onClick={logOutUseCase}>
                                 <IoMdLogOut/>
                             </IconButton>
                         </UserMenuItem>
                     </UserMenu>
-                    <MenuButton variant={'contained'} style={{
-                        top: openMenu ? '155px' : '65px'
-                    }} onClick={() => setOpenMenu(!openMenu)}>
+                    <MenuButton variant={'contained'} style={{ top: openMenu ? '155px' : '65px' }}
+                                onClick={() => setOpenMenu(!openMenu)}>
                         {openMenu ? <MdOutlineKeyboardArrowUp/> : <MdOutlineKeyboardArrowDown/>}
                     </MenuButton>
                 </UserPanelWrapper>

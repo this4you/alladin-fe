@@ -3,7 +3,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { CenterContent, Content, Header, LeftSide, Logo, UserPanelWrapper } from './styles';
 import { Menu } from './components/menu';
-import { UserPanel } from 'modules/user-module/ui/componenets/user-panel';
+import { UserPanelContainer } from 'modules/user-module';
 
 export const MainPage: React.FC = () => {
     return (
@@ -17,7 +17,7 @@ export const MainPage: React.FC = () => {
                 <Header>
                     <div/>
                     <UserPanelWrapper>
-                        <UserPanel/>
+                        <UserPanelContainer/>
                     </UserPanelWrapper>
                 </Header>
                 <Content>

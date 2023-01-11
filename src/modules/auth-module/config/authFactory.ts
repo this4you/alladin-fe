@@ -6,9 +6,9 @@ import { commonContextFactory } from 'commons/config/commonFactory';
 import { LocalStorageMobXAuthRepository } from '../repositories/LocalStorageMobXAuthRepository';
 import { MobXLoginView } from '../ui/view/MobXLoginView';
 import { LoginFormValidator } from '../ui/validators/LoginFormValidator';
-import { RestUserRepository } from '../repositories/RestUserRepository';
 import { getLoadingView } from 'commons/view/loading/getLoadingView';
 import { MobXLoginState } from '../ui/state/MobXLoginState';
+import { logOutUseCase } from '../application/use-cases/logOutUseCase';
 
 class AuthModuleFactory extends ModuleFactory<AuthContext> {
     protected build(options: FactoryOptions): AuthContext {
@@ -16,7 +16,6 @@ class AuthModuleFactory extends ModuleFactory<AuthContext> {
 
         const loginRepository = new RestLoginRepository(restClient);
         const authRepository = new LocalStorageMobXAuthRepository(authState);
-        const userRepository = new RestUserRepository(restClient);
 
         const loginLoading = getLoadingView();
         const loginState = new MobXLoginState(loginLoading.state);
@@ -35,6 +34,10 @@ class AuthModuleFactory extends ModuleFactory<AuthContext> {
 
         return {
             loginUseCase,
+            logOutUseCase: logOutUseCase(
+                authRepository.clearToken.bind(authRepository),
+                authState.setIsAuth
+            ),
             authState,
             loginFormValidator,
             loginState

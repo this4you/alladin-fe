@@ -5,9 +5,11 @@ import { FormValidator } from 'commons/components/form/types';
 import { Login } from '../application/models/Login';
 import { MobXAuthState } from 'commons/state/MobXAuthState';
 import { MobXLoginState } from '../ui/state/MobXLoginState';
+import { logOutUseCase } from '../application/use-cases/logOutUseCase';
 
 export type AuthContext = {
     loginUseCase: LoginUseCase,
+    logOutUseCase: ReturnType<typeof logOutUseCase>,
     loginState: MobXLoginState,
     authState: MobXAuthState,
     loginFormValidator: FormValidator<Login>
