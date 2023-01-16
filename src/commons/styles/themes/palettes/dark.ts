@@ -7,6 +7,7 @@ export const darkThemePalette: ThemeProps = {
     background: '#404147',
 
     blockColor: '#222328',
+    blockSecondary: '#303137',
 
     text: '#F5F5F7',
 

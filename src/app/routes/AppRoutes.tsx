@@ -12,15 +12,16 @@ import { AuthPage } from 'app/pages';
 import { CreateCompanyContainer, LoginFormContainer } from 'modules/auth-module';
 import { MainPage } from 'app/pages/main-page/MainPage';
 import { UserContentProvider } from 'modules/user-module';
+import { TemplatesConfigContainer } from 'modules/interview-template-module';
 
 export const AppRoutes: React.FC = () => (
     <Router>
         <Routes>
-            <Route path="/"  element={<UserContentProvider/>}>
+            <Route path="/" element={<UserContentProvider/>}>
                 <Route path="/" element={<MainPage/>}>
                     <Route index element={<h1>Dashboard</h1>}/>
                     <Route path={'/dashboard'} element={<h1>Dashboard</h1>}/>
-                    <Route path={'/templates'} element={<h1>Templates</h1>}/>
+                    <Route path={'/templates'} element={<TemplatesConfigContainer/>}/>
                     <Route path="*" element={<Navigate to="/dashboard" replace/>}/>
                 </Route>
             </Route>
