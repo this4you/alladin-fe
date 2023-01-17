@@ -46,7 +46,8 @@ export const UserMenu = styled.div`
   top: 65px;
   background-color: #303137;
   border-radius: 0 0 20px 20px;
-  
+  border: 1px solid;
+  border-color: ${({ theme }) => theme.primary};
 `;
 
 export const UserPanelWrapper = styled.div`
