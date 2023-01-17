@@ -1,8 +1,51 @@
 import styled from 'styled-components';
 import { ContentBlock } from 'commons/components';
+import { Button } from '@mui/material';
 
 export const TemplatesListContainer = styled(ContentBlock)`
+  display: flex;
+  align-items: center;
   height: 100%;
   width: 260px;
   margin-left: 20px;
+  margin-right: 20px;
+`;
+
+export const AddTemplateButton = styled(Button)`
+  &.MuiButton-root {
+    display: flex;
+    border: 0;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 15px;
+    border-radius: 0 0 15px 15px;
+    cursor: pointer;
+  }
+
+  .MuiLoadingButton-loadingIndicator {
+    color: ${({ theme }) => theme.text};
+  }
+`;
+
+export const NoTemplatesContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const NoTemplates = styled.div`
+  color: ${({ theme }) => theme.text};
+  background-color: ${({ theme }) => theme.blockSecondary};
+  padding: 10px;
+  font-size: 14px;
+  width: 80%;
+  height: 80px;
+  margin-top: -50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

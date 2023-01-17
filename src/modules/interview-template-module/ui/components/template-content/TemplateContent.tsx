@@ -1,8 +1,10 @@
+import { TemplateContentContainer } from './styles';
+
 const TemplateContent: React.FC = () => {
     return (
-        <div>
-            templates content
-        </div>
+        <TemplateContentContainer header={'Interview template details'}>
+
+        </TemplateContentContainer>
     );
 }
 
