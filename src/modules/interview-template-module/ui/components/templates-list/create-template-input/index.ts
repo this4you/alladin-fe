@@ -1,0 +1,1 @@
+export { CreateTemplateInput } from './connect';

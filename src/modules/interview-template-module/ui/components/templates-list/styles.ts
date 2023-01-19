@@ -6,7 +6,7 @@ export const TemplatesListContainer = styled(ContentBlock)`
   display: flex;
   align-items: center;
   height: 100%;
-  width: 260px;
+  min-width: 260px;
   margin-left: 20px;
   margin-right: 20px;
 `;
@@ -37,15 +37,20 @@ export const NoTemplatesContainer = styled.div`
 `;
 
 export const NoTemplates = styled.div`
-  color: ${({ theme }) => theme.text};
-  background-color: ${({ theme }) => theme.blockSecondary};
+  text-align: center;
+  color: ${({ theme }) => theme.secondaryText};
   padding: 10px;
-  font-size: 14px;
+  font-size: 16px;
   width: 80%;
-  height: 80px;
-  margin-top: -50px;
-  border-radius: 10px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const AddTemplateButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 110px;
 `;

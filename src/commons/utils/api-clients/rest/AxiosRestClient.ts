@@ -1,4 +1,4 @@
-import { CommandProps, RequestParameters, RestClient } from './RestClient';
+import { CommandProps, HttpMethod, RequestParameters, RestClient } from './RestClient';
 import axios from 'axios';
 import { MobXAuthState } from 'commons/state/MobXAuthState';
 
@@ -21,9 +21,14 @@ export class AxiosRestClient implements RestClient {
         }) as T;
     }
 
-    // create<TRequest, TResponse>(url: string, request?: TRequest, headers?: Record<string, string>): Promise<TResponse> {
-    //     return Promise.resolve(undefined);
-    // }
+    create<TRequest, TResponse>(url: string, request?: TRequest, headers?: Record<string, string>): Promise<TResponse> {
+        return this.getAxios().request<TRequest, TResponse>({
+            url: url,
+            method: HttpMethod.POST,
+            headers: headers,
+            data: request
+        });
+    }
     //
     // delete(url: string): Promise<void> {
     //     return Promise.resolve(undefined);
