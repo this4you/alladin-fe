@@ -3,5 +3,6 @@ import { CreateTemplateInput as component} from './CreateTemplateInput';
 
 export const CreateTemplateInput = connect(
     component,
-    'createTemplateUseCase'
+    'createTemplate',
+    'hideCreateTemplateInput'
 )

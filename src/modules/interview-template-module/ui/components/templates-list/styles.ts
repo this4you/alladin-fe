@@ -48,7 +48,7 @@ export const NoTemplates = styled.div`
   align-items: center;
 `;
 
-export const AddTemplateButtonContainer = styled.div`
+export const AddTemplateContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;

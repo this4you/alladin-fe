@@ -1,28 +1,17 @@
-import { AddTemplateButton, AddTemplateButtonContainer, NoTemplates, NoTemplatesContainer, TemplatesListContainer } from './styles';
-import { useCallback, useState } from 'react';
+import { AddTemplateButton, AddTemplateContainer, NoTemplates, NoTemplatesContainer, TemplatesListContainer } from './styles';
 import { CreateTemplateInput } from './create-template-input';
 import { interviewTemplateState } from '../../state/interviewTemplateState';
+import { TemplatesListProps } from './types';
 
-
-const TemplatesList: React.FC = () => {
-    const [isCreateMode, setIsCreateMode] = useState(false);
-
-    const onCreateTemplateClick = useCallback(() => {
-        setIsCreateMode(true);
-    }, [setIsCreateMode])
-
-    const onCancelClick = useCallback(() => {
-        setIsCreateMode(false);
-    }, [setIsCreateMode]);
-
+export const TemplatesList: React.FC<TemplatesListProps> = ({showCreateTemplateInput}) => {
     return (
         <TemplatesListContainer header={'Templates'}>
-            <AddTemplateButtonContainer>
-                {!isCreateMode &&
-                    <AddTemplateButton onClick={onCreateTemplateClick} variant={'contained'}>+</AddTemplateButton>}
+            <AddTemplateContainer>
+                {!interviewTemplateState.isCreateMode &&
+                    <AddTemplateButton onClick={showCreateTemplateInput} variant={'contained'}>+</AddTemplateButton>}
 
-                {isCreateMode && <CreateTemplateInput onCancelClick={onCancelClick}/>}
-            </AddTemplateButtonContainer>
+                {interviewTemplateState.isCreateMode && <CreateTemplateInput/>}
+            </AddTemplateContainer>
 
             {interviewTemplateState.templatesList.length === 0 && (
                 <NoTemplates>
@@ -32,5 +21,3 @@ const TemplatesList: React.FC = () => {
         </TemplatesListContainer>
     );
 }
-
-export default TemplatesList;

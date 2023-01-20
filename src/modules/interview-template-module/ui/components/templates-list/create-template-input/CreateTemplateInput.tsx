@@ -2,7 +2,7 @@ import { CreateTemplateInputButton, CreateTemplateButtonsContainer, CreateTempla
 import { CreateTemplateInputProps } from './types';
 import { useCallback, useMemo, useState } from 'react';
 
-export const CreateTemplateInput: React.FC<CreateTemplateInputProps> = ({ onCancelClick, createTemplateUseCase }) => {
+export const CreateTemplateInput: React.FC<CreateTemplateInputProps> = ({ createTemplate, hideCreateTemplateInput }) => {
     const [name, setName] = useState('');
 
     const onChangeNameInput = useCallback((event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
@@ -10,9 +10,7 @@ export const CreateTemplateInput: React.FC<CreateTemplateInputProps> = ({ onCanc
     }, []);
 
     const onCreateClick = useCallback(async () => {
-        await createTemplateUseCase(name);
-
-        onCancelClick();
+        await createTemplate(name);
     }, [name]);
 
     const saveButtonDisabled = useMemo(() => name.length === 0, [name])
@@ -30,7 +28,7 @@ export const CreateTemplateInput: React.FC<CreateTemplateInputProps> = ({ onCanc
                 <CreateTemplateInputButton variant="contained" onClick={onCreateClick} disabled={saveButtonDisabled}>
                     Create
                 </CreateTemplateInputButton>
-                <CreateTemplateInputButton variant="text" onClick={onCancelClick}>
+                <CreateTemplateInputButton variant="text" onClick={hideCreateTemplateInput}>
                     Cancel
                 </CreateTemplateInputButton>
             </CreateTemplateButtonsContainer>

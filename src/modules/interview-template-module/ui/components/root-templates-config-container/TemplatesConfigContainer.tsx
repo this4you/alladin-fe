@@ -1,9 +1,9 @@
 import { TemplatesConfigWrapper } from './styles';
-import TemplatesList from '../templates-list/TemplatesList';
 import TemplateContent from '../template-content/TemplateContent';
 import { Provider } from 'modules/interview-template-module/config/context';
 import { useEffect } from 'react';
 import { interviewTemplateFactory } from 'modules/interview-template-module/config/interviewTemplateFactory';
+import { TemplatesList } from '../templates-list';
 
 const TemplatesConfigContainer: React.FC = () => {
     const context = interviewTemplateFactory.get({
