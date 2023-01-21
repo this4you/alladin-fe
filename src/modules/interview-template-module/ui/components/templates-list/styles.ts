@@ -13,18 +13,12 @@ export const TemplatesListContainer = styled(ContentBlock)`
 
 export const AddTemplateButton = styled(Button)`
   &.MuiButton-root {
-    display: flex;
-    border: 0;
-    justify-content: center;
-    align-items: center;
     width: 150px;
-    height: 15px;
-    border-radius: 0 0 15px 15px;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 40px;
     cursor: pointer;
-  }
-
-  .MuiLoadingButton-loadingIndicator {
-    color: ${({ theme }) => theme.text};
+    text-transform: none;
   }
 `;
 

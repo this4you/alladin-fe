@@ -14,4 +14,9 @@ export const TemplateItemContainer = styled.div`
   background-color: ${({ theme }) => theme.blockSecondary};
   border-radius: 7px;
   margin-top: 13px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: ${({ theme }) => theme.blockSecondary_200};
+  }
 `;
