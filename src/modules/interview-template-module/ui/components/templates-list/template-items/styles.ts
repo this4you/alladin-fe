@@ -11,3 +11,12 @@ export const NoTemplates = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const TemplateItemsContainer = styled.div`
+  height: 100%;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none; //TODO add global scroll bar
+  }
+`;
