@@ -2,12 +2,12 @@ import { FactoryOptions, ModuleFactory } from 'commons/utils/factory/moduleFacto
 import { commonContextFactory } from 'commons/config/commonFactory';
 import { InterviewTemplateContext } from './context';
 import { createTemplate as createTemplateUseCase } from '../application/use-cases/template-list/createTemplate';
-import { createTemplate } from '../repositories/interviewTemplateRepository';
-import { addNewTemplate, setCreateMode } from '../ui/state/interviewTemplateState';
-import { hideCreateTemplateInput } from '../application/use-cases/template-list/hideCreateTemplateInput';
+import { initTemplatesList } from '../application/use-cases/template-list/initTemplatesList';
+import { createTemplate, getTemplates } from '../repositories/interviewTemplateRepository';
+import { addNewTemplate, setCreateMode, setTemplates } from '../ui/state/interviewTemplateState';
 
 class InterviewTemplateFactory extends ModuleFactory<InterviewTemplateContext> {
-     build(options: FactoryOptions): InterviewTemplateContext {
+    build(options: FactoryOptions): InterviewTemplateContext {
         const { restClient, logger, notificator, authState } = commonContextFactory;
         const hideCreateTemplateInput = () => setCreateMode(false);
 
@@ -21,6 +21,12 @@ class InterviewTemplateFactory extends ModuleFactory<InterviewTemplateContext> {
             ),
             showCreateTemplateInput: () => setCreateMode(true),
             hideCreateTemplateInput,
+            initTemplatesList: initTemplatesList(
+                getTemplates(restClient.get),
+                setTemplates,
+                notificator,
+                logger,
+            ),
         }
     }
 }

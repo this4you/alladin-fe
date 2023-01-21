@@ -28,26 +28,6 @@ export const AddTemplateButton = styled(Button)`
   }
 `;
 
-export const NoTemplatesContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const NoTemplates = styled.div`
-  text-align: center;
-  color: ${({ theme }) => theme.secondaryText};
-  padding: 10px;
-  font-size: 16px;
-  width: 80%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const AddTemplateContainer = styled.div`
   display: flex;
   justify-content: center;
