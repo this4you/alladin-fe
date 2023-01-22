@@ -47,7 +47,7 @@ export const Menu: React.FC = () => {
             {
                 menuItems.map(item => {
                     return (
-                        <MenuItem key={item.name} {...item} isActive={item.url === activeCategory}/>
+                        <MenuItem key={item.name} {...item} isActive={activeCategory.includes(item.url)}/>
                     )
                 })
             }

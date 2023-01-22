@@ -1,10 +1,18 @@
 import { TemplateItemProps } from './types';
-import { TemplateItemContainer } from './styles';
+import { ActiveMarker, TemplateItemContainer, TemplateLink } from './styles';
 
 export const TemplateItem: React.FC<TemplateItemProps> = ({ interviewTemplateItem }) => {
+    const { name, id } = interviewTemplateItem;
+
     return (
         <TemplateItemContainer>
-            {interviewTemplateItem.name}
+            <TemplateLink
+                relative={'route'}
+                replace={true} to={`${id}`}
+            >
+                {name}
+                <ActiveMarker/>
+            </TemplateLink>
         </TemplateItemContainer>
     );
 }
