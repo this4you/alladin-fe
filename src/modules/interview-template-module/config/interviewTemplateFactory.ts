@@ -4,11 +4,13 @@ import { InterviewTemplateContext } from './context';
 import { createTemplate as createTemplateUseCase } from '../application/use-cases/template-list/createTemplate';
 import { initTemplatesList } from '../application/use-cases/template-list/initTemplatesList';
 import { createTemplate, getTemplates } from '../repositories/interviewTemplateRepository';
-import { addNewTemplate, setCreateMode, setTemplates } from '../ui/state/interviewTemplateState';
+import { addNewTemplate, getLoadedTemplates, setCreateMode, setFinished, setIsProcess, setTemplates } from '../ui/state/interviewTemplateListState';
+import { setTemplateItem } from '../ui/state/interviewTemplateState';
+import { setActiveTemplateItem } from '../application/use-cases/template-list/setActiveTemplateItem';
 
 class InterviewTemplateFactory extends ModuleFactory<InterviewTemplateContext> {
     build(options: FactoryOptions): InterviewTemplateContext {
-        const { restClient, logger, notificator, authState } = commonContextFactory;
+        const { restClient, logger, notificator } = commonContextFactory;
         const hideCreateTemplateInput = () => setCreateMode(false);
 
         return {
@@ -24,9 +26,13 @@ class InterviewTemplateFactory extends ModuleFactory<InterviewTemplateContext> {
             initTemplatesList: initTemplatesList(
                 getTemplates(restClient.get),
                 setTemplates,
+                setTemplateItem,
+                setIsProcess,
+                setFinished,
                 notificator,
                 logger,
             ),
+            setActiveTemplateItem: setActiveTemplateItem(setTemplateItem, getLoadedTemplates)
         }
     }
 }

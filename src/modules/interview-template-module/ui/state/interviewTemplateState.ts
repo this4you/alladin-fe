@@ -1,33 +1,18 @@
-import { action, computed, observable } from 'mobx';
+import { action, observable } from 'mobx';
 import { InterviewTemplateItem } from '../../application/models/InterviewTemplateItem';
 
 type InterviewTemplateState = {
-    templatesList: Array<InterviewTemplateItem>;
-    isCreateMode: boolean;
+    templateItem: InterviewTemplateItem | null
 };
 
 //state
 export const interviewTemplateState = observable.object<InterviewTemplateState>({
-    templatesList: [],
-    isCreateMode: false,
+    templateItem: null
 });
 
 //computed
-export const displayNoItemsBlock = computed(() => {
-    return interviewTemplateState.templatesList.length == 0
-})
 
 //actions
-export const setTemplates = action((templates: Array<InterviewTemplateItem>) => {
-    interviewTemplateState.templatesList = templates;
-    setCreateMode(false);
-});
-
-export const addNewTemplate = action((template: InterviewTemplateItem) => {
-    interviewTemplateState.templatesList = [...interviewTemplateState.templatesList, template];
-    setCreateMode(false);
-});
-
-export const setCreateMode = action((isCreateMode = true) => {
-    interviewTemplateState.isCreateMode = isCreateMode;
+export const setTemplateItem = action((item: InterviewTemplateItem) => {
+    interviewTemplateState.templateItem = item;
 });

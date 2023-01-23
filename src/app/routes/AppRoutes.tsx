@@ -34,7 +34,7 @@ export const AppRoutes: React.FC = () => (
                             <TemplatesConfigContainer/>
                         </Suspense>
                     }>
-                        <Route path={':id'}/>
+                        <Route path={':templateId'}/>
                     </Route>
                     <Route path="*" element={<Navigate to="/dashboard" replace/>}/>
                 </Route>

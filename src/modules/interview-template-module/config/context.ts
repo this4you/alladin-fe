@@ -4,12 +4,14 @@ import { createTemplate } from '../application/use-cases/template-list/createTem
 import { showCreateTemplateInput } from '../application/use-cases/template-list/showCreateTemplateInput';
 import { hideCreateTemplateInput } from '../application/use-cases/template-list/hideCreateTemplateInput';
 import { initTemplatesList } from '../application/use-cases/template-list/initTemplatesList';
+import { setActiveTemplateItem } from '../application/use-cases/template-list/setActiveTemplateItem';
 
 export type InterviewTemplateContext = {
     createTemplate: ReturnType<typeof createTemplate>;
     showCreateTemplateInput: ReturnType<typeof showCreateTemplateInput>;
     hideCreateTemplateInput: ReturnType<typeof hideCreateTemplateInput>;
     initTemplatesList: ReturnType<typeof initTemplatesList>;
+    setActiveTemplateItem: ReturnType<typeof setActiveTemplateItem>;
 }
 
 const connector = createConnector<InterviewTemplateContext>();

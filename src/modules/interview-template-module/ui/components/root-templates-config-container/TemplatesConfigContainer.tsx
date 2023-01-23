@@ -1,5 +1,5 @@
 import { TemplatesConfigWrapper } from './styles';
-import TemplateContent from '../template-content/TemplateContent';
+import { TemplateContent } from '../template-content';
 import { Provider } from 'modules/interview-template-module/config/context';
 import { useEffect } from 'react';
 import { interviewTemplateFactory } from 'modules/interview-template-module/config/interviewTemplateFactory';

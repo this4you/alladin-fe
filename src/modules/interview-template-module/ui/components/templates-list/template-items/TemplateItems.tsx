@@ -1,14 +1,23 @@
 import { NoTemplates, TemplateItemsContainer } from './styles';
-import { displayNoItemsBlock, interviewTemplateState } from '../../../state/interviewTemplateState';
+import { displayNoItemsBlock, interviewTemplateListState as state } from '../../../state/interviewTemplateListState';
 import { TemplateItemsProps } from './types';
 import { useEffect } from 'react';
 import { TemplateItem } from '../template-item/TemplateItem';
+import { useParams } from 'react-router-dom';
+import { LoadingState } from 'commons/state/LoadingState';
 
-export const TemplateItems: React.FC<TemplateItemsProps> = ({ initTemplatesList }) => {
+export const TemplateItems: React.FC<TemplateItemsProps> = ({ initTemplatesList, setActiveTemplateItem }) => {
+    const { templateId } = useParams();
 
     useEffect(() => {
-        initTemplatesList();
+        initTemplatesList(templateId || null);
     }, [initTemplatesList]);
+
+    useEffect(() => {
+        if (state.loadingState === LoadingState.Finished && templateId) {
+            setActiveTemplateItem(templateId);
+        }
+    }, [templateId])
 
     return (
         <TemplateItemsContainer>
@@ -20,7 +29,7 @@ export const TemplateItems: React.FC<TemplateItemsProps> = ({ initTemplatesList 
                 )
             }
             {
-                interviewTemplateState.templatesList.map((item) =>
+                state.templatesList.map((item) =>
                     <TemplateItem key={item.id} interviewTemplateItem={item}/>
                 )
             }

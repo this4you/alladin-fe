@@ -1,6 +1,6 @@
 import { AddButtonContainer, AddTemplateButton, ConfigContainer, SearchField, TemplatesListContainer } from './styles';
 import { CreateTemplateInput } from './create-template-input';
-import { interviewTemplateState } from '../../state/interviewTemplateState';
+import { interviewTemplateListState } from '../../state/interviewTemplateListState';
 import { TemplatesListProps } from './types';
 import { TemplateItems } from './template-items';
 import { IoMdAddCircleOutline } from 'react-icons/io';
@@ -9,7 +9,7 @@ export const TemplatesList: React.FC<TemplatesListProps> = ({ showCreateTemplate
     return (
         <TemplatesListContainer header={'Templates'}>
             <ConfigContainer>
-                {interviewTemplateState.isCreateMode ?
+                {interviewTemplateListState.isCreateMode ?
                     <CreateTemplateInput/> :
                     <AddButtonContainer>
                         <AddTemplateButton

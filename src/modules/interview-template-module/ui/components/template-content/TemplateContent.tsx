@@ -1,11 +1,10 @@
 import { TemplateContentContainer } from './styles';
+import { interviewTemplateState } from '../../state/interviewTemplateState';
 
-const TemplateContent: React.FC = () => {
+export const TemplateContent: React.FC = () => {
     return (
-        <TemplateContentContainer header={'Interview template details'}>
+        <TemplateContentContainer header={ interviewTemplateState.templateItem?.name || 'Interview template details'}>
 
         </TemplateContentContainer>
     );
 }
-
-export default TemplateContent;
