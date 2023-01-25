@@ -19,6 +19,10 @@ const globalStyle = createGlobalStyle`
     outline: 0;
   }
 
+  html {
+    overflow-y: scroll;
+  }
+
   body {
     -webkit-font-smoothing: antialiased;
     height: 100vh;
