@@ -16,15 +16,15 @@ export enum HttpMethod {
 export type RestCommandType = <TRequest, TResponse>(props: CommandProps, request?: TRequest) => Promise<TResponse>;
 export type RestGetType = <T>(url: string, requestParameters?: RequestParameters) => Promise<T>;
 export type RestCreateType = <TRequest, TResponse>(url: string, request?: TRequest, headers?: Record<string, string>) => Promise<TResponse>;
+export type RestDeleteType = (url: string) => Promise<void>;
 
 export interface RestClient {
     command: RestCommandType;
-    get: RestGetType
+    get: RestGetType;
     create: RestCreateType;
+    delete: RestDeleteType;
 
     // update<TRequest, TResponse>(url: string, request: TRequest): Promise<TResponse>;
 
     // updatePartially<TRequest, TResponse>(url: string, request: TRequest): Promise<TResponse>;
-
-    // delete(url: string): Promise<void>;
 }

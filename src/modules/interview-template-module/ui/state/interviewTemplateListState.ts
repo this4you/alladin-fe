@@ -35,6 +35,12 @@ export const addNewTemplate = action((template: InterviewTemplateItem) => {
     setCreateMode(false);
 });
 
+export const removeTemplate = action((id: string) => {
+    interviewTemplateListState.templatesList = [
+        ...interviewTemplateListState.templatesList.filter(i => i.id !== id)
+    ]
+});
+
 export const setCreateMode = action((isCreateMode = true) => {
     interviewTemplateListState.isCreateMode = isCreateMode;
 });

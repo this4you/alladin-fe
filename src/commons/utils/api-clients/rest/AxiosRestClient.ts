@@ -5,7 +5,8 @@ import { MobXAuthState } from 'commons/state/MobXAuthState';
 export class AxiosRestClient implements RestClient {
     constructor(
         private authState: MobXAuthState
-    ) {}
+    ) {
+    }
 
     command<TRequest, TResponse>(props: CommandProps, request?: TRequest): Promise<TResponse> {
         return this.getAxios().request<TRequest, TResponse>({
@@ -29,10 +30,11 @@ export class AxiosRestClient implements RestClient {
             data: request
         });
     }
-    //
-    // delete(url: string): Promise<void> {
-    //     return Promise.resolve(undefined);
-    // }
+
+    delete(url: string): Promise<void> {
+        return this.getAxios().delete(url);
+    }
+
     //
     // get<T>(url: string, requestParameters?: RequestParameters): Promise<T> {
     //     return Promise.resolve(undefined);

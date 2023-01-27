@@ -48,6 +48,7 @@ export const UserMenu = styled.div`
   border-radius: 0 0 20px 20px;
   border: 1px solid;
   border-color: ${({ theme }) => theme.primary};
+  z-index: 3;
 `;
 
 export const UserPanelWrapper = styled.div`
@@ -64,7 +65,7 @@ export const UserPanelContent = styled.div`
   align-items: center;
   width: 140px;
   height: 65px;
-  z-index: 2;
+  z-index: 4;
   color: ${({ theme }) => theme.secondaryText};
   background-color: ${({ theme }) => theme.blockColor};
   border-radius: 0 0 20px 20px;

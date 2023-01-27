@@ -12,6 +12,7 @@ export const ContentBlockHeader = styled.div`
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.blockSecondary};
   display: flex;
+  max-height: 50px;
   min-height: 50px;
   width: 100%;
   justify-content: center;

@@ -16,3 +16,7 @@ export const interviewTemplateState = observable.object<InterviewTemplateState>(
 export const setTemplateItem = action((item: InterviewTemplateItem) => {
     interviewTemplateState.templateItem = item;
 });
+
+export const clearTemplateItem = action(() => {
+    interviewTemplateState.templateItem = null;
+});
