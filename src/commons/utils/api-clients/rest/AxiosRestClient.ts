@@ -53,7 +53,7 @@ export class AxiosRestClient implements RestClient {
             baseURL: 'http://localhost:8000/' //TODO move to .env,
         });
 
-        instance.defaults.headers.common['x-access-token'] = this.authState.token;
+        instance.defaults.headers.common['authorization'] = `Bearer ${this.authState.token}`;
 
         //TODO Move to seperated functions
         instance.interceptors.response.use((response) => {
