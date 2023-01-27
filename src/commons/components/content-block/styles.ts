@@ -18,8 +18,8 @@ export const ContentBlockHeader = styled.div`
   justify-content: center;
   align-items: center;
   font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 1rem;
   line-height: 27px;
   border-radius: 20px 20px 0 0;
 `;

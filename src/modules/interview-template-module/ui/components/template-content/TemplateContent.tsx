@@ -1,9 +1,12 @@
-import { DeleteTemplateButton, TemplateContentContainer, TemplateContentHeader } from './styles';
+import { TemplateContentContainer, TemplateContentHeader } from './styles';
 import { interviewTemplateState } from '../../state/interviewTemplateState';
 import { MdDeleteOutline } from 'react-icons/md';
 import { IconButton } from '@mui/material';
 import { TemplateContentProps } from './types';
 import { useCallback } from 'react';
+import { TemplateContentHeaderName } from './template-content-header-name';
+
+const DEFAULT_HEADER_NAME = 'Interview template details';
 
 export const TemplateContent: React.FC<TemplateContentProps> = ({ deleteTemplate }) => {
 
@@ -19,7 +22,11 @@ export const TemplateContent: React.FC<TemplateContentProps> = ({ deleteTemplate
         <TemplateContentContainer>
             <TemplateContentHeader>
                 {
-                    interviewTemplateState.templateItem?.name || 'Interview template details'
+                    (
+                        interviewTemplateState.templateItem &&
+                        <TemplateContentHeaderName template={interviewTemplateState.templateItem}/>
+                    )
+                    || DEFAULT_HEADER_NAME
                 }
                 {
                     interviewTemplateState.templateItem &&

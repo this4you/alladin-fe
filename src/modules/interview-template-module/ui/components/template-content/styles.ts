@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { ContentBlockContainer, ContentBlockHeader } from 'commons/components/content-block/styles';
-import { Button } from '@mui/material';
 
 export const TemplateContentContainer = styled(ContentBlockContainer)`
   width: 100%;
@@ -8,16 +7,8 @@ export const TemplateContentContainer = styled(ContentBlockContainer)`
 `;
 
 export const TemplateContentHeader = styled(ContentBlockHeader)`
-    padding: 20px;
-    justify-content: space-between;
-`;
-
-export const DeleteTemplateButton = styled(Button)`
-  &.MuiButton-root {
-    width: 85px;
-    height: 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    text-transform: none;
-  }
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 10px;
+  justify-content: space-between;
 `;
