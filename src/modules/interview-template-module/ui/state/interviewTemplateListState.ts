@@ -41,6 +41,13 @@ export const removeTemplate = action((id: string) => {
     ]
 });
 
+export const updateTemplate = action((templateItem: InterviewTemplateItem) => {
+    interviewTemplateListState.templatesList = interviewTemplateListState.templatesList.map((it) =>
+        it.id === templateItem.id ? templateItem : it
+    )
+
+});
+
 export const setCreateMode = action((isCreateMode = true) => {
     interviewTemplateListState.isCreateMode = isCreateMode;
 });

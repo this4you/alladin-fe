@@ -35,14 +35,19 @@ export class AxiosRestClient implements RestClient {
         return this.getAxios().delete(url);
     }
 
+    update<TRequest, TResponse>(url: string, request: TRequest): Promise<TResponse> {
+        return this.getAxios().request<TRequest, TResponse>({
+            url: url,
+            method: HttpMethod.PUT,
+            data: request
+        });
+    }
+
     //
     // get<T>(url: string, requestParameters?: RequestParameters): Promise<T> {
     //     return Promise.resolve(undefined);
     // }
     //
-    // update<TRequest, TResponse>(url: string, request: TRequest): Promise<TResponse> {
-    //     return Promise.resolve(undefined);
-    // }
     //
     // updatePartially<TRequest, TResponse>(url: string, request: TRequest): Promise<TResponse> {
     //     return Promise.resolve(undefined);

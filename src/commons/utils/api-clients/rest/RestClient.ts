@@ -17,14 +17,14 @@ export type RestCommandType = <TRequest, TResponse>(props: CommandProps, request
 export type RestGetType = <T>(url: string, requestParameters?: RequestParameters) => Promise<T>;
 export type RestCreateType = <TRequest, TResponse>(url: string, request?: TRequest, headers?: Record<string, string>) => Promise<TResponse>;
 export type RestDeleteType = (url: string) => Promise<void>;
+export type RestUpdateType = <TRequest, TResponse>(url: string, request: TRequest) => Promise<TResponse>;
 
 export interface RestClient {
     command: RestCommandType;
     get: RestGetType;
     create: RestCreateType;
     delete: RestDeleteType;
-
-    // update<TRequest, TResponse>(url: string, request: TRequest): Promise<TResponse>;
+    update: RestUpdateType;
 
     // updatePartially<TRequest, TResponse>(url: string, request: TRequest): Promise<TResponse>;
 }

@@ -1,1 +1,1 @@
-export { TemplateContentHeaderName } from './TemplateContentHeaderName';
+export { TemplateContentHeaderName } from './connect';

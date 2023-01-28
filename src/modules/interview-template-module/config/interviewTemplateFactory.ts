@@ -3,11 +3,12 @@ import { commonContextFactory } from 'commons/config/commonFactory';
 import { InterviewTemplateContext } from './context';
 import { createTemplate as createTemplateUseCase } from '../application/use-cases/template-list/createTemplate';
 import { initTemplatesList } from '../application/use-cases/template-list/initTemplatesList';
-import { createTemplate, deleteTemplate, getTemplates } from '../repositories/interviewTemplateRepository';
-import { addNewTemplate, getLoadedTemplates, removeTemplate, setCreateMode, setFinished, setIsProcess, setTemplates } from '../ui/state/interviewTemplateListState';
+import { createTemplate, deleteTemplate, getTemplates, update } from '../repositories/interviewTemplateRepository';
+import { addNewTemplate, getLoadedTemplates, removeTemplate, setCreateMode, setFinished, setIsProcess, setTemplates, updateTemplate } from '../ui/state/interviewTemplateListState';
 import { clearTemplateItem, setTemplateItem } from '../ui/state/interviewTemplateState';
 import { setActiveTemplateItem } from '../application/use-cases/template-list/setActiveTemplateItem';
 import { deleteTemplate as deleteTemplateUseCase } from '../application/use-cases/template-list/deleteTemplate';
+import { updateTemplate as updateTemplateUseCase } from '../application/use-cases/template-list/updateTemplate';
 
 class InterviewTemplateFactory extends ModuleFactory<InterviewTemplateContext> {
     build(options: FactoryOptions): InterviewTemplateContext {
@@ -26,6 +27,12 @@ class InterviewTemplateFactory extends ModuleFactory<InterviewTemplateContext> {
                 deleteTemplate(restClient.delete),
                 removeTemplate,
                 clearTemplateItem,
+                logger,
+                notificator
+            ),
+            updateTemplate: updateTemplateUseCase(
+                update(restClient.update),
+                updateTemplate,
                 logger,
                 notificator
             ),
