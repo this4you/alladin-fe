@@ -18,7 +18,6 @@ export const TemplatesList: React.FC<TemplatesListProps> = ({ showCreateTemplate
                             startIcon={<IoMdAddCircleOutline/>}>
                             Add template
                         </AddTemplateButton>
-                        <SearchField placeholder={'Search ...'} variant="standard" />
                     </AddButtonContainer>
                 }
             </ConfigContainer>

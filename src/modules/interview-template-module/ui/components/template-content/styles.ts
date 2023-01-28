@@ -12,3 +12,10 @@ export const TemplateContentHeader = styled(ContentBlockHeader)`
   padding: 10px;
   justify-content: space-between;
 `;
+
+export const TemplateContentHeaderLabel = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;

@@ -25,6 +25,7 @@ export const AddTemplateButton = styled(Button)`
 export const ConfigContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: 110px;
 `;
