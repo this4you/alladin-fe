@@ -22,6 +22,7 @@ export const CreateTemplateInput: React.FC<CreateTemplateInputProps> = ({ create
                 placeholder={'What is template name?'}
                 variant="outlined"
                 value={name}
+                autoFocus={true}
                 onChange={onChangeNameInput}
             />
             <CreateTemplateButtonsContainer>
