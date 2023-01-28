@@ -1,0 +1,1 @@
+export { default as TemplatesConfigContainer } from './ui/components/root-templates-config-container/TemplatesConfigContainer';

@@ -13,18 +13,18 @@ export enum HttpMethod {
     DELETE = 'DELETE'
 }
 
-export type restCommandType = <TRequest, TResponse>(props: CommandProps, request?: TRequest) => Promise<TResponse>;
-export type restGetType = <T>(url: string, requestParameters?: RequestParameters) => Promise<T>;
+export type RestCommandType = <TRequest, TResponse>(props: CommandProps, request?: TRequest) => Promise<TResponse>;
+export type RestGetType = <T>(url: string, requestParameters?: RequestParameters) => Promise<T>;
+export type RestCreateType = <TRequest, TResponse>(url: string, request?: TRequest, headers?: Record<string, string>) => Promise<TResponse>;
+export type RestDeleteType = (url: string) => Promise<void>;
+export type RestUpdateType = <TRequest, TResponse>(url: string, request: TRequest) => Promise<TResponse>;
 
 export interface RestClient {
-    command: restCommandType;
-    get: restGetType
-
-    // create<TRequest, TResponse>(url: string, request?: TRequest, headers?: Record<string, string>): Promise<TResponse>;
-
-    // update<TRequest, TResponse>(url: string, request: TRequest): Promise<TResponse>;
+    command: RestCommandType;
+    get: RestGetType;
+    create: RestCreateType;
+    delete: RestDeleteType;
+    update: RestUpdateType;
 
     // updatePartially<TRequest, TResponse>(url: string, request: TRequest): Promise<TResponse>;
-
-    // delete(url: string): Promise<void>;
 }

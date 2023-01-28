@@ -5,6 +5,8 @@ export interface ThemeProps {
     background: string;
 
     blockColor: string;
+    blockSecondary: string;
+    blockSecondary_200: string;
 
     text: string;
 
