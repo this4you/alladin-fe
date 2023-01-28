@@ -15,7 +15,6 @@ export const AddTemplateButton = styled(Button)`
   &.MuiButton-root {
     width: 150px;
     height: 35px;
-    margin-top: 10px;
     border-radius: 40px;
     cursor: pointer;
     text-transform: none;

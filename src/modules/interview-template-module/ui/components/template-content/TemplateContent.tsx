@@ -5,6 +5,7 @@ import { IconButton } from '@mui/material';
 import { TemplateContentProps } from './types';
 import { useCallback } from 'react';
 import { TemplateContentHeaderName } from './template-content-header-name';
+import { TemplateStepsList } from './template-steps-list';
 
 const DEFAULT_HEADER_NAME = 'Interview template details';
 
@@ -39,6 +40,7 @@ export const TemplateContent: React.FC<TemplateContentProps> = ({ deleteTemplate
                     </IconButton>
                 }
             </TemplateContentHeader>
+            <TemplateStepsList/>
         </TemplateContentContainer>
     );
 }
