@@ -19,8 +19,17 @@ const globalStyle = createGlobalStyle`
     outline: 0;
   }
 
-  html {
-    overflow-y: scroll;
+  div {
+    scrollbar-gutter: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${({ theme }: GlobalThemeProps) => theme.scroll};
+      border-radius: 10px;
+    }
   }
 
   body {

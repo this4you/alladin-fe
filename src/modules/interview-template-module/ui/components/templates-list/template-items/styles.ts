@@ -14,17 +14,7 @@ export const NoTemplates = styled.div`
 
 export const TemplateItemsContainer = styled.div`
   height: 100%;
-  overflow-y: auto;
-  scrollbar-gutter: auto;
   padding-left: 10px;
   padding-right: 10px;
-
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #3c3d44;
-    border-radius: 10px;
-  }
+  overflow-y: auto;
 `;
