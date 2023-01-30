@@ -17,17 +17,11 @@ export const TemplateStepsAddButtonContainer = styled.div`
 
 export const TemplateStepsItemsContainer = styled.div`
   overflow-y: inherit;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
   padding: 0 30px 30px;
-
-  //TODO need to fix
-  &::after {
-    content: "";
-    width: 202px;
-    height: 132px;
-  }
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap:20px;
+  grid-template-columns: repeat(auto-fill, minmax(202px, 1fr));
 `;
 
 export const TemplateStepsItemsEmptyContainer = styled.div`

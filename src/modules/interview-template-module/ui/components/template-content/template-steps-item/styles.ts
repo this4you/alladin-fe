@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const TemplateStepsItemContainer = styled.div`
   position: relative;
   cursor: pointer;
-  width: 202px;
-  margin-bottom: 30px;
   height: 132px;
   border-radius: 12px;
   background-color: ${({ theme }) => theme.blockSecondary};
