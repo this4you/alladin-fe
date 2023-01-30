@@ -1,3 +1,3 @@
 export type TemplatesListProps = {
-    showCreateTemplateInput: () => void
+    createTemplate: (name: string) => Promise<void>;
 }

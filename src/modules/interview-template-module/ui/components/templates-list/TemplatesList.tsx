@@ -1,25 +1,18 @@
-import { AddButtonContainer, AddTemplateButton, ConfigContainer, SearchField, TemplatesListContainer } from './styles';
-import { CreateTemplateInput } from './create-template-input';
-import { interviewTemplateListState } from '../../state/interviewTemplateListState';
+import {ConfigContainer, TemplatesListContainer } from './styles';
 import { TemplatesListProps } from './types';
 import { TemplateItems } from './template-items';
-import { IoMdAddCircleOutline } from 'react-icons/io';
+import { AddNameButton } from '../add-name-button';
 
-export const TemplatesList: React.FC<TemplatesListProps> = ({ showCreateTemplateInput }) => {
+export const TemplatesList: React.FC<TemplatesListProps> = ({ createTemplate }) => {
     return (
         <TemplatesListContainer header={'Templates'}>
             <ConfigContainer>
-                {interviewTemplateListState.isCreateMode ?
-                    <CreateTemplateInput/> :
-                    <AddButtonContainer>
-                        <AddTemplateButton
-                            onClick={showCreateTemplateInput}
-                            variant={'outlined'}
-                            startIcon={<IoMdAddCircleOutline/>}>
-                            Add template
-                        </AddTemplateButton>
-                    </AddButtonContainer>
-                }
+                <AddNameButton
+                    style={{ width: '220px' }}
+                    onCreate={createTemplate}
+                    label={'Add template'}
+                    inputPlaceholder={'What is template name?'}
+                />
             </ConfigContainer>
             <TemplateItems/>
         </TemplatesListContainer>

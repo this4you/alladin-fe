@@ -3,5 +3,5 @@ import { TemplatesList as component} from './TemplatesList';
 
 export const TemplatesList = connect(
     component,
-    'showCreateTemplateInput'
+    'createTemplate'
 )

@@ -4,14 +4,12 @@ import { LoadingState } from '../../../../commons/state/LoadingState';
 
 type InterviewTemplateListState = {
     templatesList: Array<InterviewTemplateItem>;
-    isCreateMode: boolean;
     loadingState: LoadingState;
 };
 
 //state
 export const interviewTemplateListState = observable.object<InterviewTemplateListState>({
     templatesList: [],
-    isCreateMode: false,
     loadingState: LoadingState.NotStarted,
 });
 
@@ -23,7 +21,6 @@ export const displayNoItemsBlock = computed(() => {
 //actions
 export const setTemplates = action((templates: Array<InterviewTemplateItem>) => {
     interviewTemplateListState.templatesList = templates;
-    setCreateMode(false);
 });
 
 export const getLoadedTemplates = action(() => {
@@ -32,7 +29,6 @@ export const getLoadedTemplates = action(() => {
 
 export const addNewTemplate = action((template: InterviewTemplateItem) => {
     interviewTemplateListState.templatesList = [...interviewTemplateListState.templatesList, template];
-    setCreateMode(false);
 });
 
 export const removeTemplate = action((id: string) => {
@@ -46,10 +42,6 @@ export const updateTemplate = action((templateItem: InterviewTemplateItem) => {
         it.id === templateItem.id ? templateItem : it
     )
 
-});
-
-export const setCreateMode = action((isCreateMode = true) => {
-    interviewTemplateListState.isCreateMode = isCreateMode;
 });
 
 export const setIsProcess = action(() => interviewTemplateListState.loadingState = LoadingState.InProcess);

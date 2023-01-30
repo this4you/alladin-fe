@@ -1,6 +1,7 @@
 import { TemplateStepsListProps } from './types';
-import { TemplateStepsListContainer } from './styles';
+import { TemplateStepsAddButtonContainer, TemplateStepsItemsContainer, TemplateStepsListContainer } from './styles';
 import { TemplateStepsItem } from '../template-steps-item';
+import { AddNameButton } from '../../add-name-button';
 
 const list = [
     {
@@ -41,10 +42,16 @@ const list = [
 
 ];
 
-export const TemplateStepsList: React.FC<TemplateStepsListProps> = ({}) => {
+export const TemplateStepsList: React.FC<TemplateStepsListProps> = () => {
     return (
         <TemplateStepsListContainer>
-            {list.map(it => <TemplateStepsItem step={it}/>)}
+            <TemplateStepsAddButtonContainer>
+                <AddNameButton style={{ width: '300px' }} onCreate={() => {
+                }} label={'Add template step'} inputPlaceholder={'What is name of step?'}/>
+            </TemplateStepsAddButtonContainer>
+            <TemplateStepsItemsContainer>
+                {list.map(it => <TemplateStepsItem step={it}/>)}
+            </TemplateStepsItemsContainer>
         </TemplateStepsListContainer>
     );
 }

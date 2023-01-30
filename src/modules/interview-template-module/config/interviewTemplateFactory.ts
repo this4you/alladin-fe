@@ -4,7 +4,7 @@ import { InterviewTemplateContext } from './context';
 import { createTemplate as createTemplateUseCase } from '../application/use-cases/template-list/createTemplate';
 import { initTemplatesList } from '../application/use-cases/template-list/initTemplatesList';
 import { createTemplate, deleteTemplate, getTemplates, update } from '../repositories/interviewTemplateRepository';
-import { addNewTemplate, getLoadedTemplates, removeTemplate, setCreateMode, setFinished, setIsProcess, setTemplates, updateTemplate } from '../ui/state/interviewTemplateListState';
+import { addNewTemplate, getLoadedTemplates, removeTemplate, setFinished, setIsProcess, setTemplates, updateTemplate } from '../ui/state/interviewTemplateListState';
 import { clearTemplateItem, setTemplateItem } from '../ui/state/interviewTemplateState';
 import { setActiveTemplateItem } from '../application/use-cases/template-list/setActiveTemplateItem';
 import { deleteTemplate as deleteTemplateUseCase } from '../application/use-cases/template-list/deleteTemplate';
@@ -13,13 +13,11 @@ import { updateTemplate as updateTemplateUseCase } from '../application/use-case
 class InterviewTemplateFactory extends ModuleFactory<InterviewTemplateContext> {
     build(options: FactoryOptions): InterviewTemplateContext {
         const { restClient, logger, notificator } = commonContextFactory;
-        const hideCreateTemplateInput = () => setCreateMode(false);
 
         return {
             createTemplate: createTemplateUseCase(
                 createTemplate(restClient.create),
                 addNewTemplate,
-                hideCreateTemplateInput,
                 logger,
                 notificator
             ),
@@ -36,8 +34,6 @@ class InterviewTemplateFactory extends ModuleFactory<InterviewTemplateContext> {
                 logger,
                 notificator
             ),
-            showCreateTemplateInput: () => setCreateMode(true),
-            hideCreateTemplateInput,
             initTemplatesList: initTemplatesList(
                 getTemplates(restClient.get),
                 setTemplates,
