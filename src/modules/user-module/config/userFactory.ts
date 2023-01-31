@@ -4,12 +4,12 @@ import { initUserInfoUseCase } from '../application/use-cases/initUserInfoUseCas
 import { getUser } from '../repositories/userRepository';
 import { commonContextFactory } from 'commons/config/commonFactory';
 import { showUserContent } from '../ui/state/userState';
-import { authModuleFactory } from '../../auth-module/config/authFactory';
+import { authModuleFactory } from '../../auth/config/authFactory';
 
 class UserModuleFactory extends ModuleFactory<UserContext> {
     protected build(options: FactoryOptions): UserContext {
         const { restClient, logger, authState } = commonContextFactory;
-        const { logOutUseCase } = authModuleFactory.get({ key: 'auth-module' });
+        const { logOutUseCase } = authModuleFactory.get({ key: 'auth' });
 
         return {
             initUserInfoUseCase: initUserInfoUseCase(

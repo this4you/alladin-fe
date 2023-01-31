@@ -1,1 +1,0 @@
-export { TemplateContent } from './connect';

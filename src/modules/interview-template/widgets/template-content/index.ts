@@ -1,0 +1,1 @@
+export { TemplateContent } from './TemplateContent';

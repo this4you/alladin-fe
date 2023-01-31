@@ -17,6 +17,7 @@ const globalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: 0;
+    transition: all 0.3s ease-out;
   }
 
   div {
