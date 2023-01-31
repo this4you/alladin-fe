@@ -7,12 +7,13 @@ import { TemplateContent } from '../../widgets/template-content';
 
 const InterviewTemplateModule: React.FC = () => {
     const context = interviewTemplateFactory.get({
-        key: 'template-list-config-container'
+        key: 'template-list'
     });
 
     useEffect(() => (): void => {
         interviewTemplateFactory.clear();
     });
+
     return (
         <Provider moduleContext={context}>
             <InterviewTemplateModuleContainer>

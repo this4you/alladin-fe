@@ -9,11 +9,3 @@ export const TemplatesListContainer = styled(ContentBlock)`
   margin-left: 20px;
   margin-right: 20px;
 `;
-
-export const ConfigContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 110px;
-`;

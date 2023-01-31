@@ -1,7 +1,7 @@
 import { connect } from 'modules/interview-template/template-list/config/interviewTemplateContext';
-import { TemplatesList as component} from './TemplatesList';
+import { AddTemplateButton as component} from './AddTemplateButton';
 
-export const TemplatesList = connect(
+export const AddTemplateButton = connect(
     component,
     'createTemplate'
 )
