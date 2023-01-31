@@ -1,1 +1,1 @@
-export { TemplateContent } from './TemplateContent';
+export { TemplateContent } from './connect';

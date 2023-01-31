@@ -1,20 +1,6 @@
 import styled from 'styled-components';
 import { FlexMixin } from 'commons/styles/mixins';
 
-export const TemplateStepsListContainer = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-`;
-
-export const TemplateStepsAddButtonContainer = styled.div`
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-`;
-
 export const TemplateStepsItemsContainer = styled.div`
   overflow-y: inherit;
   padding: 0 30px 30px;
