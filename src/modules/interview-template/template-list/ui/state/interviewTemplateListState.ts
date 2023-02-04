@@ -34,14 +34,13 @@ export const addNewTemplate = action((template: InterviewTemplateItem) => {
 export const removeTemplate = action((id: string) => {
     interviewTemplateListState.templatesList = [
         ...interviewTemplateListState.templatesList.filter(i => i.id !== id)
-    ]
+    ];
 });
 
 export const updateTemplate = action((templateItem: InterviewTemplateItem) => {
     interviewTemplateListState.templatesList = interviewTemplateListState.templatesList.map((it) =>
         it.id === templateItem.id ? templateItem : it
-    )
-
+    );
 });
 
 export const setIsProcess = action(() => interviewTemplateListState.loadingState = LoadingState.InProcess);

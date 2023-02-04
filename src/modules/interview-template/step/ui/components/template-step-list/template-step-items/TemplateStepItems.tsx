@@ -4,18 +4,18 @@ import { TemplateStepsItem } from '../template-step-item';
 import { useEffect } from 'react';
 import { TemplateStepsItemsContainer, TemplateStepsItemsEmptyContainer } from './styles';
 
-export const TemplateStepItems: React.FC<TemplateStepItemsProps> = ({ initTemplateStepsList }) => {
+export const TemplateStepItems: React.FC<TemplateStepItemsProps> = ({ initTemplateStepsList, templateId }) => {
 
     useEffect(() => {
-        initTemplateStepsList();
-    }, []);
+        initTemplateStepsList(templateId);
+    }, [templateId]);
 
     return (
         <>
             {
-                interviewTemplateStepsState.stepList.length > 0 ?
+                interviewTemplateStepsState.stepsList.length > 0 ?
                     (<TemplateStepsItemsContainer>
-                        {interviewTemplateStepsState.stepList.map(it => <TemplateStepsItem key={it.id} step={it}/>)}
+                        {interviewTemplateStepsState.stepsList.map(it => <TemplateStepsItem key={it.id} step={it}/>)}
                     </TemplateStepsItemsContainer>)
                     :
                     (<TemplateStepsItemsEmptyContainer>

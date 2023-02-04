@@ -3,14 +3,13 @@ import { Logger } from 'commons/utils/logger/Logger';
 import { InterviewTemplateStep } from '../models/InterviewTemplateStep';
 
 export const initTemplateStepsList = (
-    templateId: string,
     getTemplateSteps: (templateId: string) => Promise<InterviewTemplateStep[]>,
     setTemplateStepsToState: (templates: InterviewTemplateStep[]) => void,
     setIsProcess: () => void,
     setFinished: () => void,
     notificator: Notificator,
     logger: Logger
-) => async () => {
+) => async (templateId: string) => {
     try {
         setIsProcess();
 

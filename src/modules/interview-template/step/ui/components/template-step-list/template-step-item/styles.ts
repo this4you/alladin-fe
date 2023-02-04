@@ -1,4 +1,18 @@
 import styled from 'styled-components';
+import { IconButton } from '@mui/material';
+
+export const DeleteStepButton = styled(IconButton)`
+  opacity: 0;
+
+  &.MuiButtonBase-root {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+`;
+
 
 export const TemplateStepsItemContainer = styled.div`
   position: relative;
@@ -14,11 +28,16 @@ export const TemplateStepsItemContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   :hover {
-    background-color: ${({ theme }) => theme.primary_hover};
+    background-color: ${({ theme }) => theme.blockSecondary_200};
+
+    ${DeleteStepButton} {
+      opacity: 1;
+    }
   }
 `;
+
 
 export const IndexContainer = styled.div`
   position: absolute;

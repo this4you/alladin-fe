@@ -1,6 +1,6 @@
 import { LoadingState } from 'commons/state/LoadingState';
 import { InterviewTemplateStep } from '../../application/models/InterviewTemplateStep';
-import { action } from 'mobx';
+import { action, observable } from 'mobx';
 
 type InterviewTemplateStepsState = {
     stepsList: Array<InterviewTemplateStep>;
@@ -8,85 +8,31 @@ type InterviewTemplateStepsState = {
 };
 
 //state
-export const interviewTemplateStepsState = {
-    stepList: [ {
-        id: '1',
-        position: 1,
-        name: 'HR'
-    },
-        {
-            id: '2',
-            position: 2,
-            name: 'English'
-        },
-        {
-            id: '3',
-            position: 3,
-            name: 'Technical'
-        },
-        {
-            id: '4',
-            position: 4,
-            name: 'Project manager'
-        },
-        {
-            id: '5',
-            position: 5,
-            name: 'Owner'
-        },
-        {
-            id: '6',
-            position: 6,
-            name: 'Salary discussion session'
-        },
-        {
-            id: '7',
-            position: 7,
-            name: 'On boarding'
-        },
-        {
-            id: '7',
-            position: 7,
-            name: 'On boarding'
-        },
-        {
-            id: '7',
-            position: 7,
-            name: 'On boarding'
-        },
-        {
-            id: '7',
-            position: 7,
-            name: 'On boarding'
-        },{
-            id: '7',
-            position: 7,
-            name: 'On boarding'
-        },
-        {
-            id: '7',
-            position: 7,
-            name: 'On boarding'
-        },
-        {
-            id: '7',
-            position: 7,
-            name: 'On boarding'
-        },
-        {
-            id: '7',
-            position: 7,
-            name: 'On boarding'
-        },
-
-
-    ],
+export const interviewTemplateStepsState = observable.object<InterviewTemplateStepsState>({
+    stepsList: [],
     loadingState: LoadingState.NotStarted,
-};
+});
 
 //computed
 
 //actions
 export const setIsProcess = action(() => interviewTemplateStepsState.loadingState = LoadingState.InProcess);
 export const setFinished = action(() => interviewTemplateStepsState.loadingState = LoadingState.Finished);
+
+export const setTemplateSteps = action((templateSteps: Array<InterviewTemplateStep>) => {
+    interviewTemplateStepsState.stepsList = templateSteps
+})
+
+export const addTemplateStep = action((templateStep: InterviewTemplateStep) => {
+    interviewTemplateStepsState.stepsList = [
+        ...interviewTemplateStepsState.stepsList,
+        templateStep
+    ]
+});
+
+export const removeTemplateStep = action((id: string) => {
+    interviewTemplateStepsState.stepsList = [
+        ...interviewTemplateStepsState.stepsList.filter(it => it.id !== id)
+    ];
+});
 
