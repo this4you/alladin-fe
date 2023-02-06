@@ -13,7 +13,6 @@ export const TemplateStepsItemsContainer = styled.div`
 export const TemplateStepsItemsEmptyContainer = styled.div`
   width: 100%;
   height: 100%;
-  olor: white;
-  font-size: 25px;
+  color: ${({ theme }) => theme.text};
   ${FlexMixin.center}
 `;
