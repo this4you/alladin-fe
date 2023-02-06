@@ -2,12 +2,13 @@ import { TemplateStepsItemProps } from './types';
 import { DeleteStepButton, IndexContainer, TemplateStepsItemContainer } from './styles';
 import { MdDeleteOutline } from 'react-icons/md';
 
-export const TemplateStepsItem: React.FC<TemplateStepsItemProps> = ({ step }) => {
+export const TemplateStepsItem: React.FC<TemplateStepsItemProps> = ({ step, deleteTemplateStep }) => {
     return (
         <TemplateStepsItemContainer key={step.id}>
             {step.name}
             <IndexContainer>{step.position}</IndexContainer>
-            <DeleteStepButton aria-label="delete" color={'primary'} size="large" onClick={() => {}}>
+            <DeleteStepButton aria-label="delete" color={'primary'} size="large"
+                              onClick={() => deleteTemplateStep(step.id)}>
                 <MdDeleteOutline/>
             </DeleteStepButton>
         </TemplateStepsItemContainer>
