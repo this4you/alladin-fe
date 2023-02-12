@@ -1,22 +1,18 @@
 import styled from 'styled-components';
 import { TextField } from '@mui/material';
 
-export const TemplateContentHeaderNameContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  height: 33px;
-  align-items: center;
-  padding-left: 10px;
-  border-radius: 10px;
-  width: 100%;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.blockColor};
-    cursor: text;
-  }
+export const LabelContainer = styled.div`
+    margin-left: 14px;
 `;
 
-export const TemplateContentHeaderNameEditField = styled(TextField)`
+export const EditFieldContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const EditField = styled(TextField)`
   &.MuiFormControl-root {
     width: 100%;
   }
@@ -26,13 +22,7 @@ export const TemplateContentHeaderNameEditField = styled(TextField)`
     border-radius: 13px;
   }
 `;
-export const TemplateContentHeaderNameEditFieldContainer = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  //width: 500px;
-  width: 100%;
-`;
+
 export const ButtonsContainer = styled.div`
   display: flex;
   position: absolute;
@@ -41,6 +31,7 @@ export const ButtonsContainer = styled.div`
   width: 44px;
   justify-content: space-between;
 `;
+
 export const IconContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -50,7 +41,7 @@ export const IconContainer = styled.div`
   border-radius: 7px;
   background-color: ${({ theme }) => theme.primary};
   cursor: pointer;
-  
+
   &:hover {
     background-color: ${({ theme }) => theme.primary_hover};
   }
