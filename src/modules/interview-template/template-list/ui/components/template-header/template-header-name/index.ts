@@ -1,1 +1,0 @@
-export { TemplateHeaderName } from './connect';

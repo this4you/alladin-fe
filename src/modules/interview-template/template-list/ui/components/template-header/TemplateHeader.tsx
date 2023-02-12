@@ -3,17 +3,16 @@ import { interviewTemplateState } from '../../state/interviewTemplateState';
 import { MdDeleteOutline } from 'react-icons/md';
 import { IconButton } from '@mui/material';
 import { useCallback } from 'react';
-import { TemplateHeaderName } from './template-header-name';
 import { TemplateHeaderProps } from './types';
-import { EditableLabel } from '../../../../../../commons/components/editable-label';
+import { EditableLabel } from 'commons/components/editable-label';
 import { InterviewTemplateItem } from '../../../application/models/InterviewTemplateItem';
 
 const DEFAULT_HEADER_NAME = 'Interview template-list details';
 
 export const TemplateHeader: React.FC<TemplateHeaderProps> = ({
-                                                                  deleteTemplate,
-                                                                  updateTemplate
-                                                              }) => {
+    deleteTemplate,
+    updateTemplate
+}) => {
     const onDeleteClick = useCallback(() => {
         if (interviewTemplateState.templateItem === null) {
             return;
