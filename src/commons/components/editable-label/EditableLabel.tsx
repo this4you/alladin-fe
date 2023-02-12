@@ -4,7 +4,11 @@ import { IoMdCheckmark } from 'react-icons/io';
 import { HiXMark } from 'react-icons/hi2';
 import { ButtonsContainer, EditField, EditFieldContainer, IconContainer, LabelContainer } from './styles';
 
-export const EditableLabel: React.FC<EditableLabelProps> = ({ label, labelChanged }) => {
+export const EditableLabel: React.FC<EditableLabelProps> = ({
+    label,
+    labelChanged,
+    hideButtons = false
+                                                            }) => {
     const [editMode, setEditMode] = useState(false);
     const [editValue, setEditValue] = useState(label);
 
@@ -47,27 +51,30 @@ export const EditableLabel: React.FC<EditableLabelProps> = ({ label, labelChange
         <>
             {
                 !editMode ?
-                <LabelContainer onClick={onLabelClick}>
-                    {editValue}
-                </LabelContainer>
-                :
-                <EditFieldContainer>
-                    <EditField
-                        variant='outlined'
-                        value={editValue}
-                        onChange={onFieldChanged}
-                        onBlur={onBlurHandler}
-                        autoFocus={true}
-                    />
-                    <ButtonsContainer>
-                        <IconContainer id={'save-template-list-name'} tabIndex={0} onClick={onSaveClick}>
-                            <IoMdCheckmark/>
-                        </IconContainer>
-                        <IconContainer id={'cancel-template-list-name'} tabIndex={1} onClick={onCancelClick}>
-                            <HiXMark/>
-                        </IconContainer>
-                    </ButtonsContainer>
-                </EditFieldContainer>
+                    <LabelContainer onClick={onLabelClick}>
+                        {editValue}
+                    </LabelContainer>
+                    :
+                    <EditFieldContainer>
+                        <EditField
+                            variant="outlined"
+                            value={editValue}
+                            onChange={onFieldChanged}
+                            onBlur={onBlurHandler}
+                            autoFocus={true}
+                        />
+                        {
+                            !hideButtons &&
+                            <ButtonsContainer>
+                                <IconContainer id={'save-template-list-name'} tabIndex={0} onClick={onSaveClick}>
+                                    <IoMdCheckmark/>
+                                </IconContainer>
+                                <IconContainer id={'cancel-template-list-name'} tabIndex={1} onClick={onCancelClick}>
+                                    <HiXMark/>
+                                </IconContainer>
+                            </ButtonsContainer>
+                        }
+                    </EditFieldContainer>
 
             }
         </>

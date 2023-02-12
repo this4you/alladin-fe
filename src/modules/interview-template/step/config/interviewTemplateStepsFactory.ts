@@ -4,8 +4,9 @@ import { commonContextFactory } from 'commons/config/commonFactory';
 import { createTemplateStep as createTemplateStepUseCase} from '../application/use-cases/createTemplateStep';
 import { deleteTemplateStep as deleteTemplateStepUseCase} from '../application/use-cases/deleteTemplateStep';
 import { initTemplateStepsList as initTemplateStepsListUseCase} from '../application/use-cases/initTemplateStepsList';
-import { createTemplateStep, deleteTemplateStep, getTemplateSteps } from '../repositories/interviewTemplateStepRepository';
-import { addTemplateStep, removeTemplateStep, setFinished, setIsProcess, setTemplateSteps } from '../ui/state/interviewTemplateStepsState';
+import { createTemplateStep, deleteTemplateStep, getTemplateSteps, updateTemplateStep as updateTemplateStepRest } from '../repositories/interviewTemplateStepRepository';
+import { addTemplateStep, removeTemplateStep, setFinished, setIsProcess, setTemplateSteps, updateTemplateStep } from '../ui/state/interviewTemplateStepsState';
+import { updateTemplateStep as updateTemplateStepUseCase } from '../application/use-cases/updateTemplateStep';
 
 interface InterviewTemplateStepsFactoryOptions extends FactoryOptions {
     templateId: string
@@ -19,6 +20,12 @@ class InterviewTemplateStepsFactory extends ModuleFactory<InterviewTemplateSteps
             createTemplateStep: createTemplateStepUseCase(
                 createTemplateStep(restClient.create),
                 addTemplateStep,
+                logger,
+                notificator
+            ),
+            updateTemplateStep: updateTemplateStepUseCase(
+                updateTemplateStepRest(restClient.update),
+                updateTemplateStep,
                 logger,
                 notificator
             ),

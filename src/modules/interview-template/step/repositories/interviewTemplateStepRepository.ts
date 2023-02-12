@@ -10,8 +10,8 @@ export const createTemplateStep = (create: RestCreateType) => async (name: strin
 export const deleteTemplateStep = (restDelete: RestDeleteType) => async (id: string) =>
     restDelete(`${URL}/${id}`);
 
-// export const update = (restUpdate: RestUpdateType) => async (template: InterviewTemplateItem) =>
-//     restUpdate<InterviewTemplateItem, void>(`${URL}/${template.id}`, template);
+export const updateTemplateStep = (restUpdate: RestUpdateType) => async (templateStep: InterviewTemplateStep) =>
+    restUpdate<InterviewTemplateStep, void>(`${URL}/${templateStep.id}`, templateStep);
 
 export const getTemplateSteps = (get: RestGetType) => async (templateId: string) =>
     get<InterviewTemplateStep[]>(URL, { interviewTemplate: templateId });

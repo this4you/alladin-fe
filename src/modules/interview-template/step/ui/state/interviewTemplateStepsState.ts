@@ -36,3 +36,9 @@ export const removeTemplateStep = action((id: string) => {
     ];
 });
 
+export const updateTemplateStep = action((templateStepItem: InterviewTemplateStep) => {
+    interviewTemplateStepsState.stepsList = interviewTemplateStepsState.stepsList.map((it) =>
+        it.id === templateStepItem.id ? templateStepItem : it
+    );
+});
+

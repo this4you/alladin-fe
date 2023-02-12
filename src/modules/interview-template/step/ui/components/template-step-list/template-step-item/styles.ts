@@ -50,3 +50,9 @@ export const IndexContainer = styled.div`
   border-radius: 20px;
   background-color: ${({ theme }) => theme.primary};
 `;
+
+export const EditableLabelContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 80%;
+`;

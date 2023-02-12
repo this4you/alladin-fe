@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { TextField } from '@mui/material';
 
 export const LabelContainer = styled.div`
-    margin-left: 14px;
+    cursor: text;
 `;
 
 export const EditFieldContainer = styled.div`
