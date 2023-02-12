@@ -1,1 +1,0 @@
-export const hideCreateTemplateInput = (hideInput: () => void) => () => hideInput()

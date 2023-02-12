@@ -14,5 +14,7 @@ export interface ThemeProps {
     secondaryText_100: string;
     secondaryText_200: string;
 
+    scroll: string;
+
     danger: string;
 }

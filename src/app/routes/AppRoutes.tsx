@@ -11,11 +11,11 @@ import {
 } from 'react-router-dom';
 import { lazily } from 'react-lazily';
 import { AuthPage } from 'app/pages';
-import { CreateCompanyContainer, LoginFormContainer } from 'modules/auth-module';
+import { CreateCompanyContainer, LoginFormContainer } from 'modules/auth';
 import { MainPage } from 'app/pages/main-page/MainPage';
 import { UserContentProvider } from 'modules/user-module';
 
-const { TemplatesConfigContainer } = lazily(() => import('modules/interview-template-module'));
+const { InterviewTemplateModule } = lazily(() => import('modules/interview-template'));
 
 export const AppRoutes: React.FC = () => (
     <Router>
@@ -26,12 +26,12 @@ export const AppRoutes: React.FC = () => (
                     <Route path={'/dashboard'} element={<h1>Dashboard</h1>}/>
                     <Route path={'/templates'} element={
                         <Suspense fallback={<>Loading...</>}>
-                            <TemplatesConfigContainer/>
+                            <InterviewTemplateModule/>
                         </Suspense>
                     }/>
                     <Route path={'/templates'} element={
                         <Suspense fallback={<>Loading...</>}>
-                            <TemplatesConfigContainer/>
+                            <InterviewTemplateModule/>
                         </Suspense>
                     }>
                         <Route path={':templateId'}/>

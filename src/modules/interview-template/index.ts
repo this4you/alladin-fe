@@ -1,0 +1,1 @@
+export { default as InterviewTemplateModule } from './shared/interview-template-module/InterviewTemplateModule';

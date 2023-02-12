@@ -1,4 +1,4 @@
-import { User } from 'modules/auth-module/application/models/User';
+import { User } from 'modules/auth/application/models/User';
 import { Logger } from 'commons/utils/logger/Logger';
 
 export const initUserInfoUseCase = (

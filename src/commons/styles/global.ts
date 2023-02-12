@@ -17,10 +17,20 @@ const globalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: 0;
+    transition: all 0.3s ease-out;
   }
 
-  html {
-    overflow-y: scroll;
+  div {
+    scrollbar-gutter: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${({ theme }: GlobalThemeProps) => theme.scroll};
+      border-radius: 10px;
+    }
   }
 
   body {

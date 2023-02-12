@@ -16,5 +16,7 @@ export const darkThemePalette: ThemeProps = {
     secondaryText_100: '#a0aabf',
     secondaryText_200: '#808ca8',
 
+    scroll: '#3c3d44',
+
     danger: '#d32f2f'
 }
