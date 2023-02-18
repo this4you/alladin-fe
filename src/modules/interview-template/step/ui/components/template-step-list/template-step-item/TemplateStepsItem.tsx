@@ -16,7 +16,7 @@ export const TemplateStepsItem: React.FC<TemplateStepsItemProps> = ({
             name: name
         };
 
-        await updateTemplateStep(newItem);
+        return await updateTemplateStep(newItem);
     }, [updateTemplateStep, step]);
 
     return (

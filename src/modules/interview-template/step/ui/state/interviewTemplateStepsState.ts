@@ -1,6 +1,6 @@
 import { LoadingState } from 'commons/state/LoadingState';
 import { InterviewTemplateStep } from '../../application/models/InterviewTemplateStep';
-import { action, observable } from 'mobx';
+import { action, computed, observable } from 'mobx';
 
 type InterviewTemplateStepsState = {
     stepsList: Array<InterviewTemplateStep>;
@@ -14,6 +14,10 @@ export const interviewTemplateStepsState = observable.object<InterviewTemplateSt
 });
 
 //computed
+
+export const stepsList = computed(() => {
+    return interviewTemplateStepsState.stepsList.slice().sort((a, b) => a.position - b.position);
+})
 
 //actions
 export const setIsProcess = action(() => interviewTemplateStepsState.loadingState = LoadingState.InProcess);
@@ -40,5 +44,29 @@ export const updateTemplateStep = action((templateStepItem: InterviewTemplateSte
     interviewTemplateStepsState.stepsList = interviewTemplateStepsState.stepsList.map((it) =>
         it.id === templateStepItem.id ? templateStepItem : it
     );
+});
+
+export const updateTemplateStepPosition = action((stepId: string, newPosition: number) => {
+    const currentPosition = interviewTemplateStepsState.stepsList.find(it => it.id === stepId)?.position!!;
+
+    interviewTemplateStepsState.stepsList = interviewTemplateStepsState.stepsList.map((it) => {
+
+        if (it.id === stepId) {
+            return { ...it, position: newPosition }
+        }
+
+        if (newPosition > currentPosition) {
+            if (it.position > currentPosition && it.position <= newPosition) {
+                it.position--;
+            }
+        }
+
+        if (newPosition < currentPosition) {
+            if (it.position < currentPosition && it.position >= newPosition) {
+                it.position++;
+            }
+        }
+        return it;
+    });
 });
 

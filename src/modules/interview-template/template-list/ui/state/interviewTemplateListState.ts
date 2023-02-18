@@ -1,6 +1,7 @@
 import { action, computed, observable } from 'mobx';
 import { InterviewTemplateItem } from '../../application/models/InterviewTemplateItem';
 import { LoadingState } from '../../../../../commons/state/LoadingState';
+import { interviewTemplateState } from './interviewTemplateState';
 
 type InterviewTemplateListState = {
     templatesList: Array<InterviewTemplateItem>;
@@ -41,6 +42,8 @@ export const updateTemplate = action((templateItem: InterviewTemplateItem) => {
     interviewTemplateListState.templatesList = interviewTemplateListState.templatesList.map((it) =>
         it.id === templateItem.id ? templateItem : it
     );
+
+    interviewTemplateState.templateItem = templateItem;
 });
 
 export const setIsProcess = action(() => interviewTemplateListState.loadingState = LoadingState.InProcess);
