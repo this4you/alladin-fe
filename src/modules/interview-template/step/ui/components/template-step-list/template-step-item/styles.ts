@@ -17,7 +17,7 @@ export const TemplateStepsItemContainer = styled.div`
   transition: none !important;
   position: relative;
   cursor: pointer;
-  min-height: 65px;
+  min-height: 85px;
   border-radius: 12px;
   background-color: ${({ theme }) => theme.blockSecondary};
   color: ${({ theme }) => theme.text};
@@ -53,6 +53,6 @@ export const IndexContainer = styled.div`
 
 export const EditableLabelContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: 80%;
 `;

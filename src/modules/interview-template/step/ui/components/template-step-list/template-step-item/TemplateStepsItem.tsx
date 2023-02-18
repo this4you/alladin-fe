@@ -22,7 +22,7 @@ export const TemplateStepsItem: React.FC<TemplateStepsItemProps> = ({
     return (
         <TemplateStepsItemContainer key={step.id}>
             <EditableLabelContainer>
-                <EditableLabel hideButtons label={step.name} labelChanged={onUpdateTemplateStepName}/>
+                <EditableLabel label={step.name} labelChanged={onUpdateTemplateStepName}/>
             </EditableLabelContainer>
             <IndexContainer>{step.position}</IndexContainer>
             <DeleteStepButton aria-label="delete" color={'primary'} size="large"
