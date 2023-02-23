@@ -16,6 +16,7 @@ import { MainPage } from 'app/pages/main-page/MainPage';
 import { UserContentProvider } from 'modules/user-module';
 
 const { InterviewTemplateModule } = lazily(() => import('modules/interview-template'));
+const { TemplateStepsList } = lazily(() => import('modules/interview-template'));
 
 export const AppRoutes: React.FC = () => (
     <Router>
@@ -28,13 +29,8 @@ export const AppRoutes: React.FC = () => (
                         <Suspense fallback={<>Loading...</>}>
                             <InterviewTemplateModule/>
                         </Suspense>
-                    }/>
-                    <Route path={'/templates'} element={
-                        <Suspense fallback={<>Loading...</>}>
-                            <InterviewTemplateModule/>
-                        </Suspense>
                     }>
-                        <Route path={':templateId'}/>
+                        <Route path={':template'} element={<TemplateStepsList/>}/>
                     </Route>
                     <Route path="*" element={<Navigate to="/dashboard" replace/>}/>
                 </Route>
