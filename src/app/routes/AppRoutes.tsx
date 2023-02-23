@@ -28,13 +28,8 @@ export const AppRoutes: React.FC = () => (
                         <Suspense fallback={<>Loading...</>}>
                             <InterviewTemplateModule/>
                         </Suspense>
-                    }/>
-                    <Route path={'/templates'} element={
-                        <Suspense fallback={<>Loading...</>}>
-                            <InterviewTemplateModule/>
-                        </Suspense>
                     }>
-                        <Route path={':templateId'}/>
+                        <Route path={':template'}/>
                     </Route>
                     <Route path="*" element={<Navigate to="/dashboard" replace/>}/>
                 </Route>

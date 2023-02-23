@@ -7,17 +7,17 @@ import { useParams } from 'react-router-dom';
 import { LoadingState } from 'commons/state/LoadingState';
 
 export const TemplateItems: React.FC<TemplateItemsProps> = ({ initTemplatesList, setActiveTemplateItem }) => {
-    const { templateId } = useParams();
+    const { template } = useParams();
 
     useEffect(() => {
-        initTemplatesList(templateId || null);
+        initTemplatesList(template || null);
     }, [initTemplatesList]);
 
     useEffect(() => {
-        if (state.loadingState === LoadingState.Finished && templateId) {
-            setActiveTemplateItem(templateId);
+        if (state.loadingState === LoadingState.Finished && template) {
+            setActiveTemplateItem(template);
         }
-    }, [templateId])
+    }, [template])
 
     return (
         <TemplateItemsContainer>
