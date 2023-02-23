@@ -1,4 +1,4 @@
-import { TemplateHeaderContainer, TemplateHeaderLabel } from './styles';
+import { EditableLabelContainer, TemplateHeaderContainer, TemplateHeaderLabel } from './styles';
 import { interviewTemplateState } from '../../state/interviewTemplateState';
 import { MdDeleteOutline } from 'react-icons/md';
 import { IconButton } from '@mui/material';
@@ -21,9 +21,9 @@ export const TemplateHeader: React.FC<TemplateHeaderProps> = ({
         deleteTemplate(interviewTemplateState.templateItem.id);
     }, [interviewTemplateState.templateItem]);
 
-    const onUpdateClick = useCallback(async(name: string) => {
+    const onUpdateClick = useCallback(async (name: string) => {
         if (interviewTemplateState.templateItem === null || name === '') {
-            return;
+            return  false;
         }
 
         const newTemplateItem: InterviewTemplateItem = {
@@ -31,7 +31,7 @@ export const TemplateHeader: React.FC<TemplateHeaderProps> = ({
             name: name,
         };
 
-        await updateTemplate(newTemplateItem);
+        return await updateTemplate(newTemplateItem);
     }, [interviewTemplateState.templateItem]);
 
     return (
@@ -39,10 +39,12 @@ export const TemplateHeader: React.FC<TemplateHeaderProps> = ({
             {
                 (
                     interviewTemplateState.templateItem &&
-                    <EditableLabel
-                        label={interviewTemplateState.templateItem?.name}
-                        labelChanged={onUpdateClick}
-                    />
+                    <EditableLabelContainer>
+                        <EditableLabel
+                            label={interviewTemplateState.templateItem?.name}
+                            labelChanged={onUpdateClick}
+                        />
+                    </EditableLabelContainer>
                 )
                 ||
                 <TemplateHeaderLabel>

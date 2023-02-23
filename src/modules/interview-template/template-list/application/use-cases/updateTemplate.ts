@@ -7,12 +7,16 @@ export const updateTemplate = (
     updateTemplateView: (templateItem: InterviewTemplateItem) => void,
     logger: Logger,
     notifier: Notificator
-) => async (templateItem: InterviewTemplateItem): Promise<void> => {
+) => async (templateItem: InterviewTemplateItem): Promise<boolean> => {
     try {
         await updateTemplate(templateItem);
         updateTemplateView(templateItem);
+
+        return true;
     } catch (error: any) {
         logger.error(error);
         notifier.error(`Error in update template process: ${error?.message}`);
+
+        return false;
     }
 }

@@ -9,15 +9,15 @@ export const DeleteStepButton = styled(IconButton)`
     height: 45px;
     position: absolute;
     right: 0;
-    bottom: 0;
   }
 `;
 
 
 export const TemplateStepsItemContainer = styled.div`
+  transition: none !important;
   position: relative;
   cursor: pointer;
-  height: 132px;
+  min-height: 85px;
   border-radius: 12px;
   background-color: ${({ theme }) => theme.blockSecondary};
   color: ${({ theme }) => theme.text};
@@ -28,6 +28,7 @@ export const TemplateStepsItemContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 15px;
 
   :hover {
     background-color: ${({ theme }) => theme.blockSecondary_200};
@@ -42,7 +43,6 @@ export const TemplateStepsItemContainer = styled.div`
 export const IndexContainer = styled.div`
   position: absolute;
   left: -10px;
-  bottom: -10px;
   width: 30px;
   height: 30px;
   text-align: center;
@@ -53,6 +53,6 @@ export const IndexContainer = styled.div`
 
 export const EditableLabelContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: 80%;
 `;

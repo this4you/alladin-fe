@@ -8,9 +8,24 @@ export const EditableLabel: React.FC<EditableLabelProps> = ({
     label,
     labelChanged,
     hideButtons = false
-                                                            }) => {
+}) => {
+    const [initValue, setInitValue] = useState(label);
     const [editMode, setEditMode] = useState(false);
-    const [editValue, setEditValue] = useState(label);
+    const [editValue, setEditValue] = useState(initValue);
+
+    const onLabelChanged = async () => {
+        if (editValue === label) {
+            return;
+        }
+
+        const result = await labelChanged(editValue);
+
+        if (result) {
+            setInitValue(editValue);
+        } else {
+            setEditValue(initValue);
+        }
+    }
 
     const onLabelClick = useCallback(() => {
         setEditMode(true)
@@ -29,8 +44,9 @@ export const EditableLabel: React.FC<EditableLabelProps> = ({
         }
 
         setEditMode(false);
-        labelChanged(editValue);
-    }, [editValue, labelChanged])
+
+        onLabelChanged();
+    }, [editValue, onLabelChanged])
 
     const onCancelClick = useCallback((e: any) => {
         setEditMode(false);
@@ -39,8 +55,8 @@ export const EditableLabel: React.FC<EditableLabelProps> = ({
 
     const onSaveClick = useCallback(async (e: any) => {
         setEditMode(false);
-        labelChanged(editValue);
-    }, [labelChanged, editValue])
+        onLabelChanged()
+    }, [onLabelChanged, editValue])
 
     useEffect(() => {
         setEditMode(false);
