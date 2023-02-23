@@ -20,7 +20,7 @@ export const TemplateStepsItem: React.FC<TemplateStepsItemProps> = ({
     }, [updateTemplateStep, step]);
 
     return (
-        <TemplateStepsItemContainer key={step.id}>
+        <TemplateStepsItemContainer key={step.id} onClick={() => {console.log("CLICKED")}}>
             <EditableLabelContainer>
                 <EditableLabel label={step.name} labelChanged={onUpdateTemplateStepName}/>
             </EditableLabelContainer>

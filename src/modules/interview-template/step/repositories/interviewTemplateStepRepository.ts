@@ -1,4 +1,4 @@
-import { RestCreateType, RestDeleteType, RestGetType, RestUpdateType } from 'commons/utils/api-clients/rest/RestClient';
+import { HttpMethod, RestCommandType, RestCreateType, RestDeleteType, RestGetType, RestUpdateType } from 'commons/utils/api-clients/rest/RestClient';
 import { CreateInterviewTemplateStep } from './models/CreateInterviewTemplateStep';
 import { InterviewTemplateStep } from '../application/models/InterviewTemplateStep';
 
@@ -12,6 +12,11 @@ export const deleteTemplateStep = (restDelete: RestDeleteType) => async (id: str
 
 export const updateTemplateStep = (restUpdate: RestUpdateType) => async (templateStep: InterviewTemplateStep) =>
     restUpdate<InterviewTemplateStep, void>(`${URL}/${templateStep.id}`, templateStep);
+
+export const updateTemplateStepPosition = (restCommand: RestCommandType) => async (stepId: string, newPosition: number) =>
+    restCommand<{ position: number }, void>({ url: `${URL}/${stepId}`, method: HttpMethod.PATCH }, {
+        position: newPosition
+    });
 
 export const getTemplateSteps = (get: RestGetType) => async (templateId: string) =>
     get<InterviewTemplateStep[]>(URL, { interviewTemplate: templateId });
