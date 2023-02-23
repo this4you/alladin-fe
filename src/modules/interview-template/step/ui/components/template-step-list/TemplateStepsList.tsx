@@ -5,16 +5,22 @@ import { AddTemplateStepButton } from './add-tempate-step-button';
 import { useEffect } from 'react';
 import { interviewTemplateStepsFactory } from '../../../config/interviewTemplateStepsFactory';
 import { Provider } from '../../../config/interviewTemplateStepsContext';
+import { interviewTemplateState } from '../../../../template-list/ui/state/interviewTemplateState';
 
-export const TemplateStepsList: React.FC<TemplateStepsListProps> = ({ templateId }) => {
+export const TemplateStepsList: React.FC<TemplateStepsListProps> = () => {
+    const templateId = interviewTemplateState.templateItem?.id;
+
     const context = interviewTemplateStepsFactory.get({
-        key: templateId,
-        templateId: templateId
+        key: 'interview-template-steps'
     });
 
     useEffect(() => (): void => {
         interviewTemplateStepsFactory.clear();
     });
+
+    if (!templateId) {
+        return <></>;
+    }
 
     return (
         <Provider moduleContext={context}>

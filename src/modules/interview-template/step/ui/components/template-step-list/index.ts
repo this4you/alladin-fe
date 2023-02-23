@@ -1,1 +1,1 @@
-export { TemplateStepsList } from './TemplateStepsList';
+export { TemplateStepsList } from './connect';
