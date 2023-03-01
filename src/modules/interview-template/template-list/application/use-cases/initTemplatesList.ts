@@ -22,10 +22,12 @@ export const initTemplatesList = (
             const activeTemplateItem = templates.find(it => toSnakeCase(it.name) === activeTemplate);
 
             if (!activeTemplateItem) {
-                logger.error(new Error(`No template in list with id ${activeTemplate}`));
+                logger.error(new Error(`No template in list with name ${activeTemplate}`));
+
+                return;
             }
 
-            setActiveTemplateItem(activeTemplateItem!!);
+            setActiveTemplateItem(activeTemplateItem);
         }
 
     } catch (e: any) {

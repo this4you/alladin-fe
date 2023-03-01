@@ -3,6 +3,7 @@ import { TextField } from '@mui/material';
 
 export const LabelContainer = styled.div`
     cursor: text;
+    width: 100%;
 `;
 
 export const EditFieldContainer = styled.div`

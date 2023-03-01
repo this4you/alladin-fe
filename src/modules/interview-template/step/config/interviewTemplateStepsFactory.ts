@@ -5,7 +5,7 @@ import { createTemplateStep as createTemplateStepUseCase } from '../application/
 import { deleteTemplateStep as deleteTemplateStepUseCase } from '../application/use-cases/deleteTemplateStep';
 import { initTemplateStepsList as initTemplateStepsListUseCase } from '../application/use-cases/initTemplateStepsList';
 import { createTemplateStep, deleteTemplateStep, getTemplateSteps, updateTemplateStep as updateTemplateStepRest, updateTemplateStepPosition as updateTemplateStepPositionRest } from '../repositories/interviewTemplateStepRepository';
-import { addTemplateStep, removeTemplateStep, setFinished, setIsProcess, setTemplateSteps, updateTemplateStep, updateTemplateStepPosition } from '../ui/state/interviewTemplateStepsState';
+import { addTemplateStep, removeTemplateStep, resetState, setActiveStep, setFinished, setIsProcess, setTemplateSteps, updateTemplateStep, updateTemplateStepPosition } from '../ui/state/interviewTemplateStepsState';
 import { updateTemplateStep as updateTemplateStepUseCase } from '../application/use-cases/updateTemplateStep';
 import { updateTemplateStepPosition as updateTemplateStepPositionUseCase } from '../application/use-cases/updateTemplateStepPosition';
 
@@ -36,6 +36,7 @@ class InterviewTemplateStepsFactory extends ModuleFactory<InterviewTemplateSteps
             initTemplateStepsList: initTemplateStepsListUseCase(
                 getTemplateSteps(restClient.get),
                 setTemplateSteps,
+                setActiveStep,
                 setIsProcess,
                 setFinished,
                 notificator,

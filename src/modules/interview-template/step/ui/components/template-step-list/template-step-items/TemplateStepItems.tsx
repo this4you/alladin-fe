@@ -4,15 +4,17 @@ import { TemplateStepsItem } from '../template-step-item';
 import { useEffect } from 'react';
 import { TemplateStepsItemsContainer, TemplateStepsItemsEmptyContainer } from './styles';
 import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd';
+import { useParams } from 'react-router-dom';
 
 export const TemplateStepItems: React.FC<TemplateStepItemsProps> = ({
     initTemplateStepsList,
     updateTemplateStepPosition,
     templateId
 }) => {
+    const { step } = useParams();
 
     useEffect(() => {
-        initTemplateStepsList(templateId);
+        initTemplateStepsList(templateId, step || null);
     }, [templateId]);
 
     const onUpdatePosition = (dropResult: DropResult) => {
@@ -24,7 +26,7 @@ export const TemplateStepItems: React.FC<TemplateStepItemsProps> = ({
             dropResult.draggableId,
             dropResult.destination.index + 1
         );
-    }
+    };
 
     return (
         <>
