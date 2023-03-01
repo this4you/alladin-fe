@@ -6,13 +6,11 @@ import { useEffect } from 'react';
 import { interviewTemplateStepsFactory } from '../../../config/interviewTemplateStepsFactory';
 import { Provider } from '../../../config/interviewTemplateStepsContext';
 import { interviewTemplateState } from '../../../../template-list/ui/state/interviewTemplateState';
-import { resetState } from '../../state/interviewTemplateStepsState';
 
 export const TemplateStepsList: React.FC<TemplateStepsListProps> = () => {
     const templateId = interviewTemplateState.templateItem?.id;
 
     useEffect(() => (): void => {
-        resetState();
         interviewTemplateStepsFactory.clear();
     });
 
