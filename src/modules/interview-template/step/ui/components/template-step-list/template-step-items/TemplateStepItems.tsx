@@ -15,7 +15,7 @@ export const TemplateStepItems: React.FC<TemplateStepItemsProps> = ({
 
     useEffect(() => {
         initTemplateStepsList(templateId, step || null);
-    }, [templateId]);
+    }, [initTemplateStepsList, templateId]);
 
     const onUpdatePosition = (dropResult: DropResult) => {
         if (!dropResult.destination) {

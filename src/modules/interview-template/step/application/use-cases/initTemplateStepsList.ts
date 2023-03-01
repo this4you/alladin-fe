@@ -6,7 +6,7 @@ import { toSnakeCase } from '../../../../../commons/utils/cases';
 export const initTemplateStepsList = (
     getTemplateSteps: (templateId: string) => Promise<InterviewTemplateStep[]>,
     setTemplateStepsToState: (templates: InterviewTemplateStep[]) => void,
-    setActiveStepItem: (stepItem: InterviewTemplateStep) => void,
+    setActiveStepItem: (stepItem: InterviewTemplateStep | null) => void,
     setIsProcess: () => void,
     setFinished: () => void,
     notificator: Notificator,
@@ -27,6 +27,8 @@ export const initTemplateStepsList = (
             }
 
             setActiveStepItem(activeStepItem)
+        } else {
+            setActiveStepItem(null);
         }
 
         setTemplateStepsToState(templateSteps);

@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import { InterviewTemplateStep } from '../../application/models/InterviewTemplateStep';
-import { LoadingState } from '../../../../../commons/state/LoadingState';
+import { LoadingState } from 'commons/state/LoadingState';
 
 export class MobxInterviewTemplateStepsState {
     constructor() {
@@ -26,7 +26,6 @@ export class MobxInterviewTemplateStepsState {
     }
 
     setTemplateSteps(templateSteps: Array<InterviewTemplateStep>) {
-        this.activeStep = null;
         this.stepsList = templateSteps;
     }
 
@@ -49,6 +48,7 @@ export class MobxInterviewTemplateStepsState {
         );
     }
 
+    //TODO move to presenter
     updateTemplateStepPosition(stepId: string, newPosition: number) {
         const currentPosition = this.stepsList.find(it => it.id === stepId)?.position!!;
 
@@ -73,7 +73,7 @@ export class MobxInterviewTemplateStepsState {
         });
     }
 
-    setActiveStep(item: InterviewTemplateStep) {
+    setActiveStep(item: InterviewTemplateStep | null) {
         this.activeStep = item;
     }
 }

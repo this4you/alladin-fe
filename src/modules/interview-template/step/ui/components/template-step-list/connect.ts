@@ -1,4 +1,4 @@
 import { TemplateStepsList as Component } from './TemplateStepsList';
-import { observer } from 'mobx-react';
+import { connect } from '../../../config/interviewTemplateStepsContext';
 
-export const TemplateStepsList = observer(Component);
+export const TemplateStepsList = connect(Component);
