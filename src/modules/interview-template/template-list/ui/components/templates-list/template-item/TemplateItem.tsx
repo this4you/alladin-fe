@@ -1,6 +1,7 @@
 import { TemplateItemProps } from './types';
 import { ActiveMarker, TemplateItemContainer, TemplateLink } from './styles';
 import { toSnakeCase } from 'commons/utils/cases';
+import { interviewTemplateState } from '../../../state/interviewTemplateState';
 
 export const TemplateItem: React.FC<TemplateItemProps> = ({ interviewTemplateItem, setActiveTemplateItem }) => {
     const { name } = interviewTemplateItem;
@@ -8,7 +9,13 @@ export const TemplateItem: React.FC<TemplateItemProps> = ({ interviewTemplateIte
     return (
         <TemplateItemContainer>
             <TemplateLink
-                onClick={() => {
+                onClick={(e) => {
+                    if (interviewTemplateItem.id == interviewTemplateState.templateItem?.id) {
+                        e.preventDefault();
+
+                        return;
+                    }
+
                     setActiveTemplateItem(toSnakeCase(name));
                 }}
                 relative={'route'}

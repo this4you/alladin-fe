@@ -10,7 +10,8 @@ import { useNavigate } from 'react-router-dom';
 export const TemplateStepsItem: React.FC<TemplateStepsItemProps> = ({
     step,
     deleteTemplateStep,
-    updateTemplateStep
+    updateTemplateStep,
+    state
 }) => {
     const navigate = useNavigate();
 
@@ -30,6 +31,7 @@ export const TemplateStepsItem: React.FC<TemplateStepsItemProps> = ({
 
         navigate(`${toSnakeCase(step.name)}`, { relative: 'route', replace: true });
 
+        state.setActiveStep(step);
     }, [step, navigate]);
 
     return (
