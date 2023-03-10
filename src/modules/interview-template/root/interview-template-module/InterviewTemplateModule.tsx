@@ -1,13 +1,13 @@
 import { InterviewTemplateModuleContainer } from './styles';
-import { Provider } from 'modules/interview-template/template-list/config/interviewTemplateContext';
+import { Provider } from 'modules/interview-template/template/config/interviewTemplateContext';
 import { useEffect } from 'react';
-import { interviewTemplateFactory } from 'modules/interview-template/template-list/config/interviewTemplateFactory';
-import { TemplatesList } from '../../template-list/ui/components/templates-list';
-import { TemplateContent } from '../../widgets/template-content';
+import { interviewTemplateFactory } from 'modules/interview-template/template/config/interviewTemplateFactory';
+import { TemplatesList } from '../../template/ui/components/templates-list';
+import { TemplateContent } from '../../template/ui/components/template-content';
 
 const InterviewTemplateModule: React.FC = () => {
     const context = interviewTemplateFactory.get({
-        key: 'template-list'
+        key: 'template'
     });
 
     useEffect(() => (): void => {

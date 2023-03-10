@@ -6,5 +6,5 @@ export type TemplateStepItemsProps = {
     templateId: string;
     initTemplateStepsList: ReturnType<typeof initTemplateStepsList>;
     updateTemplateStepPosition: ReturnType<typeof updateTemplateStepPosition>;
-    state: MobxInterviewTemplateStepsState
+    state: MobxInterviewTemplateStepsState;
 }

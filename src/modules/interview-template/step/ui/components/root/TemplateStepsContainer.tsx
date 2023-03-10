@@ -3,13 +3,15 @@ import { Provider } from '../../../config/interviewTemplateStepsContext';
 import { useEffect } from 'react';
 import { interviewTemplateStepsFactory } from '../../../config/interviewTemplateStepsFactory';
 import { TemplateStepsContent } from '../template-steps-content';
-import { interviewTemplateState } from '../../../../template-list/ui/state/interviewTemplateState';
+import { interviewTemplateFactory } from '../../../../template/config/interviewTemplateFactory';
 
 export const TemplateStepsContainer: React.FC = () => {
-    const templateId = interviewTemplateState.templateItem?.id;
+    const templateContext = interviewTemplateFactory.get({
+        key: 'template'
+    });
 
     const context = interviewTemplateStepsFactory.get({
-        key: 'interview-template-steps' + templateId
+        key: 'interview-template-steps' + templateContext.state.templateItem
     });
 
     useEffect(() => (): void => {
@@ -18,7 +20,7 @@ export const TemplateStepsContainer: React.FC = () => {
 
     return(
         <Provider moduleContext={context}>
-            <TemplateStepsContent/>
+            <TemplateStepsContent templateId={templateContext.state.templateItem?.id!}/>
         </Provider>
     )
 }
