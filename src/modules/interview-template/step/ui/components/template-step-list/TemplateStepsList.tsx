@@ -1,10 +1,9 @@
 import { TemplateStepsListContainer } from './styles';
 import { TemplateStepItems } from './template-step-items';
 import { AddTemplateStepButton } from './add-tempate-step-button';
-import { interviewTemplateState } from '../../../../template-list/ui/state/interviewTemplateState';
+import { TemplateStepsListProps } from './types';
 
-export const TemplateStepsList: React.FC = () => {
-    const templateId = interviewTemplateState.templateItem?.id;
+export const TemplateStepsList: React.FC<TemplateStepsListProps> = ({templateId}) => {
 
     if (!templateId) {
         return <></>;

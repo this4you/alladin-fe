@@ -33,7 +33,7 @@ export const initTemplateStepsList = (
 
         setTemplateStepsToState(templateSteps);
     } catch (e: any) {
-        notificator.error('Error in init template-list steps' + e.message);
+        notificator.error('Error in init template steps' + e.message);
         logger.error(e);
     } finally {
         setFinished();
