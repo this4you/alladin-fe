@@ -5,11 +5,15 @@ import React from 'react';
 import { TemplateContentProps } from './types';
 
 export const TemplateContent: React.FC<TemplateContentProps> = ({state}) => {
+
     return (
         <TemplateContentContainer>
             <TemplateHeader/>
             {state.templateItem ?
-                <Outlet/> //TODO set templateId here
+                <Outlet context={{
+                    templateId: state.templateItem.id,
+                    templateName: state.templateItem.name
+                }}/>
                 :
                 <SelectInterviewStepLabel>
                     Select interview template...

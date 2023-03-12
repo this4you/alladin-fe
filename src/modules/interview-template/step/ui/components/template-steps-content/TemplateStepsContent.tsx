@@ -3,7 +3,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { TemplateStepsList } from '../template-step-list';
 import { TemplateStepsContentProps } from './types';
-import { QuestionModuleInputContext } from '../../../../questions/ui/root/types';
+import { QuestionModuleInputContext } from 'modules/interview-template/questions';
 
 export const TemplateStepsContent: React.FC<TemplateStepsContentProps> = ({ state, templateId, templateName }) => {
     const questionModuleContext:QuestionModuleInputContext = {

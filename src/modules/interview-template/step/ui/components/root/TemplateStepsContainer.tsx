@@ -1,28 +1,26 @@
-
 import { Provider } from '../../../config/interviewTemplateStepsContext';
 import { useEffect } from 'react';
 import { interviewTemplateStepsFactory } from '../../../config/interviewTemplateStepsFactory';
 import { TemplateStepsContent } from '../template-steps-content';
-import { interviewTemplateFactory } from '../../../../template/config/interviewTemplateFactory';
 import { toSnakeCase } from 'commons/utils/cases';
+import { useOutletContext } from 'react-router-dom';
+import { TemplateStepsInputContext } from './types';
 
 export const TemplateStepsContainer: React.FC = () => {
-    const templateContext = interviewTemplateFactory.get({
-        key: 'template'
-    }); //TODO set as outerComponent context
+    const { templateId, templateName } = useOutletContext<TemplateStepsInputContext>();
 
     const context = interviewTemplateStepsFactory.get({
-        key: 'interview-template-steps' + templateContext.state.templateItem
+        key: 'interview-template-steps' + templateId
     });
 
     useEffect(() => (): void => {
         interviewTemplateStepsFactory.clear();
     });
 
-    return(
+    return (
         <Provider moduleContext={context}>
-            <TemplateStepsContent templateId={templateContext.state.templateItem?.id!}
-                                  templateName={toSnakeCase(templateContext.state.templateItem?.name!)}/>
+            <TemplateStepsContent templateId={templateId}
+                                  templateName={toSnakeCase(templateName)}/>
         </Provider>
     )
 }

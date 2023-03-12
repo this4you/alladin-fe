@@ -8,7 +8,11 @@ export const TemplateQuestionsModule: React.FC = () => {
 
     return (
         <TemplateQuestionsModuleContainer>
-            <TemplateQuestionsBreadcrumbs template={template} activeStepName={step.name} clearActiveStep={clearActiveStep}/>
+            <TemplateQuestionsBreadcrumbs
+                template={template}
+                activeStepName={step.name}
+                clearActiveStep={clearActiveStep}
+            />
         </TemplateQuestionsModuleContainer>
     )
 }
