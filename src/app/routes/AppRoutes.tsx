@@ -17,6 +17,7 @@ import { UserContentProvider } from 'modules/user-module';
 
 const { InterviewTemplateModule } = lazily(() => import('modules/interview-template'));
 const { TemplateStepsContainer } = lazily(() => import('modules/interview-template'));
+const { TemplateQuestionsModule } = lazily(() => import('modules/interview-template'));
 
 export const AppRoutes: React.FC = () => (
     <Router>
@@ -31,7 +32,7 @@ export const AppRoutes: React.FC = () => (
                         </Suspense>
                     }>
                         <Route path={':template'} element={<TemplateStepsContainer/>}>
-                            <Route path={':step'} element={<h1>Question</h1>} />
+                            <Route path={':step'} element={<TemplateQuestionsModule/>} />
                         </Route>
                     </Route>
                     <Route path="*" element={<Navigate to="/dashboard" replace/>}/>

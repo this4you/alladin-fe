@@ -3,4 +3,5 @@ import { MobxInterviewTemplateStepsState } from '../../state/MobxInterviewTempla
 export type TemplateStepsContentProps = {
   state: MobxInterviewTemplateStepsState;
   templateId: string;
+  templateName: string;
 };

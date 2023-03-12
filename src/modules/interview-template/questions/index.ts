@@ -1,0 +1,1 @@
+export { TemplateQuestionsModule } from './ui/root';

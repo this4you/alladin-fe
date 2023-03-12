@@ -9,7 +9,7 @@ export const TemplateContent: React.FC<TemplateContentProps> = ({state}) => {
         <TemplateContentContainer>
             <TemplateHeader/>
             {state.templateItem ?
-                <Outlet/>
+                <Outlet/> //TODO set templateId here
                 :
                 <SelectInterviewStepLabel>
                     Select interview template...
