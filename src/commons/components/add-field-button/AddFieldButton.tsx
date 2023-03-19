@@ -1,7 +1,8 @@
 import { AddMenuButtonProps } from './types';
 import { useCallback, useMemo, useState } from 'react';
-import { AddButton, AddNameButtonContainer, ButtonsContainer, InputContainer, NameButton, NameField } from './styles';
+import { AddNameButtonContainer, ButtonsContainer, InputContainer, NameButton, NameField } from './styles';
 import { IoMdAddCircleOutline } from 'react-icons/io';
+import { AddButton } from 'commons/components/add-button';
 
 export const AddFieldButton: React.FC<AddMenuButtonProps> = ({ label, inputPlaceholder, onCreate, ...rest }) => {
     const [isCreateMode, setIsCreateMode] = useState(false);

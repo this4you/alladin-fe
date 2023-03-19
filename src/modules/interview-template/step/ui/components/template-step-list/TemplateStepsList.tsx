@@ -8,6 +8,7 @@ export const TemplateStepsList: React.FC<TemplateStepsListProps> = ({templateId}
     if (!templateId) {
         return <></>;
     }
+
     return (
         <TemplateStepsListContainer>
             <AddTemplateStepButton templateId={templateId}/>
