@@ -6,10 +6,12 @@ export const QuestionListContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 15px;
+  overflow: hidden;
 `;
 
 export const Questions = styled.div`
   width: 100%;
+  overflow-y: scroll;
 `;
 
 export const AddCategoryButton = styled(AddButton)`
