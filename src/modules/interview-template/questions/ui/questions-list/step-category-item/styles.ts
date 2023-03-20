@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+import { AddFieldButton } from '../../../../../../commons/components';
 
 export const StepCategoryItemContainer = styled(Accordion)`
   &.MuiAccordion-root {
@@ -46,8 +47,32 @@ export const StepCategoryColor = styled.div`
 `;
 
 export const QuestionsList = styled(AccordionDetails)`
+  &.MuiAccordionDetails-root {
+    padding: 0 0 5px;
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+`;
+
+export const AddQuestionButtonContainer = styled.div`
+  width: 85%;
+`;
+
+export const AddQuestionButton = styled(AddFieldButton)`
+  width: 85%;
+  min-height: 0px;
+  margin-top: 15px;
+  
+  & .MuiButton-root {
+    svg {
+      color: ${({ theme }) => theme.primary};
+    }
+  } 
+  
+  & .MuiInputBase-root {
+    margin-top: 0px;
+  }
 `;
