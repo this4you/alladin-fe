@@ -2,6 +2,9 @@ import { QuestionsListProps } from './types';
 import { AddCategoryButton, QuestionListContainer, Questions } from './styles';
 import { StepCategoryItem } from './step-category-item';
 import { IoMdAddCircleOutline } from 'react-icons/io';
+import React from 'react';
+import { Box, Modal, Typography } from '@mui/material';
+import { QuestionCategoryModal } from '../question-category-modal';
 
 const questionsList = [
     {
@@ -47,15 +50,37 @@ const questionsList = [
     },
 ];
 export const QuestionsList: React.FC<QuestionsListProps> = () => {
-    //initial logic
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    const style = {
+        position: 'absolute' as 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+    };
+
     return (
         <QuestionListContainer>
-            <AddCategoryButton variant={'outlined'} startIcon={<IoMdAddCircleOutline/>}>
+            <AddCategoryButton variant={'outlined'} startIcon={<IoMdAddCircleOutline/>} onClick={handleOpen}>
                 Add new question category
             </AddCategoryButton>
             <Questions>
                 {questionsList.map(it => <StepCategoryItem key={it.stepCategoryId} stepCategory={it}/>)}
             </Questions>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <QuestionCategoryModal/>
+            </Modal>
         </QuestionListContainer>
     );
 }
