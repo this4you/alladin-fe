@@ -50,7 +50,7 @@ export const QuestionCategories = styled.div`
 
 export const QuestionCategoryLabel = styled.div`
   font-weight: 700;
-  color: ${({ theme }) => theme.blockSecondary};
+  color: ${({ theme }) => theme.text};
   cursor: pointer;
   display: flex;
   justify-content: center;
