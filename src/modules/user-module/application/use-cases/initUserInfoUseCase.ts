@@ -1,5 +1,5 @@
 import { User } from 'modules/auth/application/models/User';
-import { Logger } from 'commons/utils/logger/Logger';
+import { Logger } from 'commons/infrastructure/logger/Logger';
 
 export const initUserInfoUseCase = (
     getUser: () => Promise<User>,

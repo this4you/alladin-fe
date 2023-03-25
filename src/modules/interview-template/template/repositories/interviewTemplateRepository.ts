@@ -1,4 +1,4 @@
-import { RestCreateType, RestDeleteType, RestGetType, RestUpdateType } from 'commons/utils/api-clients/rest/RestClient';
+import { RestCreateType, RestDeleteType, RestGetType, RestUpdateType } from 'commons/infrastructure/api-clients/rest/RestClient';
 import { CreateInterviewTemplate } from './models/CreateInterviewTemplate';
 import { InterviewTemplateItem } from '../application/models/InterviewTemplateItem';
 

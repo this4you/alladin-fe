@@ -1,7 +1,7 @@
-import { Notificator } from 'commons/utils/notificator/models/Notificator';
-import { Logger } from 'commons/utils/logger/Logger';
+import { Notificator } from 'commons/infrastructure/notificator/models/Notificator';
+import { Logger } from 'commons/infrastructure/logger/Logger';
 import { InterviewTemplateStep } from '../models/InterviewTemplateStep';
-import { toSnakeCase } from '../../../../../commons/utils/cases';
+import { toSnakeCase } from '../../../../../commons/infrastructure/cases';
 
 export const initTemplateStepsList = (
     getTemplateSteps: (templateId: string) => Promise<InterviewTemplateStep[]>,

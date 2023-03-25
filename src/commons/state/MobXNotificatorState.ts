@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { Notification } from '../utils/notificator/models/Notification';
+import { Notification } from '../infrastructure/notificator/models/Notification';
 
 export class MobXNotificatorState {
     constructor() {

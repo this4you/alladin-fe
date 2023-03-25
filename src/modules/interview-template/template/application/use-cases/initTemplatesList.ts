@@ -1,7 +1,7 @@
 import { InterviewTemplateItem } from '../models/InterviewTemplateItem';
-import { Notificator } from 'commons/utils/notificator/models/Notificator';
-import { Logger } from 'commons/utils/logger/Logger';
-import { toSnakeCase } from 'commons/utils/cases';
+import { Notificator } from 'commons/infrastructure/notificator/models/Notificator';
+import { Logger } from 'commons/infrastructure/logger/Logger';
+import { toSnakeCase } from 'commons/infrastructure/cases';
 
 export const initTemplatesList = (
     getTemplates: () => Promise<InterviewTemplateItem[]>,

@@ -1,6 +1,6 @@
 import { initUserInfoUseCase } from '../application/use-cases/initUserInfoUseCase';
-import { createConnector } from 'commons/utils/connector/createConnector';
-import { Connect } from 'commons/utils/connector/MobXConnector';
+import { createConnector } from 'commons/infrastructure/connector/createConnector';
+import { Connect } from 'commons/infrastructure/connector/MobXConnector';
 import { MobXAuthState } from 'commons/state/MobXAuthState';
 
 export type UserContext = {

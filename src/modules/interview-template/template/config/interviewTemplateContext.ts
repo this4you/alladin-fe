@@ -1,5 +1,5 @@
-import { createConnector } from 'commons/utils/connector/createConnector';
-import { Connect } from 'commons/utils/connector/MobXConnector';
+import { createConnector } from 'commons/infrastructure/connector/createConnector';
+import { Connect } from 'commons/infrastructure/connector/MobXConnector';
 import { createTemplate } from '../application/use-cases/createTemplate';
 import { initTemplatesList } from '../application/use-cases/initTemplatesList';
 import { setActiveTemplateItem } from '../application/use-cases/setActiveTemplateItem';

@@ -1,6 +1,6 @@
 import { TemplateItemProps } from './types';
 import { ActiveMarker, TemplateItemContainer, TemplateLink } from './styles';
-import { toSnakeCase } from 'commons/utils/cases';
+import { toSnakeCase } from 'commons/infrastructure/cases';
 
 export const TemplateItem: React.FC<TemplateItemProps> = (
     {

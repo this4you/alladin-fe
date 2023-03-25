@@ -1,5 +1,5 @@
 import { UserContext } from './context';
-import { FactoryOptions, ModuleFactory } from 'commons/utils/factory/moduleFactory';
+import { FactoryOptions, ModuleFactory } from 'commons/infrastructure/factory/moduleFactory';
 import { initUserInfoUseCase } from '../application/use-cases/initUserInfoUseCase';
 import { getUser } from '../repositories/userRepository';
 import { commonContextFactory } from 'commons/config/commonFactory';

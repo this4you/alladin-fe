@@ -2,7 +2,7 @@ import { Provider } from '../../../config/interviewTemplateStepsContext';
 import { useEffect } from 'react';
 import { interviewTemplateStepsFactory } from '../../../config/interviewTemplateStepsFactory';
 import { TemplateStepsContent } from '../template-steps-content';
-import { toSnakeCase } from 'commons/utils/cases';
+import { toSnakeCase } from 'commons/infrastructure/cases';
 import { useOutletContext } from 'react-router-dom';
 import { TemplateStepsInputContext } from './types';
 

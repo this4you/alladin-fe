@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 import { TextField } from '@mui/material';
 
@@ -44,18 +43,27 @@ export const QuestionCategories = styled.div`
   display: flex;
   justify-content: space-between;
   width: 85%;
-`;
-
-export const QuestionCategoriesColumn = styled.div`
-  width: 140px;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(202px, 1fr));
 `;
 
 export const QuestionCategoryLabel = styled.div`
+  font-weight: 700;
+  color: ${({ theme }) => theme.blockSecondary};
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 12px;
-  width: 100%;
   height: 60px;
   background: rgba(131, 131, 131, 1);
   margin-bottom: 20px;
+  
+  :hover {
+    color: #faebd7;
+    background-color: ${({ theme }) => theme.primary};;
+  }
 `;
 
 export const QuestionCategorySearch = styled.div`

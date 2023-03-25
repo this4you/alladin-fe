@@ -1,4 +1,4 @@
-import { InterviewTemplateStep } from '../../../step/application/models/InterviewTemplateStep';
+import { InterviewTemplateStep } from '../../../../step/application/models/InterviewTemplateStep';
 
 export type QuestionModuleInputContext = {
     step:  InterviewTemplateStep,

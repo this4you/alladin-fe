@@ -1,5 +1,5 @@
 import { InterviewTemplateItem } from '../models/InterviewTemplateItem';
-import { toSnakeCase } from 'commons/utils/cases';
+import { toSnakeCase } from 'commons/infrastructure/cases';
 
 export const setActiveTemplateItem = (
     setTemplateItem: (item: InterviewTemplateItem) => void,

@@ -1,4 +1,4 @@
-import { FactoryOptions, ModuleFactory } from 'commons/utils/factory/moduleFactory';
+import { FactoryOptions, ModuleFactory } from 'commons/infrastructure/factory/moduleFactory';
 import { commonContextFactory } from 'commons/config/commonFactory';
 import { InterviewTemplateContext } from './interviewTemplateContext';
 import { createTemplate as createTemplateUseCase } from '../application/use-cases/createTemplate';

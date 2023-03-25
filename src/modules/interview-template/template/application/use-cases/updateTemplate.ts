@@ -1,5 +1,5 @@
-import { Logger } from 'commons/utils/logger/Logger';
-import { Notificator } from 'commons/utils/notificator/models/Notificator';
+import { Logger } from 'commons/infrastructure/logger/Logger';
+import { Notificator } from 'commons/infrastructure/notificator/models/Notificator';
 import { InterviewTemplateItem } from '../models/InterviewTemplateItem';
 
 export const updateTemplate = (

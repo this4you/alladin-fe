@@ -1,2 +1,2 @@
-export { TemplateQuestionsModule } from './ui/root';
-export type { QuestionModuleInputContext } from './ui/root/types';
+export { TemplateQuestionsModule } from './ui/content/root';
+export type { QuestionModuleInputContext } from './ui/content/root/types';

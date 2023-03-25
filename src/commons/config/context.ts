@@ -1,8 +1,8 @@
-import { RestClient } from '../utils/api-clients/rest/RestClient';
-import { Notificator } from '../utils/notificator/models/Notificator';
-import { Logger } from '../utils/logger/Logger';
-import { createConnector } from '../utils/connector/createConnector';
-import { Connect } from '../utils/connector/MobXConnector';
+import { RestClient } from '../infrastructure/api-clients/rest/RestClient';
+import { Notificator } from '../infrastructure/notificator/models/Notificator';
+import { Logger } from '../infrastructure/logger/Logger';
+import { createConnector } from '../infrastructure/connector/createConnector';
+import { Connect } from '../infrastructure/connector/MobXConnector';
 import { MobXNotificatorState } from '../state/MobXNotificatorState';
 import { MobXAuthState } from '../state/MobXAuthState';
 

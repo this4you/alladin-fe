@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
-import { AddFieldButton } from '../../../../../../commons/components';
+import { AddFieldButton } from '../../../../../../../commons/components';
 
 export const StepCategoryItemContainer = styled(Accordion)`
   &.MuiAccordion-root {

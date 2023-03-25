@@ -1,4 +1,4 @@
-import { ModuleFactory } from 'commons/utils/factory/moduleFactory';
+import { ModuleFactory } from 'commons/infrastructure/factory/moduleFactory';
 import { InterviewTemplateStepsContext } from './interviewTemplateStepsContext';
 import { commonContextFactory } from 'commons/config/commonFactory';
 import { createTemplateStep as createTemplateStepUseCase } from '../application/use-cases/createTemplateStep';

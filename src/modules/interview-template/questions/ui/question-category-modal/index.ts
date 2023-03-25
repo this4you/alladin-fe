@@ -1,2 +1,0 @@
-
-export { QuestionCategoryModal } from './QuestionCategoryModal';

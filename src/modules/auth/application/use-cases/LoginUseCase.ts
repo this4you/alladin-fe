@@ -1,6 +1,6 @@
 import { Login } from '../models/Login';
-import { Logger } from 'commons/utils/logger/Logger';
-import { Notificator } from 'commons/utils/notificator/models/Notificator';
+import { Logger } from 'commons/infrastructure/logger/Logger';
+import { Notificator } from 'commons/infrastructure/notificator/models/Notificator';
 import { LoginView } from '../ports/LoginView';
 import { LoginRepository } from '../ports/LoginRepository';
 import { AuthRepository } from '../ports/AuthRepository';

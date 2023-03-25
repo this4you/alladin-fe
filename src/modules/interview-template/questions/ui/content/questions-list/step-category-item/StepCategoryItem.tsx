@@ -2,7 +2,7 @@ import { StepCategoryItemProps } from './types';
 import { StepCategoryColor, StepCategoryItemContainer, StepCategoryNameContainer, QuestionsList, AddQuestionButton, AddQuestionButtonContainer } from './styles';
 import { QuestionItem } from '../question-item';
 import { MdExpandMore } from 'react-icons/md';
-import { AddFieldButton } from '../../../../../../commons/components';
+import { AddFieldButton } from '../../../../../../../commons/components';
 
 export const StepCategoryItem: React.FC<StepCategoryItemProps> = ({ stepCategory }) => {
     return (

@@ -4,7 +4,7 @@ import { MdDeleteOutline } from 'react-icons/md';
 import { EditableLabel } from 'commons/components/editable-label';
 import { useCallback } from 'react';
 import { InterviewTemplateStep } from '../../../../application/models/InterviewTemplateStep';
-import { toSnakeCase } from 'commons/utils/cases';
+import { toSnakeCase } from 'commons/infrastructure/cases';
 import { useNavigate } from 'react-router-dom';
 
 export const TemplateStepsItem: React.FC<TemplateStepsItemProps> = ({

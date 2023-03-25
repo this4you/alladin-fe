@@ -1,7 +1,7 @@
-import { AxiosRestClient } from '../utils/api-clients/rest/AxiosRestClient';
-import { FactoryOptions, ModuleFactory } from '../utils/factory/moduleFactory';
-import { FakeLogger } from '../utils/logger/FakeLogger';
-import { SnackbarNotificator } from '../utils/notificator/SnackbarNotificator';
+import { AxiosRestClient } from '../infrastructure/api-clients/rest/AxiosRestClient';
+import { FactoryOptions, ModuleFactory } from '../infrastructure/factory/moduleFactory';
+import { FakeLogger } from '../infrastructure/logger/FakeLogger';
+import { SnackbarNotificator } from '../infrastructure/notificator/SnackbarNotificator';
 import { CommonContext } from './context';
 import { MobXNotificatorState } from '../state/MobXNotificatorState';
 import { MobXAuthState } from '../state/MobXAuthState';
