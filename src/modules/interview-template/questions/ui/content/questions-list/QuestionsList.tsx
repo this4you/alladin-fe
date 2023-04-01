@@ -12,7 +12,7 @@ export const QuestionsList: React.FC<QuestionsListProps> = ({
 }) => {
 
     useEffect(() => {
-        stepCategoryUseCase.initStepCategories();
+        stepCategoryUseCase.init();
     }, []);
 
     return (

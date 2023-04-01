@@ -18,7 +18,9 @@ export const initTemplateStepsList = (
         const templateSteps = await getTemplateSteps(templateId);
 
         if (activeStep) {
-            const activeStepItem = templateSteps.find(it => toSnakeCase(it.name));
+            const activeStepItem = templateSteps.find(
+                it => toSnakeCase(it.name) === activeStep
+            );
 
             if (!activeStepItem) {
                 logger.error(new Error(`No template step in list with name ${activeStep}`));

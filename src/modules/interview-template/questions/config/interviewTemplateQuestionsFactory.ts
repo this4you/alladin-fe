@@ -19,7 +19,7 @@ class InterviewTemplateQuestionsFactory extends ModuleFactory<InterviewTemplateQ
             questionCategoryState,
             questionCategoryView,
             questionCategoryUseCase
-        } = interviewTemplateQuestionCategoriesFactory.get({ key: 'question-categories' })
+        } = interviewTemplateQuestionCategoriesFactory.get({ key: 'question-categories' + new Date() })
 
         const stepCategoryState = new MobXStepCategoryState();
         const stepCategoryView = new MobXStepCategoryView(stepCategoryState);
@@ -28,6 +28,7 @@ class InterviewTemplateQuestionsFactory extends ModuleFactory<InterviewTemplateQ
                 stepId,
                 stepCategoryRepository,
                 stepCategoryView,
+                questionCategoryView,
                 logger,
                 notificator
             )

@@ -11,7 +11,7 @@ export const TemplateQuestionsModule: React.FC = () => {
     const { step, template, clearActiveStep } = useOutletContext<QuestionModuleInputContext>();
 
     const questionContext = interviewTemplateQuestionsFactory.get({
-        key: 'question' + template,
+        key: 'question-module' + new Date(),
         stepId: step.id
     });
 

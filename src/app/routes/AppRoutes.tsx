@@ -14,10 +14,8 @@ import { AuthPage } from 'app/pages';
 import { CreateCompanyContainer, LoginFormContainer } from 'modules/auth';
 import { MainPage } from 'app/pages/main-page/MainPage';
 import { UserContentProvider } from 'modules/user-module';
+import { InterviewTemplateModule, TemplateQuestionsModule, TemplateStepsContainer } from '../../modules/interview-template';
 
-const { InterviewTemplateModule } = lazily(() => import('modules/interview-template'));
-const { TemplateStepsContainer } = lazily(() => import('modules/interview-template'));
-const { TemplateQuestionsModule } = lazily(() => import('modules/interview-template'));
 
 export const AppRoutes: React.FC = () => (
     <Router>

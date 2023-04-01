@@ -7,7 +7,8 @@ import { Modal } from '@mui/material';
 export const QuestionCategoryModal: React.FC<QuestionCategoryModalProps> = ({
     questionCategoryState,
     questionCategoryUseCase,
-    questionCategoryView
+    questionCategoryView,
+    stepCategoryUseCase
 }) => {
 
     useEffect(() => {
@@ -38,7 +39,7 @@ export const QuestionCategoryModal: React.FC<QuestionCategoryModalProps> = ({
             <QuestionCategories>
                 {
                     questionCategoryState.categories.slice(0, 15).map(it =>
-                        <QuestionCategoryLabel key={it.id}>{it.name}</QuestionCategoryLabel>
+                        <QuestionCategoryLabel onClick={() => stepCategoryUseCase.create(it)} key={it.id}>{it.name}</QuestionCategoryLabel>
                     )
                 }
             </QuestionCategories>

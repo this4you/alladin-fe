@@ -5,5 +5,6 @@ export const QuestionCategoryModal = connect(
     Component,
     'questionCategoryUseCase',
     'questionCategoryState',
-    'questionCategoryView'
+    'questionCategoryView',
+    'stepCategoryUseCase'
 );
