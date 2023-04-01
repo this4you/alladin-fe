@@ -1,8 +1,14 @@
 import { QuestionCategoryModalProps } from './types';
 import { QuestionCategories, QuestionCategoryLabel, QuestionCategoryModalDescription, QuestionCategoryModalHeader, QuestionCategoryModalWrapper, QuestionCategorySearch, QuestionCategorySearchIcon, SearchField } from './styles';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { useEffect } from 'react';
 
-export const QuestionCategoryModal: React.FC<QuestionCategoryModalProps> = ({ questionCategoryState }) => {
+export const QuestionCategoryModal: React.FC<QuestionCategoryModalProps> = ({ questionCategoryState, questionCategoryUseCase }) => {
+
+    useEffect(() => {
+        questionCategoryUseCase.initQuestionCategories();
+    }, []);
+
     return (
         <QuestionCategoryModalWrapper>
             <QuestionCategoryModalHeader>

@@ -1,5 +1,7 @@
-import { QuestionCategoryUseCase } from '../../../application/useCases/QuestionCategoryUseCase';
+import { MobXStepCategoryState } from '../../state/MobXStepCategoryState';
+import { StepCategoryUseCase } from '../../../application/useCases/StepCategoryUseCase';
 
 export type QuestionsListProps = {
-    questionCategoryUseCase: QuestionCategoryUseCase;
+    stepCategoryUseCase: StepCategoryUseCase;
+    stepCategoryState: MobXStepCategoryState;
 };

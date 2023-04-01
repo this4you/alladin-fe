@@ -1,3 +1,4 @@
+import React from 'react';
 import { TemplateQuestionsModuleContainer } from './styles';
 import { TemplateQuestionsBreadcrumbs } from '../questions-breadcrumbs';
 import { useOutletContext } from 'react-router-dom';
@@ -10,7 +11,8 @@ export const TemplateQuestionsModule: React.FC = () => {
     const { step, template, clearActiveStep } = useOutletContext<QuestionModuleInputContext>();
 
     const questionContext = interviewTemplateQuestionsFactory.get({
-        key: 'question' + template
+        key: 'question' + template,
+        stepId: step.id
     });
 
     return (
