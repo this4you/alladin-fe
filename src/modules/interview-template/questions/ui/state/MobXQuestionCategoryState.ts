@@ -11,4 +11,7 @@ export class MobXQuestionCategoryState {
 
     @observable
     loading = false
+
+    @observable
+    isModalOpen = false;
 }

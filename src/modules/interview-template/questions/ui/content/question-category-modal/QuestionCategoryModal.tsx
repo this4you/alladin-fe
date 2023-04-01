@@ -2,14 +2,25 @@ import { QuestionCategoryModalProps } from './types';
 import { QuestionCategories, QuestionCategoryLabel, QuestionCategoryModalDescription, QuestionCategoryModalHeader, QuestionCategoryModalWrapper, QuestionCategorySearch, QuestionCategorySearchIcon, SearchField } from './styles';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useEffect } from 'react';
+import { Modal } from '@mui/material';
 
-export const QuestionCategoryModal: React.FC<QuestionCategoryModalProps> = ({ questionCategoryState, questionCategoryUseCase }) => {
+export const QuestionCategoryModal: React.FC<QuestionCategoryModalProps> = ({
+    questionCategoryState,
+    questionCategoryUseCase,
+    questionCategoryView
+}) => {
 
     useEffect(() => {
         questionCategoryUseCase.initQuestionCategories();
     }, []);
 
     return (
+        <Modal
+            open={questionCategoryState.isModalOpen}
+            onClose={questionCategoryView.closeModal}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
         <QuestionCategoryModalWrapper>
             <QuestionCategoryModalHeader>
                 New question category in step
@@ -32,5 +43,6 @@ export const QuestionCategoryModal: React.FC<QuestionCategoryModalProps> = ({ qu
                 }
             </QuestionCategories>
         </QuestionCategoryModalWrapper>
+        </Modal>
     );
 }

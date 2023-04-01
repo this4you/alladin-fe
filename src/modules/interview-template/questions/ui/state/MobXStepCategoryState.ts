@@ -7,8 +7,8 @@ export class MobXStepCategoryState {
     }
 
     @observable
-    categories: StepCategory[] = []
+    categories: StepCategory[] = [];
 
     @observable
-    loading = false
+    loading = false;
 }

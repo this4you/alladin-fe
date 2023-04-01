@@ -10,7 +10,6 @@ export class MobXStepCategoryView implements StepCategoryView {
         makeAutoObservable(this)
     }
 
-    @action
     setCategories(categories: StepCategory[]): void {
         this.state.categories = categories;
     }

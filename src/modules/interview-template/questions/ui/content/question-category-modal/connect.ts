@@ -4,5 +4,6 @@ import { connect } from '../../../config/interviewTemplateQuestionsContext';
 export const QuestionCategoryModal = connect(
     Component,
     'questionCategoryUseCase',
-    'questionCategoryState'
+    'questionCategoryState',
+    'questionCategoryView'
 );

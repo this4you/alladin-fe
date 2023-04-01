@@ -10,12 +10,19 @@ export class MobXQuestionCategoryView implements QuestionCategoryView {
         makeAutoObservable(this)
     }
 
-    @action
     setCategories(categories: QuestionCategory[]): void {
         this.state.categories = categories;
     }
 
     setLoading(value: boolean): void {
         this.state.loading = value;
+    }
+
+    closeModal(): void {
+        this.state.isModalOpen = false;
+    }
+
+    openModal(): void {
+        this.state.isModalOpen = true;
     }
 }
