@@ -6,6 +6,7 @@ import { MobXQuestionCategoryState } from '../ui/state/MobXQuestionCategoryState
 import { StepCategoryUseCase } from '../application/useCases/StepCategoryUseCase';
 import { StepCategoryView } from '../application/ports/StepCategoryView';
 import { MobXStepCategoryState } from '../ui/state/MobXStepCategoryState';
+import { QuestionUseCase } from '../application/useCases/QuestionUseCase';
 
 export type InterviewTemplateQuestionsContext = {
    questionCategoryUseCase: QuestionCategoryUseCase;
@@ -15,6 +16,8 @@ export type InterviewTemplateQuestionsContext = {
    stepCategoryUseCase: StepCategoryUseCase;
    stepCategoryView: StepCategoryView;
    stepCategoryState: MobXStepCategoryState;
+
+   questionUseCase: QuestionUseCase;
 }
 
 const connector = createConnector<InterviewTemplateQuestionsContext>();

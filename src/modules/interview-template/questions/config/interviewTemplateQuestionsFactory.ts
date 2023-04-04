@@ -6,6 +6,8 @@ import { RestStepCategoryRepository } from '../repositories/RestStepCategoryRepo
 import { StepCategoryUseCase } from '../application/useCases/StepCategoryUseCase';
 import { MobXStepCategoryView } from '../ui/view/MobXStepCategoryView';
 import { interviewTemplateQuestionCategoriesFactory } from './questionCategory/interviewTemplateQuestionsCategoryFactory';
+import { RestQuestionRepository } from '../repositories/RestQuestionRepository';
+import { QuestionUseCase } from '../application/useCases/QuestionUseCase';
 
 type InterviewTemplateQuestionsFactoryOptions = {
     stepId: string
@@ -25,14 +27,21 @@ class InterviewTemplateQuestionsFactory extends ModuleFactory<InterviewTemplateQ
         const stepCategoryView = new MobXStepCategoryView(stepCategoryState);
         const stepCategoryRepository = new RestStepCategoryRepository(restClient);
         const stepCategoryUseCase = new StepCategoryUseCase(
-                stepId,
-                stepCategoryRepository,
-                stepCategoryView,
-                questionCategoryView,
-                logger,
-                notificator
-            )
-        ;
+            stepId,
+            stepCategoryRepository,
+            stepCategoryView,
+            questionCategoryView,
+            logger,
+            notificator
+        );
+
+        const questionRepository = new RestQuestionRepository(restClient);
+        const questionUseCase = new QuestionUseCase(
+            questionRepository,
+            stepCategoryView,
+            logger,
+            notificator
+        );
 
         return {
             questionCategoryState,
@@ -40,7 +49,8 @@ class InterviewTemplateQuestionsFactory extends ModuleFactory<InterviewTemplateQ
             questionCategoryUseCase,
             stepCategoryState,
             stepCategoryView,
-            stepCategoryUseCase
+            stepCategoryUseCase,
+            questionUseCase
         }
     }
 }
