@@ -22,6 +22,12 @@ export class MobXStepCategoryView implements StepCategoryView {
         this.state.categories = [...this.state.categories, stepCategory];
     }
 
+    removeCategory(id: string): void {
+        this.state.categories = this.state.categories.filter(
+            it => it.stepCategoryId !== id
+        )
+    }
+
     getCategories(): StepCategory[] {
         return this.state.categories;
     }

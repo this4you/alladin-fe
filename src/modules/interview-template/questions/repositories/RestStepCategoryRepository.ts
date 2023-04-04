@@ -9,7 +9,8 @@ const URL = '/step-category';
 export class RestStepCategoryRepository implements StepCategoryRepository {
     constructor(
         private restClient: RestClient
-    ) {}
+    ) {
+    }
 
     get(stepId: string): Promise<StepCategory[]> {
         return this.restClient.get(`${URL}/${stepId}`);
@@ -25,5 +26,9 @@ export class RestStepCategoryRepository implements StepCategoryRepository {
         );
 
         return response.id;
+    }
+
+    async delete(id: string): Promise<void> {
+        return await this.restClient.delete(`${URL}/${id}`);
     }
 }

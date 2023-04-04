@@ -14,8 +14,7 @@ export class StepCategoryUseCase {
         private questionCategoryView: QuestionCategoryView,
         private logger: Logger,
         private notificator: Notificator
-    ) {
-    }
+    ) {}
 
     async init(): Promise<void> {
         try {
@@ -58,6 +57,16 @@ export class StepCategoryUseCase {
             this.logger.error(e as Error);
 
             this.notificator.error('Cannot create step category');
+        }
+    }
+
+    async delete(id: string): Promise<void> {
+        try {
+            await this.stepCategoryRepository.delete(id);
+            this.stepCategoryView.removeCategory(id);
+        } catch (e) {
+            this.notificator.error('Error during delete stepCategory');
+            this.logger.error(e as Error);
         }
     }
 }

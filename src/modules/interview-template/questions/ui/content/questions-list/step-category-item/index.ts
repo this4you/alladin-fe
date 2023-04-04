@@ -1,1 +1,1 @@
-export { StepCategoryItem } from './StepCategoryItem';
+export { StepCategoryItem } from './connect';

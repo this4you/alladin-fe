@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, IconButton } from '@mui/material';
 import { AddFieldButton } from '../../../../../../../commons/components';
 
 export const StepCategoryItemContainer = styled(Accordion)`
@@ -26,15 +26,31 @@ export const StepCategoryItemContainer = styled(Accordion)`
   }
 `;
 
-export const StepCategoryNameContainer = styled(AccordionSummary)`
-  span {
-    line-height: 41px;
+export const DeleteStepCategoryButton = styled(IconButton)`
+  opacity: 0;
+  
+  &.MuiButtonBase-root {
+    width: 45px;
+    height: 45px;
+    svg {
+      color: ${({ theme }) => theme.secondaryText};
+    }
   }
-  display: flex;
-  align-items: center;
+`;
+
+export const StepCategoryNameContainer = styled(AccordionSummary)`
+  .MuiAccordionSummary-content {
+    align-items: center;  
+  }
   
   .Mui-expanded {
     margin: 12px 0 !important;
+  }
+  
+  :hover {
+    ${DeleteStepCategoryButton} {
+      opacity: 1;
+    }
   }
 `;
 
