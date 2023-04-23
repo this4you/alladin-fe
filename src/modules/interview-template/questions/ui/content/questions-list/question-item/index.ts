@@ -1,2 +1,2 @@
 
-export { QuestionItem } from './QuestionItem';
+export { QuestionItem } from './connect';

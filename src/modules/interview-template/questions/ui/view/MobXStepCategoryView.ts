@@ -11,11 +11,23 @@ export class MobXStepCategoryView implements StepCategoryView {
         makeAutoObservable(this)
     }
 
-    addQuestion(question: Question): void {
-        throw new Error('Method not implemented.');
+    addQuestion(stepCategoryId: string, question: Question): void {
+        this.state.categories = this.state.categories.map(it => {
+            if (it.stepCategoryId === stepCategoryId) {
+                it.questions = [...it.questions, question];
+            }
+
+            return it;
+        })
     }
-    removeQuestion(id: string): void {
-        throw new Error('Method not implemented.');
+    removeQuestion(id: string, stepCategoryId: string): void {
+        this.state.categories = this.state.categories.map(it => {
+            if (it.stepCategoryId === stepCategoryId) {
+                it.questions = it.questions.filter(it => it.id !== id);
+            }
+
+            return it;
+        })
     }
 
     setCategories(categories: StepCategory[]): void {

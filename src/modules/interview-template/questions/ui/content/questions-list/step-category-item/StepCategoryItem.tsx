@@ -2,18 +2,21 @@ import { StepCategoryItemProps } from './types';
 import { StepCategoryColor, StepCategoryItemContainer, StepCategoryNameContainer, QuestionsList, AddQuestionButton, AddQuestionButtonContainer, DeleteStepCategoryButton } from './styles';
 import { QuestionItem } from '../question-item';
 import { MdDeleteOutline, MdExpandMore } from 'react-icons/md';
-import { AddFieldButton } from '../../../../../../../commons/components';
 
-export const StepCategoryItem: React.FC<StepCategoryItemProps> = ({ stepCategory, stepCategoryUseCase }) => {
+export const StepCategoryItem: React.FC<StepCategoryItemProps> = ({
+    stepCategory,
+    stepCategoryUseCase,
+    questionUseCase
+}) => {
     return (
-        <StepCategoryItemContainer {...(stepCategory.questions.length > 0 ? {} : { expanded: true })}>
-            <StepCategoryNameContainer expandIcon={<MdExpandMore/>} >
+        <StepCategoryItemContainer>
+            <StepCategoryNameContainer expandIcon={<MdExpandMore/>}>
                 <StepCategoryColor/>
                 <span>{stepCategory.categoryName}</span>
                 <DeleteStepCategoryButton
                     aria-label="delete"
                     color={'primary'}
-                    size='large'
+                    size="large"
                     onClick={() => stepCategoryUseCase.delete(stepCategory.stepCategoryId)}
                 >
                     <MdDeleteOutline/>
@@ -21,12 +24,16 @@ export const StepCategoryItem: React.FC<StepCategoryItemProps> = ({ stepCategory
             </StepCategoryNameContainer>
             <QuestionsList>
                 {
-                    stepCategory.questions.map(it => <QuestionItem key={it.id} question={it}/>)
+                    stepCategory.questions.map(it => <QuestionItem
+                        key={it.id}
+                        question={it}
+                        questionCategoryId={stepCategory.stepCategoryId}
+                    />)
                 }
                 <AddQuestionButton
                     label={'Add new question'}
                     inputPlaceholder={'What is your question?'}
-                    onCreate={() => {}}
+                    onCreate={(text: string) => questionUseCase.create(stepCategory.stepCategoryId, text)}
                 />
             </QuestionsList>
         </StepCategoryItemContainer>

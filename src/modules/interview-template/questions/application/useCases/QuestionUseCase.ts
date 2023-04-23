@@ -18,7 +18,7 @@ export class QuestionUseCase {
                 text
             );
 
-            this.stepCategoryView.addQuestion(question);
+            this.stepCategoryView.addQuestion(stepCategoryId, question);
         } catch (e) {
             this.logger.error(e as Error);
 
@@ -26,10 +26,10 @@ export class QuestionUseCase {
         }
     }
 
-    async delete(id: string): Promise<void> {
+    async delete(id: string, stepCategoryId: string): Promise<void> {
         try {
             await this.questionRepository.delete(id);
-            this.stepCategoryView.removeQuestion(id);
+            this.stepCategoryView.removeQuestion(id, stepCategoryId);
         } catch (e) {
             this.notificator.error('Error during delete question');
             this.logger.error(e as Error);

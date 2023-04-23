@@ -7,8 +7,8 @@ export interface StepCategoryView {
     removeCategory(id: string): void;
     setCategories(categories: StepCategory[]): void;
 
-    addQuestion(question: Question): void;
-    removeQuestion(id: string): void;
+    addQuestion(stepCategoryId: string, question: Question): void;
+    removeQuestion(id: string, stepCategoryId: string): void;
 
     setLoading(value: boolean): void;
 }
