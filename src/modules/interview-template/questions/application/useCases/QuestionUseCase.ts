@@ -35,4 +35,24 @@ export class QuestionUseCase {
             this.logger.error(e as Error);
         }
     }
+
+    async update(id: string, text: string, stepCategoryId: string): Promise<boolean> {
+        try {
+            await this.questionRepository.update(id, stepCategoryId, text);
+
+            this.stepCategoryView.updateQuestion(stepCategoryId, {
+                id: id,
+                text: text,
+                position: 0
+            });
+
+            return true;
+        } catch (e) {
+            this.logger.error(e as Error);
+
+            this.notificator.error('Error during creating question');
+
+            return false;
+        }
+    }
 }

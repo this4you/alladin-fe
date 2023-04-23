@@ -30,6 +30,22 @@ export class MobXStepCategoryView implements StepCategoryView {
         })
     }
 
+    updateQuestion(stepCategoryId: string, question: Question): void {
+        this.state.categories = this.state.categories.map(it => {
+            if (it.stepCategoryId === stepCategoryId) {
+                it.questions = it.questions.map(it => {
+                    if (it.id === question.id) {
+                        return question;
+                    }
+
+                    return it;
+                });
+            }
+
+            return it;
+        })
+    }
+
     setCategories(categories: StepCategory[]): void {
         this.state.categories = categories;
     }

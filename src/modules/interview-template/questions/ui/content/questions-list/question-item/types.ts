@@ -3,6 +3,6 @@ import { QuestionUseCase } from '../../../../application/useCases/QuestionUseCas
 
 export type QuestionItemProps = {
     question: Question;
-    questionCategoryId: string;
+    stepCategoryId: string;
     questionUseCase: QuestionUseCase;
 };

@@ -23,4 +23,12 @@ export class RestQuestionRepository implements QuestionRepository {
     async delete(id: string): Promise<void> {
         return await this.restClient.delete(`${URL}/${id}`);
     }
+
+    async update(id: string, stepCategoryId: string, text: string): Promise<void> {
+        return await this.restClient.update<CreateQuestionRequest, any>(`${URL}/${id}`, {
+            text: text,
+            stepCategoryId: stepCategoryId
+        });
+    }
+
 }

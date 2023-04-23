@@ -27,7 +27,7 @@ export const StepCategoryItem: React.FC<StepCategoryItemProps> = ({
                     stepCategory.questions.map(it => <QuestionItem
                         key={it.id}
                         question={it}
-                        questionCategoryId={stepCategory.stepCategoryId}
+                        stepCategoryId={stepCategory.stepCategoryId}
                     />)
                 }
                 <AddQuestionButton
