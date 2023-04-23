@@ -1,33 +1,18 @@
-import { TemplateStepsListProps } from './types';
 import { TemplateStepsListContainer } from './styles';
 import { TemplateStepItems } from './template-step-items';
 import { AddTemplateStepButton } from './add-tempate-step-button';
-import { useEffect } from 'react';
-import { interviewTemplateStepsFactory } from '../../../config/interviewTemplateStepsFactory';
-import { Provider } from '../../../config/interviewTemplateStepsContext';
-import { interviewTemplateState } from '../../../../template-list/ui/state/interviewTemplateState';
+import { TemplateStepsListProps } from './types';
 
-export const TemplateStepsList: React.FC<TemplateStepsListProps> = () => {
-    const templateId = interviewTemplateState.templateItem?.id;
-
-    const context = interviewTemplateStepsFactory.get({
-        key: 'interview-template-steps'
-    });
-
-    useEffect(() => (): void => {
-        interviewTemplateStepsFactory.clear();
-    });
+export const TemplateStepsList: React.FC<TemplateStepsListProps> = ({templateId}) => {
 
     if (!templateId) {
         return <></>;
     }
 
     return (
-        <Provider moduleContext={context}>
-            <TemplateStepsListContainer>
-                <AddTemplateStepButton templateId={templateId}/>
-                <TemplateStepItems templateId={templateId}/>
-            </TemplateStepsListContainer>
-        </Provider>
+        <TemplateStepsListContainer>
+            <AddTemplateStepButton templateId={templateId}/>
+            <TemplateStepItems templateId={templateId}/>
+        </TemplateStepsListContainer>
     );
 }

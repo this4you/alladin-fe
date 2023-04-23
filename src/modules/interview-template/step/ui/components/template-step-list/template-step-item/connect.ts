@@ -3,5 +3,6 @@ import { connect } from '../../../../config/interviewTemplateStepsContext';
 
 export const TemplateStepsItem = connect(component,
     'deleteTemplateStep',
-    'updateTemplateStep'
+    'updateTemplateStep',
+    'state'
 );

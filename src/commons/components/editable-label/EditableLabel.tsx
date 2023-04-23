@@ -38,8 +38,8 @@ export const EditableLabel: React.FC<EditableLabelProps> = ({
     const onBlurHandler = useCallback(async (e: any) => {
         if (!e) return;
 
-        if (e?.relatedTarget?.id === 'save-template-list-name'
-            || e?.relatedTarget?.id === 'cancel-template-list-name') {
+        if (e?.relatedTarget?.id === 'save-template-name'
+            || e?.relatedTarget?.id === 'cancel-template-name') {
             return;
         }
 
@@ -82,10 +82,10 @@ export const EditableLabel: React.FC<EditableLabelProps> = ({
                         {
                             !hideButtons &&
                             <ButtonsContainer>
-                                <IconContainer id={'save-template-list-name'} tabIndex={0} onClick={onSaveClick}>
+                                <IconContainer id={'save-template-name'} tabIndex={0} onClick={onSaveClick}>
                                     <IoMdCheckmark/>
                                 </IconContainer>
-                                <IconContainer id={'cancel-template-list-name'} tabIndex={1} onClick={onCancelClick}>
+                                <IconContainer id={'cancel-template-name'} tabIndex={1} onClick={onCancelClick}>
                                     <HiXMark/>
                                 </IconContainer>
                             </ButtonsContainer>

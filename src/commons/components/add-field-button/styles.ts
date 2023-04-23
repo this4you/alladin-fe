@@ -52,13 +52,3 @@ export const NameButton = styled(Button)`
   }
 `;
 
-export const AddButton = styled(Button)`
-  &.MuiButton-root {
-    width: 100%;
-    height: 35px;
-    border-radius: 40px;
-    cursor: pointer;
-    text-transform: none;
-  }
-`;
-

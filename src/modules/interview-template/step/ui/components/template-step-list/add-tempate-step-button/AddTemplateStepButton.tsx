@@ -8,7 +8,7 @@ export const AddTemplateStepButton: React.FC<AddTemplateStepButtonProps> = ({ cr
             <AddFieldButton
                 style={{ width: '300px' }}
                 onCreate={(name:string) => createTemplateStep(templateId, name)}
-                label={'Add template-list step'}
+                label={'Add template step'}
                 inputPlaceholder={'What is name of step?'}/>
         </AddTemplateStepButtonContainer>
     );

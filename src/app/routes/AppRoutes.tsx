@@ -14,9 +14,8 @@ import { AuthPage } from 'app/pages';
 import { CreateCompanyContainer, LoginFormContainer } from 'modules/auth';
 import { MainPage } from 'app/pages/main-page/MainPage';
 import { UserContentProvider } from 'modules/user-module';
+import { InterviewTemplateModule, TemplateQuestionsModule, TemplateStepsContainer } from '../../modules/interview-template';
 
-const { InterviewTemplateModule } = lazily(() => import('modules/interview-template'));
-const { TemplateStepsList } = lazily(() => import('modules/interview-template'));
 
 export const AppRoutes: React.FC = () => (
     <Router>
@@ -30,7 +29,9 @@ export const AppRoutes: React.FC = () => (
                             <InterviewTemplateModule/>
                         </Suspense>
                     }>
-                        <Route path={':template'} element={<TemplateStepsList/>}/>
+                        <Route path={':template'} element={<TemplateStepsContainer/>}>
+                            <Route path={':step'} element={<TemplateQuestionsModule/>} />
+                        </Route>
                     </Route>
                     <Route path="*" element={<Navigate to="/dashboard" replace/>}/>
                 </Route>

@@ -1,2 +1,3 @@
-export { default as InterviewTemplateModule } from './shared/interview-template-module/InterviewTemplateModule';
-export { TemplateStepsList } from './step/ui/components/template-step-list'
+export { default as InterviewTemplateModule } from './root/interview-template-module/InterviewTemplateModule';
+export { TemplateStepsContainer } from './step/ui/components/root';
+export { TemplateQuestionsModule } from './questions';

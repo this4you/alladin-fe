@@ -1,4 +1,4 @@
-import { HttpMethod, RestCommandType, RestCreateType, RestDeleteType, RestGetType, RestUpdateType } from 'commons/utils/api-clients/rest/RestClient';
+import { HttpMethod, RestCommandType, RestCreateType, RestDeleteType, RestGetType, RestUpdateType } from 'commons/infrastructure/api-clients/rest/RestClient';
 import { CreateInterviewTemplateStep } from './models/CreateInterviewTemplateStep';
 import { InterviewTemplateStep } from '../application/models/InterviewTemplateStep';
 

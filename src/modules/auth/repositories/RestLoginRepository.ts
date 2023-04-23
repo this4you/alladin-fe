@@ -1,7 +1,7 @@
 import { LoginRepository } from '../application/ports/LoginRepository';
 import { Login } from '../application/models/Login';
 import { LoginResult } from '../application/models/LoginResult';
-import { HttpMethod, RestClient } from 'commons/utils/api-clients/rest/RestClient';
+import { HttpMethod, RestClient } from 'commons/infrastructure/api-clients/rest/RestClient';
 
 export class RestLoginRepository implements LoginRepository {
     constructor(

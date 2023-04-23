@@ -1,19 +1,21 @@
 import { TemplateStepItemsProps } from './types';
-import { interviewTemplateStepsState, stepsList } from '../../../state/interviewTemplateStepsState';
 import { TemplateStepsItem } from '../template-step-item';
 import { useEffect } from 'react';
 import { TemplateStepsItemsContainer, TemplateStepsItemsEmptyContainer } from './styles';
 import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd';
+import { useParams } from 'react-router-dom';
 
 export const TemplateStepItems: React.FC<TemplateStepItemsProps> = ({
     initTemplateStepsList,
     updateTemplateStepPosition,
-    templateId
+    templateId,
+    state
 }) => {
+    const { step } = useParams();
 
     useEffect(() => {
-        initTemplateStepsList(templateId);
-    }, [templateId]);
+        initTemplateStepsList(templateId, step || null);
+    }, [initTemplateStepsList, templateId, step]);
 
     const onUpdatePosition = (dropResult: DropResult) => {
         if (!dropResult.destination) {
@@ -24,18 +26,18 @@ export const TemplateStepItems: React.FC<TemplateStepItemsProps> = ({
             dropResult.draggableId,
             dropResult.destination.index + 1
         );
-    }
+    };
 
     return (
         <>
             {
-                stepsList.get().length > 0 ?
+                state.stepListView.length > 0 ?
                     (
                         <DragDropContext onDragEnd={onUpdatePosition}>
                             <Droppable droppableId="to-dos">
                                 {(provided) => (
                                     <TemplateStepsItemsContainer {...provided.droppableProps} ref={provided.innerRef}>
-                                        {stepsList.get().map((item, index) => (
+                                        {state.stepListView.map((item, index) => (
                                             <Draggable
                                                 key={item.id}
                                                 draggableId={item.id.toString()}

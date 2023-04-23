@@ -1,7 +1,7 @@
 import { useSnackbar } from 'notistack';
 import { SnackBarNotificatorProps } from './types';
 import { useEffect } from 'react';
-import { NotificationType } from 'commons/utils/notificator/models/NotificationType';
+import { NotificationType } from 'commons/infrastructure/notificator/models/NotificationType';
 
 export const SnackbarNotificatorProvider: React.FC<SnackBarNotificatorProps> = ({ notificatorState }) => {
     const { enqueueSnackbar } = useSnackbar();

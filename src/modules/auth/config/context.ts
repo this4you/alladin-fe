@@ -1,6 +1,6 @@
 import { LoginUseCase } from '../application/use-cases/LoginUseCase';
-import { createConnector } from 'commons/utils/connector/createConnector';
-import { Connect } from 'commons/utils/connector/MobXConnector';
+import { createConnector } from 'commons/infrastructure/connector/createConnector';
+import { Connect } from 'commons/infrastructure/connector/MobXConnector';
 import { FormValidator } from 'commons/components/form/types';
 import { Login } from '../application/models/Login';
 import { MobXAuthState } from 'commons/state/MobXAuthState';

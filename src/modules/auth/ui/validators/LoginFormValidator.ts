@@ -1,7 +1,7 @@
 import { FormValidator } from 'commons/components/form/types';
 import { Login } from 'modules/auth/application/models/Login';
 import { FieldErrors } from 'react-hook-form/dist/types/errors';
-import { ValidatorFieldUtils } from 'commons/utils/ValidatorUtils';
+import { ValidatorFieldUtils } from 'commons/infrastructure/ValidatorUtils';
 
 export class LoginFormValidator implements FormValidator<Login> {
     validate(data: Login): FieldErrors<Login> {

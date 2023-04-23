@@ -1,4 +1,4 @@
-import { FactoryOptions, ModuleFactory } from 'commons/utils/factory/moduleFactory';
+import { FactoryOptions, ModuleFactory } from 'commons/infrastructure/factory/moduleFactory';
 import { AuthContext } from './context';
 import { LoginUseCase } from '../application/use-cases/LoginUseCase';
 import { RestLoginRepository } from '../repositories/RestLoginRepository';
