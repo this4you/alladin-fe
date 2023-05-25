@@ -13,6 +13,7 @@ function App() {
     const commonContext = commonContextFactory;
 
     return (
+        //Test comment
         <CommonContextProvider moduleContext={commonContext}>
             <SnackbarProvider maxSnack={3} autoHideDuration={1500}
                               anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
