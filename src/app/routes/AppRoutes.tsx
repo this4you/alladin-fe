@@ -9,12 +9,12 @@ import {
 import {
     BrowserRouter as Router,
 } from 'react-router-dom';
-import { lazily } from 'react-lazily';
 import { AuthPage } from 'app/pages';
 import { CreateCompanyContainer, LoginFormContainer } from 'modules/auth';
 import { MainPage } from 'app/pages/main-page/MainPage';
 import { UserContentProvider } from 'modules/user-module';
 import { InterviewTemplateModule, TemplateQuestionsModule, TemplateStepsContainer } from '../../modules/interview-template';
+import { PositionModule } from '../../modules/positions';
 
 
 export const AppRoutes: React.FC = () => (
@@ -30,9 +30,10 @@ export const AppRoutes: React.FC = () => (
                         </Suspense>
                     }>
                         <Route path={':template'} element={<TemplateStepsContainer/>}>
-                            <Route path={':step'} element={<TemplateQuestionsModule/>} />
+                            <Route path={':step'} element={<TemplateQuestionsModule/>}/>
                         </Route>
                     </Route>
+                    <Route path={'/positions'} element={<PositionModule/>}/>
                     <Route path="*" element={<Navigate to="/dashboard" replace/>}/>
                 </Route>
             </Route>
